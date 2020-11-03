@@ -56,7 +56,7 @@
   <div class="container">
     <ul class="foote_bottom_ul_amrc">
       <li><a href="#">Home</a></li>
-      <li><a href="#j-tanaman">Tentang kami</a></li>
+      <li><a href="#content">Tentang kami</a></li>
       <li><a href="#team">Our Team</a></li>
     </ul>
     <!--foote_bottom_ul_amrc ends here-->

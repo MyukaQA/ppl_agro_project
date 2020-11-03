@@ -82,6 +82,21 @@
             </a>
     </li>
   </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Setting</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="/logout" class="nav-link text-dark font-italic" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+    </li>
+  </ul>
 </div>
 <!-- End vertical navbar -->
 

@@ -9,8 +9,13 @@ use Illuminate\Support\Str;
 class DashboardController extends Controller
 {
     public function index(){
+        
+        return view('dashboard.index');
+    }
+
+    public function tanaman(){
         $data = \App\Tanaman::all();
-        return view('dashboard.index', ['data' => $data]);
+        return view('dashboard.tanaman', ['data' => $data]);
     }
 
     public function landing(){

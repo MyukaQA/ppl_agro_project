@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'DashboardController@landing');
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
+Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
 Route::post('/dashboard/create', 'DashboardController@create');
 
 Auth::routes();

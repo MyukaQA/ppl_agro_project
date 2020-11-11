@@ -17,10 +17,10 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
-    <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+    <div class="media d-flex align-items-center"><img src="" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">{{Auth::user()->name}}</h4>
-        <p class="font-weight-light text-muted mb-0">Web developer</p>
+        <p class="font-weight-light text-muted mb-0"><a class="font-italic text-dark" href="">Landing Page</a></p>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="{{route('dashboard-tanaman')}}" class="nav-link text-dark font-italic bg-light">
+      <a href="{{route('forum-index')}}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                Forum
             </a>

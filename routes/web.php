@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'DashboardController@landing');
 
+// dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
 Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
 Route::post('/dashboard/create', 'DashboardController@create');
+
+// forum
+Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
 
 Auth::routes();
 

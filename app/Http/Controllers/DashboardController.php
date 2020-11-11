@@ -31,12 +31,6 @@ class DashboardController extends Controller
 
         $dataTanaman->save();
 
-        // $dataTanaman = New Tanaman;
-        // $dataTanaman->slug = Str::slug($request->title);
-        // $dataTanaman->save();
-
-        // $dataTanaman = \App\Tanaman::create($request->all());
-
         return redirect('dashboard');
         
     }

@@ -104,23 +104,7 @@
         <div class="col-md-3 mb40">
 
             <!--/col-->
-            <div class="mb40">
-                <h4 class="sidebar-title">Categories</h4>
-                <ul class="list-unstyled categories">
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Sale</a></li>
-                    <li class="active"><a href="#">Apartment</a>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Office</a></li>
-                            <li><a href="#">Godown</a></li>
-                            <li><a href="#">Gerage</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Top Rating</a></li>
-                    <li><a href="#">Trending</a></li>
-                    <li><a href="#">Newest Properties</a></li>
-                </ul>
-            </div>
+
             <!--/col-->
             <div>
                 <h4 class="sidebar-title">Latest News</h4>

@@ -13,7 +13,12 @@ class ForumController extends Controller
      */
     public function index()
     {
-        return view('dashboard.forum');
+        return view('forum.index');
+    }
+
+    public function detail()
+    {
+        return view('forum.detail');
     }
 
     /**

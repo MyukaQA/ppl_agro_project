@@ -23,6 +23,7 @@ Route::post('/dashboard/create', 'DashboardController@create');
 
 // forum
 Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+Route::get('/dashboard/forum/detail', 'ForumController@detail')->name('forum-index-detail');
 
 Auth::routes();
 

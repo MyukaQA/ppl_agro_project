@@ -9,7 +9,7 @@
 				<div class="circle">
 					<h5 class="day">14</h5>
 					<span class="month">sep</span>
-				</div>
+				</div> 
 				<div class="media-body">
 					<a href="{{route('forum-index-detail')}}"><h5 class="mt-0">Forum Title</h5></a>
 					Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.

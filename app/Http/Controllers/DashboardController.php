@@ -18,6 +18,14 @@ class DashboardController extends Controller
         return view('dashboard.tanaman', ['data' => $data]);
     }
 
+    public function kendala(){
+        return view('dashboard.kendala');
+    }
+
+    public function hasil(){
+        return view('dashboard.hasil');
+    }
+
     public function landing(){
         $data = \App\Tanaman::all();
         return view('landing.index', ['data' => $data]);

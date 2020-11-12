@@ -41,7 +41,7 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="{{route('dashboard-tanaman')}}" class="nav-link text-dark font-italic bg-light">
+      <a href="{{route('dashboard-kendala')}}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                 Data Kendala
             </a>

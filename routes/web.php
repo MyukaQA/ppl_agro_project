@@ -20,9 +20,12 @@ Route::get('/', 'DashboardController@landing');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
 Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
 Route::post('/dashboard/create', 'DashboardController@create');
+Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
+Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
 
 // forum
 Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+Route::get('/dashboard/forum/detail', 'ForumController@detail')->name('forum-index-detail');
 
 Auth::routes();
 

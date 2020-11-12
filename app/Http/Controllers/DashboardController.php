@@ -22,6 +22,10 @@ class DashboardController extends Controller
         return view('dashboard.kendala');
     }
 
+    public function penjadwalan(){
+        return view('dashboard.penjadwalan');
+    }
+
     public function hasil(){
         return view('dashboard.hasil');
     }

@@ -21,6 +21,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
 Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
 Route::post('/dashboard/create', 'DashboardController@create');
 Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
+Route::get('/dashboard/penjadwalan', 'DashboardController@penjadwalan')->name('dashboard-penjadwalan');
 Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
 
 // forum

@@ -5,13 +5,13 @@
 
 		<div class="col-md-6">
 			<div class="media blog-media">
-				<a href="blog-post-left-sidebar.html"><img class="d-flex" src="https://via.placeholder.com/350x380/6495ED/000000" alt="Generic placeholder image"></a>
+				<a href="{{route('forum-index-detail')}}"><img class="d-flex" src="https://via.placeholder.com/350x380/6495ED/000000" alt="Generic placeholder image"></a>
 				<div class="circle">
 					<h5 class="day">14</h5>
 					<span class="month">sep</span>
 				</div>
 				<div class="media-body">
-					<a href=""><h5 class="mt-0">Forum Title</h5></a>
+					<a href="{{route('forum-index-detail')}}"><h5 class="mt-0">Forum Title</h5></a>
 					Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.
 					<a href="{{route('forum-index-detail')}}" class="post-link">Read More</a>
 					<ul>

@@ -21,18 +21,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <div class="row">
-          <div class="col-6">
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
-            </li>
-          </div>
-          <div class="col-6 text-right">
-            <li class="nav-item active justify-content-end">
-              <a class="nav-link text-white" href="#">New Topik<span class="sr-only">(current)</span></a>
-            </li>
-          </div>
-        </div>
+
+
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+
+
+        <li class="nav-item active justify-content-end">
+          <a class="nav-link text-white" href="#">New Topik<span class="sr-only">(current)</span></a>
+        </li>
+
+
       </ul>
     </div>
   </nav>
@@ -40,11 +40,22 @@
   @yield('content')
 
     {{-- dari luar --}}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
 
+    <script>
+      $(document).ready(function(){
+          $("#btn-komentar-utama").click(function(){
+              $("#komentar-utama, #hasil-komentar").slideToggle();
+          });
+      });
+
+      
+
+     
+    </script> 
 </body>
 </html>

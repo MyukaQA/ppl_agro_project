@@ -26,7 +26,9 @@ Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-has
 
 // forum
 Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
-Route::get('/dashboard/forum/detail', 'ForumController@detail')->name('forum-index-detail');
+Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
+Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
+Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
 
 Auth::routes();
 

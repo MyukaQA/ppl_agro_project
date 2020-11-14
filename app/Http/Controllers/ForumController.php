@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
+use App\Forum;
+use App\Komentar;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -13,12 +16,20 @@ class ForumController extends Controller
      */
     public function index()
     {
-        return view('forum.index');
+        $forum = Forum::orderBy('created_at', 'desc')->paginate(2);
+        return view('forum.index', compact('forum'));
     }
 
-    public function detail()
+    public function detail(Forum $forum)
     {
-        return view('forum.detail');
+        return view('forum.detail', compact('forum'));
+    }
+
+    public function postKomentar(Request $request)
+    {
+        $request->request->add(['user_id' => auth()->user()->id]);
+        $komentar = Komentar::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -39,7 +50,10 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->request->add(['slug' => Str::slug($request->judul)]);
+        $request->request->add(['user_id' => auth()->user()->id]);
+        $forum = Forum::create($request->all());
+        return redirect()->back();
     }
 
     /**

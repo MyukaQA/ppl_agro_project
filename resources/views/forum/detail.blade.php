@@ -7,79 +7,75 @@
             <article>
                 <img src="https://images.unsplash.com/photo-1455734729978-db1ae4f687fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="" class="img-fluid mb30">
                 <div class="post-content">
-                    <h3>A smart template that works 24/7 for your company</h3>
+                    <h3>{{$forum->judul}}</h3>
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
-                            <i class="fa fa-user-circle-o"></i> <a href="#">John Doe</a>
+                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$forum->user->name}}</a>
                         </li>
                         <li class="list-inline-item">
-                            <i class="fa fa-calendar-o"></i> <a href="#">29 June 2017</a>
+                            <i class="fa fa-calendar-o"></i> <a href="#">{{$forum->created_at->diffForHumans()}}</a>
                         </li>
                         <li class="list-inline-item">
                             <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
                         </li>
                     </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
-                    <ul class="list-inline share-buttons">
-                        <li class="list-inline-item">Share Post:</li>
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
-                                <i class="fa fa-facebook"></i>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
-                                <i class="fa fa-twitter"></i>
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
-                                <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <hr class="mb40">
-                    <h4 class="mb40 text-uppercase font500">About Author</h4>
-                    <div class="media mb40">
-                        <i class="d-flex mr-3 fa fa-user-circle fa-5x text-primary"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 font700">Jane Doe</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
+                    <p>{{$forum->konten}}</p>
+                    <hr>
+                    <div class="btn-group">
+                        {{-- <button class="btn btn-outline-secondary"><i class="fa fa-thumbs-up"></i> Suka</button> --}}
+                        <button id="btn-komentar-utama" class="btn btn-outline-secondary"><i class="fa fa-comments"></i> Komentar</button>
                     </div>
-                    <hr class="mb40">
-                    <h4 class="mb40 text-uppercase font500">Comments</h4>
-                    <div class="media mb40">
-                        <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 font400 clearfix">
-                                        <a href="#" class="float-right">Reply</a>
-                                        Jane Doe</h5> Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    <form action="" method="POST" style="display: none;" id="komentar-utama">
+                        {{ csrf_field() }}
+                        <div class="form-group mt-3">
+                            <input type="hidden" name="forum_id" value="{{$forum->id}}">
+                            <input type="hidden" name="parent" value="0">                            
+                            <textarea name="konten" class="form-control" rows="5" placeholder="Comment"></textarea>
                         </div>
-                    </div>
-                    <hr class="mb40">
-                    <h4 class="mb40 text-uppercase font500">Post a comment</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" placeholder="john@doe.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Comment</label>
-                            <textarea class="form-control" rows="5" placeholder="Comment"></textarea>
-                        </div>
-                        <div class="clearfix float-right">
-                            <button type="button" class="btn btn-primary btn-lg">Submit</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
+
+                    <hr class="mb-3">
+
+                    @foreach ($forum->komentar()->where('parent', 0)->orderBy('created_at', 'desc')->get() as $komentar)    
+                        <div class="media">
+                            <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0 font400 clearfix">
+                                    <p class="float-right">{{$komentar->created_at->diffForHumans()}}</p>
+                                    {{$komentar->user->name}}</h5>
+                                    <p>{{$komentar->konten}}</p>
+                                    {{-- <a href="#" class="btn btn-primary btn-sm">Reply</a> --}}
+                                    
+                                        <form action="" method="POST">
+                                            {{ csrf_field() }}
+                                            <div class="form-group mt-3">
+                                                <input type="hidden" name="forum_id" value="{{$forum->id}}">
+                                                <input type="hidden" name="parent" value="{{$komentar->id}}"> 
+                                                <input type="text" name="konten" class="form-control">
+                                            </div>
+                                            <div class="text-left">
+                                                <button type="submit" class="btn btn-primary btn-sm mb-3">Tambah</button>
+                                            </div>
+                                        </form>
+                                        
+                                        @foreach ($komentar->childs()->orderBy('created_at', 'desc')->get() as $child)                                        
+                                            <div class="media mb40">
+                                                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                                <div class="media-body">
+                                                    <h5 class="mt-0 font400 clearfix">
+                                                        <p class="float-right">{{$child->created_at->diffForHumans()}}</p>
+                                                        {{$child->user->name}}</h5>
+                                                        <p>{{$child->konten}}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    
+                            </div>
+                        </div>
+                    @endforeach
+                    
+
                 </div>
             </article>
             <!-- post article-->
@@ -88,7 +84,9 @@
         <div class="col-md-3 mb40">
 
             <!--/col-->
-
+            <div class="mb-3 w-100">
+                <a href="{{route('forum-index')}}" class="btn btn-secondary w-100">Back</a>
+            </div>
             <!--/col-->
             <div>
                 <h4 class="sidebar-title">Latest News</h4>
@@ -116,4 +114,5 @@
         </div>
     </div>
 </div>
+
 @endsection

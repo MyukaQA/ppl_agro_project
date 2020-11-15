@@ -13,26 +13,23 @@ class DashboardController extends Controller
         return view('dashboard.index');
     }
 
-    public function tanaman(){
-        $data = \App\Tanaman::all();
-        return view('dashboard.tanaman', ['data' => $data]);
-    }
-
+    
     public function kendala(){
         return view('dashboard.kendala');
     }
-
-    public function penjadwalan(){
-        return view('dashboard.penjadwalan');
-    }
-
+    
     public function hasil(){
         return view('dashboard.hasil');
     }
-
+    
     public function landing(){
         $data = \App\Tanaman::all();
         return view('landing.index', ['data' => $data]);
+    }
+    
+    public function tanaman(){
+        $data = \App\Tanaman::all();
+        return view('dashboard.tanaman', ['data' => $data]);
     }
 
     public function create(Request $request){
@@ -43,9 +40,38 @@ class DashboardController extends Controller
         $dataTanaman->tds_nutrisi = $request->tds_nutrisi;
         $dataTanaman->ph = $request->ph;
 
+        if($request->hasFile('images')){
+            $request->file('images')->move('images/',$request->file('images')->getClientOriginalName());
+            $dataTanaman->images = $request->file('images')->getClientOriginalName();
+        }
+
         $dataTanaman->save();
 
-        return redirect('dashboard');
+        return redirect('dashboard/tanaman');
         
+    }
+
+    public function edittanaman($id){
+        $tanaman = Tanaman::find($id);
+
+        return view('dashboard.tanamanedit', compact('tanaman'));
+    }
+
+    public function updatetanaman(Request $request, $id){
+        $tanaman = Tanaman::find($id);
+
+        $tanaman->update($request->all());
+        return redirect('dashboard/tanaman');
+    }
+
+    public function detailtanaman(Tanaman $tanaman){
+        return view('dashboard.tanamandetails', compact('tanaman'));
+    }
+
+    public function hapustanaman($id){
+        $tanaman = Tanaman::find($id);
+        $tanaman->delete($tanaman);
+
+        return redirect('dashboard/tanaman');
     }
 }

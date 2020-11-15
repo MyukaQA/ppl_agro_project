@@ -2,139 +2,59 @@
 @section('content')
   <!-- Toggle button -->
   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
-  <h3>Penjadwalan</h3><hr>
-
-  <link rel="stylesheet" href="{{asset('css/penjadwalan.css')}}">
-
-  <!-- Calendar -->
-  <div class="calendar shadow bg-white p-5">
-    <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
-      <h2 class="month font-weight-bold mb-0 text-uppercase">NOVEMBER 2020</h2>
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Penjadwalan</h3>
     </div>
-    <p class="font-italic text-muted mb-5">No events for this day.</p>
-    <ol class="day-names list-unstyled">
-      <li class="font-weight-bold text-uppercase">Sun</li>
-      <li class="font-weight-bold text-uppercase">Mon</li>
-      <li class="font-weight-bold text-uppercase">Tue</li>
-      <li class="font-weight-bold text-uppercase">Wed</li>
-      <li class="font-weight-bold text-uppercase">Thu</li>
-      <li class="font-weight-bold text-uppercase">Fri</li>
-      <li class="font-weight-bold text-uppercase">Sat</li>
-    </ol>
+    <div class="col-lg-6 text-right">
+      <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
+    </div>
+  </div><hr>
 
-    <ol class="days list-unstyled">
-      <li>
-        <div class="date">1</div>
-        <div class="event bg-success">Event with Long Name</div>
-      </li>
-      <li>
-        <div class="date">2</div>
-      </li>
-      <li>
-        <div class="date">3</div>
-      </li>
-      <li>
-        <div class="date">4</div>
-      </li>
-      <li>
-        <div class="date">5</div>
-      </li>
-      <li>
-        <div class="date">6</div>
-      </li>
-      <li>
-        <div class="date">7</div>
-      </li>
-      <li>
-        <div class="date">8</div>
-      </li>
-      <li>
-        <div class="date">9</div>
-      </li>
-      <li>
-        <div class="date">10</div>
-      </li>
-      <li>
-        <div class="date">11</div>
-      </li>
-      <li>
-        <div class="date">12</div>
-      </li>
-      <li>
-        <div class="date">13</div>
-        <div class="event all-day begin span-2 bg-warning">Event Name</div>
-      </li>
-      <li>
-        <div class="date">14</div>
-      </li>
-      <li>
-        <div class="date">15</div>
-        <div class="event all-day end bg-success">Event Name</div>
-      </li>
-      <li>
-        <div class="date">16</div>
-      </li>
-      <li>
-        <div class="date">17</div>
-      </li>
-      <li>
-        <div class="date">18</div>
-      </li>
-      <li>
-        <div class="date">19</div>
-      </li>
-      <li>
-        <div class="date">20</div>
-      </li>
-      <li>
-        <div class="date">21</div>
-        <div class="event bg-primary">Event Name</div>
-        <div class="event bg-success">Event Name</div>
-      </li>
-      <li>
-        <div class="date">22</div>
-        <div class="event bg-info">Event with Longer Name</div>
-      </li>
-      <li>
-        <div class="date">23</div>
-      </li>
-      <li>
-        <div class="date">24</div>
-      </li>
-      <li>
-        <div class="date">25</div>
-      </li>
-      <li>
-        <div class="date">26</div>
-      </li>
-      <li>
-        <div class="date">27</div>
-      </li>
-      <li>
-        <div class="date">28</div>
-      </li>
-      <li>
-        <div class="date">29</div>
-      </li>
-      <li>
-        <div class="date">30</div>
-      </li>
-      <li>
-        <div class="date">31</div>
-      </li>
-      <li class="outside">
-        <div class="date">1</div>
-      </li>
-      <li class="outside">
-        <div class="date">2</div>
-      </li>
-      <li class="outside">
-        <div class="date">3</div>
-      </li>
-      <li class="outside">
-        <div class="date">4</div>
-      </li>
-    </ol>
+  
+  
+  <div id="calendar"></div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="fullcalendar" tabindex="-1" aria-labelledby="fullcalendarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Penjadwalan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/dashboard/create" method="POST">
+          {{ csrf_field() }}
+          <div class="form-group">
+            <label>Tanaman</label>
+            <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+          </div>
+          
+          <div class="form-group">
+            <label>Nutrisi</label>
+            <input name="tds_nutrisi" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+          </div>
+
+          <div class="form-group">
+            <label>Ph</label>
+            <input name="ph" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+          </div>
+
+          <div class="form-group">
+            <label>konten</label>
+            <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
+          </div>
+        
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+      </div>
+    </div>
   </div>
 </div>
+  
 @endsection

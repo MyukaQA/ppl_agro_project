@@ -8,5 +8,5 @@ class Tanaman extends Model
 {
     protected $table = 'datatanaman';
 
-    protected $fillable = ['title', 'slug', 'content'];
+    protected $guarded = ['id'];
 }

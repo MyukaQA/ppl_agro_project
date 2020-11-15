@@ -59,5 +59,13 @@ class UsersTableSeeder extends Seeder
             'password'  => bcrypt('secret'),
             'remember_token' => Str::random(60)
         ]);
+
+        \App\User::create([
+            'role' => "users",
+            'name'  => "AINI",
+            'email' => 'aini@gmail.com',
+            'password'  => bcrypt('mylian214'),
+            'remember_token' => Str::random(60)
+        ]);
     }
 }

@@ -16,6 +16,7 @@ class CreateDatatanamanTable extends Migration
         Schema::create('dataTanaman', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 191);
+            $table->string('images',191);
             $table->string('slug', 191);
             $table->text('content');
             $table->integer('tds_nutrisi');

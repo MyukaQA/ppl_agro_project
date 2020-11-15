@@ -1,5 +1,6 @@
 @extends('dashboard.app')
 @section('content')
+<link rel="stylesheet" href="{{asset('css/tanaman.css')}}">
 <!-- Toggle button -->
 <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 <div class="row">
@@ -12,6 +13,8 @@
     </div>
   @endif
 </div><hr>
+
+@if (auth()->user()->role == 'admin')
 <div class="row">
   <div class="col-lg-12 mx-auto">
     <div class="table-responsive">
@@ -19,25 +22,64 @@
         <thead>
           <tr>
             <th>Tanaman</th>
+            <th>images</th>
             <th>Nutrisi</th>
             <th>ph</th>
             <th>Deskripsi</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($data as $tanaman)
             <tr>
-              <td>{{$tanaman->title}}</td>
+              <td><a class="text-dark" href="{{route('dashboard-tanaman-detail', $tanaman->id)}}">{{$tanaman->title}}</a></td>
+              <td>{{$tanaman->images}}</td>
               <td>{{$tanaman->tds_nutrisi}}</td>
               <td>{{$tanaman->ph}}</td>
               <td>{{$tanaman->content}}</td>
+              <td>
+                <a href="{{route('edit-tanaman', $tanaman->id)}}" class="btn btn-warning"> Edit</a>
+                <a href="{{route('hapus-tanaman', $tanaman->id)}}" class="btn btn-danger"> Hapus</a>
+              </td>
             </tr>
           @endforeach
         </tbody>
       </table>
     </div>
   </div>
-</div>
+</div>   
+
+@else
+
+<section>
+  {{-- <div class="container-fluid"> --}}
+    <div class="row">
+      @foreach ($data as $tanaman)          
+        <!--Profile Card 5-->
+        <div class="col-md-4 mb-4">
+          <div class="card profile-card-5">
+            <div class="card-img-block">
+                <img class="card-img-top" src="{{asset('images/'.$tanaman->images)}}" alt="Card image cap">
+            </div>
+            <div class="card-body pt-0">
+              <h5 class="card-title">{{$tanaman->title}}</h5>
+              <p class="card-text">{{$tanaman->content}}</p>
+              <a href="{{route('dashboard-tanaman-detail', $tanaman->id)}}" class="btn btn-primary">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+      
+    </div>
+  {{-- </div> --}}
+</section>
+
+@endif
+
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,11 +92,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/dashboard/create" method="POST">
+        <form action="{{route('create-tanaman')}}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="form-group">
             <label>Tanaman</label>
             <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+          </div>
+
+          <div class="form-group">
+            <label>Images</label>
+            <input name="images" type="file" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
           
           <div class="form-group">

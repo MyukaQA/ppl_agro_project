@@ -16,20 +16,39 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'DashboardController@landing');
 
-// dashboard
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
-Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
-Route::post('/dashboard/create', 'DashboardController@create');
-Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
-Route::get('/dashboard/penjadwalan', 'DashboardController@penjadwalan')->name('dashboard-penjadwalan');
-Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
-
-// forum
-Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
-Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
-Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
-Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {  
+  // dashboard
+  Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
+  Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
+  Route::post('/dashboard/create', 'DashboardController@create');
+  Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
+  Route::get('/dashboard/penjadwalan', 'DashboardController@penjadwalan')->name('dashboard-penjadwalan');
+  Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
+  
+  // forum
+  Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+  Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
+  Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
+  Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
+});
+
+// Route::group(['middleware' => ['auth', 'checkRole:admin, users']], function () {  
+//   // dashboard
+//   Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
+//   Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
+//   Route::post('/dashboard/create', 'DashboardController@create');
+//   Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
+//   Route::get('/dashboard/penjadwalan', 'DashboardController@penjadwalan')->name('dashboard-penjadwalan');
+//   Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
+  
+//   // forum
+//   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+//   Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
+//   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
+//   Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
+// });
+

@@ -18,6 +18,8 @@ class CreateDatatanamanTable extends Migration
             $table->string('title', 191);
             $table->string('slug', 191);
             $table->text('content');
+            $table->integer('tds_nutrisi');
+            $table->integer('ph');
             $table->timestamps();
         });
     }

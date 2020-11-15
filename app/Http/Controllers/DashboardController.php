@@ -40,6 +40,8 @@ class DashboardController extends Controller
         $dataTanaman->title = $request->title;
         $dataTanaman->slug = Str::slug($request->title);
         $dataTanaman->content = $request->content;
+        $dataTanaman->tds_nutrisi = $request->tds_nutrisi;
+        $dataTanaman->ph = $request->ph;
 
         $dataTanaman->save();
 

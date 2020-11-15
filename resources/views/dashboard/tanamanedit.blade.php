@@ -18,6 +18,13 @@
       <label>Tanaman</label>
       <input name="title" type="text" class="form-control" placeholder="Nama Tanaman" value="{{$tanaman->title}}">
     </div>
+
+    <div class="form-group">
+      <label>Images</label>
+      <img class="img-thumbnail w-50" src="{{$tanaman->getImages()}}" alt="">
+      <input name="oldimg" type="text" class="form-control d-none" placeholder="Nama Tanaman" value="{{$tanaman->images}}">
+      <input name="images" type="file" class="form-control-file" placeholder="Nama Tanaman">
+    </div>
     
     <div class="form-group">
       <label>Nutrisi</label>

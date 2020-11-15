@@ -9,4 +9,12 @@ class Tanaman extends Model
     protected $table = 'datatanaman';
 
     protected $guarded = ['id'];
+
+    public function getImages(){
+        if(!$this->images){
+            return asset('images/tanaman/default.png');
+        }
+
+        return asset('images/tanaman/'.$this->images);
+    }
 }

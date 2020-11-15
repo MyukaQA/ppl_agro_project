@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tanaman;
 use Illuminate\Support\Str;
+use File;
 
 class TanamanController extends Controller
 {
@@ -22,7 +23,7 @@ class TanamanController extends Controller
         $dataTanaman->ph = $request->ph;
 
         if($request->hasFile('images')){
-            $request->file('images')->move('images/',$request->file('images')->getClientOriginalName());
+            $request->file('images')->move('images/tanaman/', $request->file('images')->getClientOriginalName());
             $dataTanaman->images = $request->file('images')->getClientOriginalName();
         }
 
@@ -40,8 +41,13 @@ class TanamanController extends Controller
 
     public function updatetanaman(Request $request, $id){
         $tanaman = Tanaman::find($id);
-
         $tanaman->update($request->all());
+        if($request->hasFile('images')){
+            $request->file('images')->move('images/tanaman/', $request->file('images')->getClientOriginalName());
+            $tanaman->images = $request->file('images')->getClientOriginalName();
+            File::delete('images/tanaman/'.$request->oldimg);
+            $tanaman->save();
+        }
         return redirect('dashboard/tanaman');
     }
 
@@ -52,6 +58,7 @@ class TanamanController extends Controller
     public function hapustanaman($id){
         $tanaman = Tanaman::find($id);
         $tanaman->delete($tanaman);
+        File::delete('images/tanaman/'.$tanaman->images);
 
         return redirect('dashboard/tanaman');
     }

@@ -13,7 +13,7 @@
 
 <div class="row">
   <div class="col-lg-4">
-    <img class="img-fluid rounded" src="{{asset('images/'.$tanaman->images)}}" alt="">
+    <img class="img-fluid rounded" src="{{$tanaman->getImages()}}" alt="">
   </div>
   <div class="col-lg-8">
     <h1>{{$tanaman->title}}</h1>

@@ -59,7 +59,7 @@
         <div class="col-md-4 mb-4">
           <div class="card profile-card-5">
             <div class="card-img-block">
-                <img class="card-img-top" src="{{asset('images/tanaman/'.$tanaman->images)}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$tanaman->getImages()}}" alt="Card image cap">
             </div>
             <div class="card-body pt-0">
               <h5 class="card-title">{{$tanaman->title}}</h5>

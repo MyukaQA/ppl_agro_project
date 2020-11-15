@@ -27,12 +27,12 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
   
   // tanaman
-  Route::get('/dashboard/tanaman', 'DashboardController@tanaman')->name('dashboard-tanaman');
-  Route::post('/dashboard/tanaman/create', 'DashboardController@create')->name('create-tanaman');
-  Route::get('/dashboard/tanaman/detail/{tanaman}', 'DashboardController@detailtanaman')->name('dashboard-tanaman-detail');
-  Route::get('/dashboard/tanaman/edit/{id}', 'DashboardController@edittanaman')->name('edit-tanaman');
-  Route::post('/dashboard/tanaman/update/{id}', 'DashboardController@updatetanaman')->name('update-tanaman');
-  Route::get('/dashboard/tanaman/hapus/{id}', 'DashboardController@hapustanaman')->name('hapus-tanaman');
+  Route::get('/dashboard/tanaman', 'TanamanController@tanaman')->name('dashboard-tanaman');
+  Route::post('/dashboard/tanaman/create', 'TanamanController@create')->name('create-tanaman');
+  Route::get('/dashboard/tanaman/detail/{tanaman}', 'TanamanController@detailtanaman')->name('dashboard-tanaman-detail');
+  Route::get('/dashboard/tanaman/edit/{id}', 'TanamanController@edittanaman')->name('edit-tanaman');
+  Route::post('/dashboard/tanaman/update/{id}', 'TanamanController@updatetanaman')->name('update-tanaman');
+  Route::get('/dashboard/tanaman/hapus/{id}', 'TanamanController@hapustanaman')->name('hapus-tanaman');
 
   // Penjadwalan
   Route::get('/dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');

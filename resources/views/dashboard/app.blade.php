@@ -40,25 +40,25 @@
     </li>
     <li class="nav-item">
       <a href="{{route('dashboard-tanaman')}}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-leaf mr-3 text-primary fa-fw"></i>
                 Tanaman
             </a>
     </li>
     <li class="nav-item">
       <a href="{{route('dashboard-kendala')}}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-exclamation-circle mr-3 text-primary fa-fw"></i>
                 Data Kendala
             </a>
     </li>
     <li class="nav-item">
       <a href="{{route('dashboard-penjadwalan')}}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-calendar mr-3 text-primary fa-fw"></i>
                 Penjadwalan
             </a>
     </li>
     <li class="nav-item">
       <a href="{{route('forum-index')}}" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-forumbee mr-3 text-primary fa-fw"></i>
                Forum
             </a>
     </li>
@@ -81,7 +81,7 @@
     <li class="nav-item">
       <a href="/logout" class="nav-link text-dark font-italic" onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
-                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-sign-out mr-3 text-primary fa-fw"></i>
                 Logout
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

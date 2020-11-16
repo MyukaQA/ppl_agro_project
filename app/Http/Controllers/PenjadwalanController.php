@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Penjadwalan;
 use Illuminate\Http\Request;
 
+use Calendar;
 class PenjadwalanController extends Controller
 {
     /**
@@ -13,6 +15,18 @@ class PenjadwalanController extends Controller
      */
     public function index()
     {
+        // $jadwal = Penjadwalan::all();
+        // $events = [];
+        // foreach ($jadwal as $key => $jdwl){
+        //     $events[] = \Calendar::event(
+        //         $jdwl->title,
+        //         true,
+        //         new \DateTime($jdwl->start_date),
+        //         new \DateTime($jdwl->end_date.'+1 day')
+        //     );
+        // }
+        // $calendar_details = \Calendar::addEvents($events);
+
         return view('dashboard.penjadwalan');
     }
 
@@ -34,7 +48,13 @@ class PenjadwalanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jadwal = new Penjadwalan;
+        $jadwal->title = $request->title;
+        $jadwal->start_date = $request->start_date;
+        $jadwal->end_date = $request->end_date;
+        $jadwal->save();
+
+        return redirect('/dashboard/penjadwalan/'); 
     }
 
     /**

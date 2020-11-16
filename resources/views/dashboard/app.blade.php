@@ -15,7 +15,8 @@
     
     {{-- ======================================== dari dalam ================================================ --}}
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}"> --}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 </head>
 <body>
 <!-- Vertical navbar -->
@@ -98,8 +99,9 @@
   @yield('content')
 </div>
 
+
   {{-- ========================================== dari luar ================================================ --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -108,15 +110,17 @@
   {{-- dari luar | untuk datatable --}}
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-  {{-- dari luar | jquery ui js --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  {{-- dari luar | moment js --}}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+  
 
   {{-- ========================================== dari dalam =============================================== --}}
-  <script src="{{asset('js/fullcalendar.js')}}"></script>
+  {{-- dari dalam | fullcalendar js --}}
+  {{-- <script src="{{asset('js/fullcalendar.js')}}"></script> --}}
   {{-- dari dalam | script calendar --}}
-  <script src="{{asset('js/scriptcalendar.js')}}"></script>
+  {{-- <script src="{{asset('js/scriptcalendar.js')}}"></script> --}}
   
   <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>

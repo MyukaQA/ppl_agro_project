@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
 
   // Penjadwalan
   Route::get('/dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
+  Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');
   
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');

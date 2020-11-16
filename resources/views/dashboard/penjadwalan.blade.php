@@ -15,6 +15,12 @@
   
   <div id="calendar"></div>
 
+  <div>
+    {!! $calendar_details->calendar() !!}
+    {!! $calendar_details->script() !!}
+  </div>
+
+
 
   <!-- Modal -->
 <div class="modal fade" id="fullcalendar" tabindex="-1" aria-labelledby="fullcalendarLabel" aria-hidden="true">
@@ -27,27 +33,27 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/dashboard/create" method="POST">
+        <form action="{{route('dashboard-penjadwalan-store')}}" method="POST">
           {{ csrf_field() }}
           <div class="form-group">
-            <label>Tanaman</label>
+            <label>Judul Event</label>
             <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
           
           <div class="form-group">
-            <label>Nutrisi</label>
-            <input name="tds_nutrisi" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+            <label>Start Date</label>
+            <input name="start_date" type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
           </div>
 
           <div class="form-group">
-            <label>Ph</label>
-            <input name="ph" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+            <label>End Date</label>
+            <input name="end_date" type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ph Tanaman">
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label>konten</label>
             <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
-          </div>
+          </div> --}}
         
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

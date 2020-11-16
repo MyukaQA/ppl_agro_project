@@ -10,6 +10,14 @@ class Forum extends Model
 
     protected $guarded = ['id'];
 
+    public function getImages(){
+        if(!$this->images){
+            return asset('images/forum/default.png');
+        }
+
+        return asset('images/forum/'.$this->images);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

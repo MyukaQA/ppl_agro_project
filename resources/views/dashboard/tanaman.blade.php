@@ -76,17 +76,12 @@
 
 @endif
 
-
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Data Tanaman</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -96,24 +91,24 @@
           {{ csrf_field() }}
           <div class="form-group">
             <label>Tanaman</label>
-            <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+            <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
-
+        
           <div class="form-group">
             <label>Images</label>
-            <input name="images" type="file" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+            <input name="images" type="file" class="form-control-file" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
           
           <div class="form-group">
             <label>Nutrisi</label>
-            <input name="tds_nutrisi" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+            <input name="tds_nutrisi" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
           </div>
-
+        
           <div class="form-group">
             <label>Ph</label>
-            <input name="ph" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+            <input name="ph" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
           </div>
-
+        
           <div class="form-group">
             <label>konten</label>
             <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
@@ -121,9 +116,15 @@
         
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
 @endsection

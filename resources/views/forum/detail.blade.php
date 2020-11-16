@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-9 mb40">
             <article>
-                <img src="https://images.unsplash.com/photo-1455734729978-db1ae4f687fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="" class="img-fluid mb30">
+                <img src="{{$forum->getImages()}}" alt="" class="img-fluid mb30">
                 <div class="post-content">
                     <h3>{{$forum->judul}}</h3>
                     <ul class="post-meta list-inline">
@@ -44,32 +44,30 @@
                                 <h5 class="mt-0 font400 clearfix">
                                     <p class="float-right">{{$komentar->created_at->diffForHumans()}}</p>
                                     {{$komentar->user->name}}</h5>
-                                    <p>{{$komentar->konten}}</p>
-                                    {{-- <a href="#" class="btn btn-primary btn-sm">Reply</a> --}}
+                                    <p class="card-header">{{$komentar->konten}}</p>
+                                    <form action="" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="form-group mt-3">
+                                            <input type="hidden" name="forum_id" value="{{$forum->id}}">
+                                            <input type="hidden" name="parent" value="{{$komentar->id}}"> 
+                                            <input type="text" name="konten" class="form-control">
+                                        </div>
+                                        <div class="text-left">
+                                            <button type="submit" class="btn btn-primary btn-sm mb-3">Balas</button>
+                                        </div>
+                                    </form>
                                     
-                                        <form action="" method="POST">
-                                            {{ csrf_field() }}
-                                            <div class="form-group mt-3">
-                                                <input type="hidden" name="forum_id" value="{{$forum->id}}">
-                                                <input type="hidden" name="parent" value="{{$komentar->id}}"> 
-                                                <input type="text" name="konten" class="form-control">
+                                    @foreach ($komentar->childs()->orderBy('created_at', 'desc')->get() as $child)                                        
+                                        <div class="media mb40">
+                                            <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 font400 clearfix">
+                                                    <p class="float-right">{{$child->created_at->diffForHumans()}}</p>
+                                                    {{$child->user->name}}</h5>
+                                                    <p class="card-header">{{$child->konten}}</p>
                                             </div>
-                                            <div class="text-left">
-                                                <button type="submit" class="btn btn-primary btn-sm mb-3">Tambah</button>
-                                            </div>
-                                        </form>
-                                        
-                                        @foreach ($komentar->childs()->orderBy('created_at', 'desc')->get() as $child)                                        
-                                            <div class="media mb40">
-                                                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
-                                                <div class="media-body">
-                                                    <h5 class="mt-0 font400 clearfix">
-                                                        <p class="float-right">{{$child->created_at->diffForHumans()}}</p>
-                                                        {{$child->user->name}}</h5>
-                                                        <p>{{$child->konten}}</p>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                        </div>
+                                    @endforeach
                                     
                             </div>
                         </div>
@@ -91,7 +89,7 @@
             <div>
                 <h4 class="sidebar-title">Latest News</h4>
                 <ul class="list-unstyled">
-                    <li class="media">
+                    {{-- <li class="media">
                         <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Generic placeholder image">
                         <div class="media-body">
                             <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> April 05, 2017
@@ -108,7 +106,7 @@
                         <div class="media-body">
                             <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> March 15, 2017
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

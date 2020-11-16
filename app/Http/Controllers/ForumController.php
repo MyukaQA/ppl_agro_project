@@ -29,6 +29,9 @@ class ForumController extends Controller
     {
         $request->request->add(['user_id' => auth()->user()->id]);
         $komentar = Komentar::create($request->all());
+    
+
+
         return redirect()->back();
     }
 
@@ -50,9 +53,21 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        $request->request->add(['slug' => Str::slug($request->judul)]);
-        $request->request->add(['user_id' => auth()->user()->id]);
-        $forum = Forum::create($request->all());
+        // $request->request->add(['slug' => Str::slug($request->judul)]);
+        // $request->request->add(['user_id' => auth()->user()->id]);
+        // $forum = Forum::create($request->all());
+        $forum = new Forum;
+        $forum->user_id = auth()->user()->id;
+        $forum->judul = $request->judul;
+        $forum->slug = Str::slug($request->judul);
+        $forum->konten = $request->konten;
+
+        if($request->hasFile('images')){
+            $request->file('images')->move('images/forum/', $request->file('images')->getClientOriginalName());
+            $forum->images = $request->file('images')->getClientOriginalName();
+        }
+        $forum->save();
+
         return redirect()->back();
     }
 

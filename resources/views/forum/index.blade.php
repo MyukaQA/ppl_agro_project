@@ -20,9 +20,9 @@
 										{{$frm->konten}}
 									</div>
 									<div class="pull-right">
-											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
-											<a href="{{route('forum-index-detail', $frm->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+											{{-- <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a> --}}
+											<a href="{{route('forum-index-detail', $frm->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Baca</a>
 									</div>
 					</div>
 			</div><!-- feed-element-->
@@ -46,11 +46,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('forum-create')}}" method="POST">
+        <form action="{{route('forum-create')}}" method="POST" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label for="exampleFormControlInput1">Judul</label>
 						<input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Topik">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Gambar</label>
+						<input name="images" type="file" class="form-control-file" id="exampleFormControlInput1" placeholder="Judul Topik">
 					</div>
 
 					<div class="form-group">

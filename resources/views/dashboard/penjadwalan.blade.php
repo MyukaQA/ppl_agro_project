@@ -16,8 +16,8 @@
   <div id="calendar"></div>
 
   <div>
-    {!! $calendar_details->calendar() !!}
-    {!! $calendar_details->script() !!}
+    {{-- {!! $calendar_details->calendar() !!}
+    {!! $calendar_details->script() !!} --}}
   </div>
 
 

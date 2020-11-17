@@ -27,8 +27,19 @@ class PenjadwalanController extends Controller
         // }
         // $calendar_details = \Calendar::addEvents($events);
 
-        return view('dashboard.penjadwalan');
+        
+        $event = Penjadwalan::all();
+        return response()->json($event);
+        // return response()->json([
+        //     'html, css' => view('dashboard.penjadwalan', compact('event'))->render(),
+        // ]);
+        // return view('dashboard.penjadwalan', compact('event'));
+        // return response()->view('dashboard.penjadwalan', compact('event'));
     }
+    
+    // public function list(){
+    //     return response()->json($event, 200);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -48,11 +59,12 @@ class PenjadwalanController extends Controller
      */
     public function store(Request $request)
     {
-        $jadwal = new Penjadwalan;
-        $jadwal->title = $request->title;
-        $jadwal->start_date = $request->start_date;
-        $jadwal->end_date = $request->end_date;
-        $jadwal->save();
+        // $jadwal = new Penjadwalan;
+        // $jadwal->title = $request->title;
+        // $jadwal->start_date = $request->start_date;
+        // $jadwal->end_date = $request->end_date;
+        // $jadwal->save();
+        Penjadwalan::create($request->all());
 
         return redirect('/dashboard/penjadwalan/'); 
     }

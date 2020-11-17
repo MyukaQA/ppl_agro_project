@@ -17,16 +17,16 @@ jQuery(document).ready(function($) {
       center: 'title',
       right: 'year,month,basicWeek,basicDay'
     },
-    dayclick:function(date,event,view){
-      $('#dialog').dialog({
-        title: 'Add Event',
-        width:600,
-        height:700,
-        modal:true,
-        show:{effect:'clip', duration:350},
-        hide:{effect:'clip', duration:350}
-      })
-    },
+    // dayclick:function(date,event,view){
+    //   $('#dialog').dialog({
+    //     title: 'Add Event',
+    //     width:600,
+    //     height:700,
+    //     modal:true,
+    //     show:{effect:'clip', duration:350},
+    //     hide:{effect:'clip', duration:350}
+    //   })
+    // },
 
     // durationEditable: true,
     // bootstrap: false,
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
     //     };
 
 
-    //     calendar.fullCalendar('renderEvent', event, true);
+        // calendar.fullCalendar('renderEvent', event, true),
       
     //   }}
   });

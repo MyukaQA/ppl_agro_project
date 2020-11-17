@@ -7,7 +7,7 @@
       <h3>Penjadwalan</h3>
     </div>
     <div class="col-lg-6 text-right">
-      <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
+      <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
     </div>
   </div><hr>
 
@@ -22,6 +22,7 @@
 
 
 
+
   <!-- Modal -->
 <div class="modal fade" id="fullcalendar" tabindex="-1" aria-labelledby="fullcalendarLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -33,23 +34,40 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('dashboard-penjadwalan-store')}}" method="POST">
+        <form id="dayClick" action="{{route('dashboard-penjadwalan-store')}}" method="POST">
           {{ csrf_field() }}
           <div class="form-group">
             <label>Judul Event</label>
-            <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+            <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
           
           <div class="form-group">
             <label>Start Date</label>
-            <input name="start_date" type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+            <input name="start" type="datetime-local" id="startDate" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
           </div>
-
+    
           <div class="form-group">
             <label>End Date</label>
-            <input name="end_date" type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+            <input name="end" type="datetime-local" id="endDate" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
           </div>
-
+    
+          <div class="form-check">
+            <input name="allDay" type="checkbox" class="form-check-input" value="1">
+            <label class="form-check-label">All Day</label> <br>
+            <input name="allDay" type="checkbox" class="form-check-input" value="0">
+            <label class="form-check-label">Partial</label>
+          </div>
+    
+          <div class="form-group">
+            <label>Background Color</label>
+            <input type="color" name="color" class="form-control">
+          </div>
+    
+          <div class="form-group">
+            <label>Text Color</label>
+            <input type="color" name="textColor" class="form-control">
+          </div>
+    
           {{-- <div class="form-group">
             <label>konten</label>
             <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
@@ -60,6 +78,52 @@
         
       </div>
     </div>
+  </div>
+</div>
+
+<div id="dialog" style="display: none">
+  <div id="dialog-body">
+    <form id="dayClick" action="{{route('dashboard-penjadwalan-store')}}" method="POST">
+      {{ csrf_field() }}
+      <div class="form-group">
+        <label>Judul Event</label>
+        <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+      </div>
+      
+      <div class="form-group">
+        <label>Start Date</label>
+        <input name="start" type="datetime-local" id="startDate" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+      </div>
+
+      <div class="form-group">
+        <label>End Date</label>
+        <input name="end" type="datetime-local" id="endDate" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+      </div>
+
+      <div class="form-check">
+        <input name="allDay" type="checkbox" class="form-check-input" value="1">
+        <label class="form-check-label">All Day</label> <br>
+        <input name="allDay" type="checkbox" class="form-check-input" value="0">
+        <label class="form-check-label">Partial</label>
+      </div>
+
+      <div class="form-group">
+        <label>Background Color</label>
+        <input type="color" name="color" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Text Color</label>
+        <input type="color" name="textColor" class="form-control">
+      </div>
+
+      {{-- <div class="form-group">
+        <label>konten</label>
+        <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
+      </div> --}}
+    
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
 </div>
   

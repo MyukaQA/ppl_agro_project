@@ -15,10 +15,10 @@
     {{-- jquery ui --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.1/fullcalendar.min.css" type="text/css" />
+    
     {{-- ======================================== dari dalam ================================================ --}}
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}">
+    
     {{-- <link rel="stylesheet" href="{{asset('/css/fullcalendar.css.map')}}"> --}}
 </head>
 <body>
@@ -126,15 +126,12 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+
   
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   {{-- ========================================== dari dalam =============================================== --}}
   {{-- dari dalam | fullcalendar js --}}
-  <script src="{{asset('js/fullcalendar.js')}}"></script>
+  
   {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
   {{-- dari dalam | script calendar --}}
   {{-- <script src="{{asset('js/scriptcalendar.js')}}"></script> --}}
@@ -159,69 +156,12 @@
       });
     });
 
-    jQuery(document).ready(function($){
-      function convert(str){
-        const d = new Date(str);
-        let month = '' + (d.getMonth() + 1);
-        let day = '' + d.getDate();
-        let year = d.getFullYear();
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
-        let hour = '' + d.getUTCHours();
-        let minutes = '' + d.getUTCMinutes();
-        let seconds = '' + d.getUTCSeconds();
-        if (hour.length < 2) hour = '0' + hour;
-        if (minutes.length < 2) minutes = '0' + minutes;
-        if (seconds.length < 2) seconds = '0' + seconds;
-        return [year,month,day].join('-') + ' ' + [hour,minutes,seconds].join(':');
-      };
+    $(document).ready(function(){
 
-      var calendar = $('#calendar').fullCalendar({
-        timezone: 'local',
-        height: "auto",
-        selectable: true,
-        editable: true,
-        dragabble: true,
-        defaultView: 'month',
-        yearColumns: 3,
-        header:{
-          left: 'prev,next today',
-          center: 'title',
-          right: 'year,month,basicWeek,basicDay'
-        },
-        events: "{{route('dashboard-penjadwalan')}}",
-
-        dayClick:function(date,event,view){
-          // alert('bisa lo');
-          // $('#startDate').val(convert(date));
-          $('#dialog').dialog({
-            title: 'add Event',
-            width: 600,
-            height: 600,
-            modal:true,
-            show:{effect:'clip', duration:350},
-            hide:{effect:'clip', duration:350}
-          });
-        },
-        select:function(start,end){
-          $('#startDate').val(convert(start));
-          $('#endDate').val(convert(end));
-          $('#dialog').dialog({
-            title: 'add Event',
-            width: 600,
-            height: 600,
-            modal:true,
-            show:{effect:'clip', duration:350},
-            hide:{effect:'clip', duration:350}
-          });
-        }
-
-          
-        })
-        
+      $("#btn-calendar").click(function(){
+          $("#konten-kalender").slideToggle();
+      });
     });
-
-
 
   </script>
 

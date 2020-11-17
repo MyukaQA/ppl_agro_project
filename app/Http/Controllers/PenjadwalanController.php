@@ -28,13 +28,13 @@ class PenjadwalanController extends Controller
         // $calendar_details = \Calendar::addEvents($events);
 
         
-        $event = Penjadwalan::all();
-        return response()->json($event);
+        $event = Penjadwalan::all()->toJson();
+        // return response()->json($event);
         // return response()->json([
         //     'html, css' => view('dashboard.penjadwalan', compact('event'))->render(),
         // ]);
         // return view('dashboard.penjadwalan', compact('event'));
-        // return response()->view('dashboard.penjadwalan', compact('event'));
+        return response()->view('dashboard.penjadwalan', compact('event'));
     }
     
     // public function list(){

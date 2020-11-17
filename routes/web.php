@@ -35,9 +35,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/tanaman/hapus/{id}', 'TanamanController@hapustanaman')->name('hapus-tanaman');
 
   // Penjadwalan
-  Route::get('/dashboard/penjadwalan', function () {
-      return view('dashboard.penjadwalan');
-  });
+  // Route::get('/dashboard/penjadwalan', function () {
+  //     return view('dashboard.penjadwalan');
+  // });
   Route::get('dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
   // Route::get('/dashboard/penjadwalan/json', 'PenjadwalanController@list')->name('list-jadwal');
   Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');

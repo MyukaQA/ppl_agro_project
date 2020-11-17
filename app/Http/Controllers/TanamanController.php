@@ -42,6 +42,7 @@ class TanamanController extends Controller
     public function updatetanaman(Request $request, $id){
         $tanaman = Tanaman::find($id);
         $tanaman->update($request->all());
+        
         if($request->hasFile('images')){
             $request->file('images')->move('images/tanaman/', $request->file('images')->getClientOriginalName());
             $tanaman->images = $request->file('images')->getClientOriginalName();

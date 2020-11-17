@@ -15,11 +15,11 @@
     {{-- jquery ui --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.1/fullcalendar.min.css" type="text/css" />
     {{-- ======================================== dari dalam ================================================ --}}
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/fullcalendar.css.map')}}">
-    {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
+    {{-- <link rel="stylesheet" href="{{asset('/css/fullcalendar.css.map')}}"> --}}
 </head>
 <body>
 <!-- Vertical navbar -->
@@ -177,10 +177,11 @@
       };
 
       var calendar = $('#calendar').fullCalendar({
-        selectable:true,
-        height: 650,
-        showNonCurrentDates: false,
+        timezone: 'local',
+        height: "auto",
+        selectable: true,
         editable: true,
+        dragabble: true,
         defaultView: 'month',
         yearColumns: 3,
         header:{

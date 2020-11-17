@@ -81,7 +81,7 @@
   </div>
 </div>
 
-<div id="dialog" style="display: none">
+{{-- <div id="dialog" style="display: none">
   <div id="dialog-body">
     <form id="dayClick" action="{{route('dashboard-penjadwalan-store')}}" method="POST">
       {{ csrf_field() }}
@@ -116,15 +116,10 @@
         <label>Text Color</label>
         <input type="color" name="textColor" class="form-control">
       </div>
-
-      {{-- <div class="form-group">
-        <label>konten</label>
-        <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
-      </div> --}}
     
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-</div>
+</div> --}}
   
 @endsection

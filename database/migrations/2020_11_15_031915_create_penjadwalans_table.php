@@ -15,10 +15,8 @@ class CreatePenjadwalansTable extends Migration
     {
         Schema::create('penjadwalans', function (Blueprint $table) {
             $table->increments('id');
-            // $table->string('title', 191);
             $table->integer('tanaman_id');
             $table->dateTime('start_date');
-            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

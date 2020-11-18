@@ -34,7 +34,7 @@
   </nav>
 
 <div class="container-fluid py-3">
-  <div class="row">
+  <div class="row">  
     <div class="col-lg-12 mx-auto">
       <div class="table-responsive">
         <table id="example" style="width:100%" class="table table-striped table-bordered table-hover">
@@ -45,14 +45,16 @@
             </tr>
           </thead>
           <tbody>
+          @foreach ($data as $kendala)
               <tr>
-                <td>aaa</td>
-                <td>bbb</td>
+                <td>{{$kendala->ciri2}}</td>
+                <td>{{$kendala->penanganan}}</td>
               </tr>
+          @endforeach  
           </tbody>
         </table>
       </div>
-    </div>
+    </div>  
   </div>
 </div>
 

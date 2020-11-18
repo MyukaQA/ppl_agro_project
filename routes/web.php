@@ -23,8 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {  
   // dashboard
   Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
-  Route::get('/dashboard/kendala', 'DashboardController@kendala')->name('dashboard-kendala');
-  Route::get('/dashboard/hasil', 'DashboardController@hasil')->name('dashboard-hasil');
+
+  // kendala
+  Route::get('/dashboard/kendala', 'KendalaController@kendala')->name('dashboard-kendala');
+  Route::post('/dashboard/kendala/create', 'KendalaController@create')->name('create-kendala');
+  Route::get('/dashboard/kendala/edit/{id}', 'KendalaController@editkendala')->name('edit-kendala');
+  Route::post('/dashboard/kendala/update/{id}', 'KendalaController@updatekendala')->name('update-kendala');
+  Route::get('/dashboard/kendala/hapus/{id}', 'TanamanController@hapuskendala')->name('hapus-kendala');
+  Route::get('/dashboard/hasil', 'KendalaController@hasil')->name('dashboard-hasil');
   
   // tanaman
   Route::get('/dashboard/tanaman', 'TanamanController@tanaman')->name('dashboard-tanaman');

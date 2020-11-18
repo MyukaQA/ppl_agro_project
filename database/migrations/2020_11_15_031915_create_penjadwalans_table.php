@@ -15,12 +15,10 @@ class CreatePenjadwalansTable extends Migration
     {
         Schema::create('penjadwalans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 191);
-            $table->dateTime('start');
-            $table->dateTime('end');
-            $table->integer('allDay');
-            $table->string('color');
-            $table->string('textColor');
+            // $table->string('title', 191);
+            $table->integer('tanaman_id');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

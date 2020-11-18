@@ -36,7 +36,7 @@
                     </form>
 
                     <hr class="mb-3">
-
+ 
                     @foreach ($forum->komentar()->where('parent', 0)->orderBy('created_at', 'desc')->get() as $komentar)    
                         <div class="media">
                             <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>

@@ -10,18 +10,41 @@
       <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
       <button id="btn-calendar" class="btn btn-primary btn-md">Calendar</button>
     </div>
-    <div id="konten-kalender" >
-      @include('dashboard.fullcalendar')
-    </div>
   </div><hr>
-
+  {{-- <div id="konten-kalender" >
+    @include('dashboard.fullcalendar')
+  </div> --}}
   
- 
-
-  <div>
-    {{-- {!! $calendar_details->calendar() !!}
-    {!! $calendar_details->script() !!} --}}
+@foreach ($event as $jadwal)
+<div class="card mb-3">
+  <div class="card-header">
+    {{$jadwal->tanaman->title}}
   </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-6 text-left">
+        <h6 class="card-title">Tanggal Awal</h6>
+      </div>
+      <div class="col-lg-6 text-right">
+        <h6 class="card-title">Tanggal Akhir</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-left">
+        <p class="card-text">{{$jadwal->start_date}}</p>
+      </div>
+      <div class="col-lg-8 text-center">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="col-lg-2 text-right">
+        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->ph) }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 
 
 
@@ -37,14 +60,24 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="dayClick" action="{{route('dashboard-penjadwalan-store')}}" method="POST">
+        <form action="{{route('dashboard-penjadwalan-store')}}" method="POST">
           {{ csrf_field() }}
           <div class="form-group">
-            <label>Judul Event</label>
-            <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+            <label>Nama Tanaman</label>
+            <select name="title" class="form-control">
+              @foreach ($tanaman as $nama)  
+                <option value="{{$nama->id}}">{{$nama->title}}</option>
+                {{-- <option value="{{$nama->ph}}">{{$nama->ph}}</option> --}}
+              @endforeach
+            </select>
           </div>
           
-          <div class="form-group">
+          {{-- <div class="form-group">
+            <label>ph</label>
+            <input name="ph" type="text" class="form-control" value="{{$tanaman->ph}}">
+          </div> --}}
+          
+          {{-- <div class="form-group">
             <label>Start Date</label>
             <input name="start" type="datetime-local" id="startDate" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
           </div>
@@ -52,28 +85,6 @@
           <div class="form-group">
             <label>End Date</label>
             <input name="end" type="datetime-local" id="endDate" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
-          </div>
-    
-          <div class="form-check">
-            <input name="allDay" type="checkbox" class="form-check-input" value="1">
-            <label class="form-check-label">All Day</label> <br>
-            <input name="allDay" type="checkbox" class="form-check-input" value="0">
-            <label class="form-check-label">Partial</label>
-          </div>
-    
-          <div class="form-group">
-            <label>Background Color</label>
-            <input type="color" name="color" class="form-control">
-          </div>
-    
-          <div class="form-group">
-            <label>Text Color</label>
-            <input type="color" name="textColor" class="form-control">
-          </div>
-    
-          {{-- <div class="form-group">
-            <label>konten</label>
-            <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
           </div> --}}
         
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -84,12 +95,6 @@
   </div>
 </div>
 
-  <!-- Modal Calendar -->
-  <div class="modal fade" id="calendar" tabindex="-1" aria-labelledby="fullcalendarLabel" aria-hidden="true">
-        
-          
-      
-  </div>
 
 @endsection
 

@@ -48,5 +48,5 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
   Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
 });
-
+ 
 

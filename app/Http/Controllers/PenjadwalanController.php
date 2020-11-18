@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Penjadwalan;
+use App\Tanaman;
 use Illuminate\Http\Request;
 
-use Calendar;
+use Carbon\Carbon;
+
 class PenjadwalanController extends Controller
 {
     /**
@@ -28,13 +30,14 @@ class PenjadwalanController extends Controller
         // $calendar_details = \Calendar::addEvents($events);
 
         
-        $event = Penjadwalan::all()->toJson();
+        $event = Penjadwalan::all();
+        $tanaman = Tanaman::all();
         // return response()->json($event);
         // return response()->json([
         //     'html, css' => view('dashboard.penjadwalan', compact('event'))->render(),
         // ]);
         // return view('dashboard.penjadwalan', compact('event'));
-        return response()->view('dashboard.penjadwalan', compact('event'));
+        return response()->view('dashboard.penjadwalan', compact('event', 'tanaman'));
     }
     
     // public function list(){
@@ -64,7 +67,24 @@ class PenjadwalanController extends Controller
         // $jadwal->start_date = $request->start_date;
         // $jadwal->end_date = $request->end_date;
         // $jadwal->save();
-        Penjadwalan::create($request->all());
+        // $tanaman = \App\Tanaman::where('ph', $request->title)->get();
+        $jadwal = new Penjadwalan;
+        // $jadwal->title = $request->title;
+        if($request->title == 1){
+            $h = 3;
+        }else{
+            $h = 1;
+        }
+
+        $dateNow = Carbon::now();
+
+        $jadwal->tanaman_id = $request->title;
+        $jadwal->start_date = Carbon::now();
+        $jadwal->end_date = $dateNow;
+        $jadwal->save();
+        // $request->request->add(['tanaman_id' => $tanaman]);
+        // $request->request->add(['start_date' => "2020-24-12"]);
+        // Penjadwalan::create($request->all());
 
         return redirect('/dashboard/penjadwalan/'); 
     }

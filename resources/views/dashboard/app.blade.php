@@ -7,15 +7,19 @@
   <title>Dashboard</title>
 
     {{-- ======================================== dari luar ================================================= --}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{-- datatable --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     {{-- jquery ui --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     
+    
     {{-- ======================================== dari dalam ================================================ --}}
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}">
+    
+    {{-- <link rel="stylesheet" href="{{asset('/css/fullcalendar.css.map')}}"> --}}
 </head>
 <body>
 <!-- Vertical navbar -->
@@ -24,7 +28,7 @@
     <div class="media d-flex align-items-center"><img src="" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">{{Auth::user()->name}}</h4>
-        <p class="font-weight-light text-muted mb-0"><a class="font-italic text-dark" href="">Landing Page</a></p>
+        <p class="font-weight-light text-muted mb-0"><a class="font-italic text-dark" href="/">Landing Page</a></p>
       </div>
     </div>
   </div>
@@ -79,7 +83,13 @@
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
-      <a href="/logout" class="nav-link text-dark font-italic" onclick="event.preventDefault();
+      <a href="" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-user mr-3 text-primary fa-fw"></i>
+               Profile
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="/logout" class="nav-link text-dark font-italic bg-light" onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out mr-3 text-primary fa-fw"></i>
                 Logout
@@ -98,25 +108,33 @@
   @yield('content')
 </div>
 
+
+
   {{-- ========================================== dari luar ================================================ --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script> --}}
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
   {{-- dari luar | untuk datatable --}}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-  {{-- dari luar | jquery ui js --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  {{-- dari luar | moment js --}}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
 
+
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   {{-- ========================================== dari dalam =============================================== --}}
-  <script src="{{asset('js/fullcalendar.js')}}"></script>
+  {{-- dari dalam | fullcalendar js --}}
+  
+  {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
   {{-- dari dalam | script calendar --}}
-  <script src="{{asset('js/scriptcalendar.js')}}"></script>
+  {{-- <script src="{{asset('js/scriptcalendar.js')}}"></script> --}}
   
   <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
@@ -137,7 +155,19 @@
         $('#example').DataTable();
       });
     });
+
+    $(document).ready(function(){
+
+      $("#btn-calendar").click(function(){
+          $("#konten-kalender").slideToggle();
+      });
+    });
+
   </script>
+
+<script>
+
+</script>
 
 </body>
 </html>

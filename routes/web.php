@@ -41,7 +41,12 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/tanaman/hapus/{id}', 'TanamanController@hapustanaman')->name('hapus-tanaman');
 
   // Penjadwalan
-  Route::get('/dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
+  // Route::get('/dashboard/penjadwalan', function () {
+  //     return view('dashboard.penjadwalan');
+  // });
+  Route::get('dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
+  // Route::get('/dashboard/penjadwalan/json', 'PenjadwalanController@list')->name('list-jadwal');
+  Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');
   
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
@@ -49,5 +54,5 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
   Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
 });
-
+ 
 

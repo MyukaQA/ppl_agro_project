@@ -29,7 +29,7 @@
 
 
         <li class="nav-item active justify-content-end">
-          <a class="nav-link text-white" href="#">New Topik<span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" href="#">Ajukan Kendala<span class="sr-only">(current)</span></a>
         </li>
 
 

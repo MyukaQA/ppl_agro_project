@@ -17,4 +17,12 @@ class Tanaman extends Model
 
         return asset('images/tanaman/'.$this->images);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function penjadwalan(){
+        return $this->hasMany(Penjadwalan::class);
+    }
 }

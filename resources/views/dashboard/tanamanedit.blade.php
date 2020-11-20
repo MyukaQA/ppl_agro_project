@@ -37,6 +37,21 @@
     </div>
 
     <div class="form-group">
+      <label>Semai</label>
+      <input name="semai" type="number" class="form-control" placeholder="Ph Tanaman" value="{{$tanaman->semai}}">
+    </div>
+
+    <div class="form-group">
+      <label>Pindah Tanam</label>
+      <input name="pindah_tanam" type="number" class="form-control" placeholder="Ph Tanaman" value="{{$tanaman->pindah_tanam}}">
+    </div>
+
+    <div class="form-group">
+      <label>Pemeliharaan</label>
+      <input name="pemeliharaan" type="number" class="form-control" placeholder="Ph Tanaman" value="{{$tanaman->pemeliharaan}}">
+    </div>
+
+    <div class="form-group">
       <label>konten</label>
       <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman">{{$tanaman->content}}</textarea>
     </div>

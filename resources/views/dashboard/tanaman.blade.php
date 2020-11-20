@@ -25,6 +25,9 @@
             <th>images</th>
             <th>Nutrisi</th>
             <th>ph</th>
+            <th>Semai</th>
+            <th>Pindah Tanam</th>
+            <th>Pemeliharaan</th>
             <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
@@ -36,6 +39,9 @@
               <td class="w-25 text-center"><img class="img-thumbnail w-50" src="{{$tanaman->getImages()}}" alt=""></td>
               <td>{{$tanaman->tds_nutrisi}}</td>
               <td>{{$tanaman->ph}}</td>
+              <td>{{$tanaman->semai}} Hari</td>
+              <td>{{$tanaman->pindah_tanam}} Hari</td>
+              <td>{{$tanaman->pemeliharaan}} Hari</td>
               <td>{{$tanaman->content}}</td>
               <td>
                 <a href="{{route('edit-tanaman', $tanaman->id)}}" class="btn btn-warning"> Edit</a>
@@ -108,7 +114,22 @@
             <label>Ph</label>
             <input name="ph" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
           </div>
+
+          <div class="form-group">
+            <label>Semai</label>
+            <input name="semai" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Semai">
+          </div>
+
+          <div class="form-group">
+            <label>Pindah Tanam</label>
+            <input name="pindah_tanam" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pindah Tanam">
+          </div>
         
+          <div class="form-group">
+            <label>Pemeliharaan</label>
+            <input name="pemeliharaan" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pemeliharaan">
+          </div>
+
           <div class="form-group">
             <label>konten</label>
             <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>
@@ -116,10 +137,6 @@
         
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

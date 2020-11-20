@@ -3,10 +3,13 @@
   <!-- Toggle button -->
   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <h3>Penjadwalan</h3>
     </div>
-    <div class="col-lg-6 text-right">
+    <div class="col-lg-4">
+      <h4>Tanggal {{Carbon\Carbon::now()->format('j F Y')}}</h4>
+    </div>
+    <div class="col-lg-4 text-right">
       <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
     </div>
   </div><hr>
@@ -28,9 +31,10 @@
         <h6 class="card-title">Tanggal Akhir</h6>
       </div>
     </div>
+
     <div class="row">
       <div class="col-lg-2 text-left">
-        <p class="card-text">{{$jadwal->start_date}}</p>
+        <p class="card-text">{{Carbon\Carbon::parse($jadwal->start_date)->format('j F Y')}}</p>
       </div>
       <div class="col-lg-8 text-center">
         <div class="progress">
@@ -38,9 +42,50 @@
         </div>
       </div>
       <div class="col-lg-2 text-right">
-        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->ph) }}</p>
+        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->format('j F Y') }}</p>
       </div>
     </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-4">
+        <div class="card p-2 font-weight-bold">
+          {{ Carbon\Carbon::parse($jadwal->start_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->format('j F') }} 
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card p-2 font-weight-bold">
+          Semai
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-4">
+        <div class="card p-2 font-weight-bold">
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->format('j F') }}  
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card p-2 font-weight-bold">
+          Pindah Tanam
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-4">
+        <div class="card p-2 font-weight-bold">
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->format('j F') }}
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card p-2 font-weight-bold">
+          Pemeliharaan
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
 @endforeach
@@ -66,26 +111,10 @@
             <select name="title" class="form-control">
               @foreach ($tanaman as $nama)  
                 <option value="{{$nama->id}}">{{$nama->title}}</option>
-                {{-- <option value="{{$nama->ph}}">{{$nama->ph}}</option> --}}
               @endforeach
             </select>
           </div>
-          
-          {{-- <div class="form-group">
-            <label>ph</label>
-            <input name="ph" type="text" class="form-control" value="{{$tanaman->ph}}">
-          </div> --}}
-          
-          {{-- <div class="form-group">
-            <label>Start Date</label>
-            <input name="start" type="datetime-local" id="startDate" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
-          </div>
-    
-          <div class="form-group">
-            <label>End Date</label>
-            <input name="end" type="datetime-local" id="endDate" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
-          </div> --}}
-        
+      
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         

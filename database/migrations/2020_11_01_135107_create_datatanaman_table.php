@@ -21,6 +21,10 @@ class CreateDatatanamanTable extends Migration
             $table->text('content');
             $table->integer('tds_nutrisi');
             $table->integer('ph');
+            $table->integer('semai');
+            $table->integer('pindah_tanam');
+            $table->integer('pemeliharaan');
+            $table->integer('panen');
             $table->timestamps();
         });
     }

@@ -21,6 +21,10 @@ class TanamanController extends Controller
         $dataTanaman->content = $request->content;
         $dataTanaman->tds_nutrisi = $request->tds_nutrisi;
         $dataTanaman->ph = $request->ph;
+        $dataTanaman->semai = $request->semai;
+        $dataTanaman->pindah_tanam = $request->pindah_tanam;
+        $dataTanaman->pemeliharaan = $request->pemeliharaan;
+        $dataTanaman->panen = 1;
 
         if($request->hasFile('images')){
             $request->file('images')->move('images/tanaman/', $request->file('images')->getClientOriginalName());
@@ -41,6 +45,7 @@ class TanamanController extends Controller
 
     public function updatetanaman(Request $request, $id){
         $tanaman = Tanaman::find($id);
+        $request->request->add(['panen' => 1]);
         $tanaman->update($request->all());
         
         if($request->hasFile('images')){

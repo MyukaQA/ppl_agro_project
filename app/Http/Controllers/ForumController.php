@@ -7,6 +7,7 @@ use App\Forum;
 use App\Komentar;
 use Illuminate\Http\Request;
 use Validator;
+use Alert;
 class ForumController extends Controller
 {
     /**
@@ -32,15 +33,17 @@ class ForumController extends Controller
         ]);
 
         if ($validator->fails()){
-            \Session::flash('warning', 'Tidak boleh kosong');
-            return redirect()->back()->withInput()->withErrors($validator);
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
         }
 
         $request->request->add(['user_id' => auth()->user()->id]);
         $komentar = Komentar::create($request->all());
     
 
-        \Session::flash('success', 'Berhasil Ditambah');
+        // \Session::flash('success', 'Berhasil Ditambah');
+        // return redirect()->back();
+        toast('Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect()->back();
     }
 
@@ -62,9 +65,16 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->request->add(['slug' => Str::slug($request->judul)]);
-        // $request->request->add(['user_id' => auth()->user()->id]);
-        // $forum = Forum::create($request->all());
+        $validator = Validator::make($request->all(),[
+            'judul' => 'required|min:3',
+            'konten' => 'required|min:3'
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+
         $forum = new Forum;
         $forum->user_id = auth()->user()->id;
         $forum->judul = $request->judul;
@@ -77,6 +87,7 @@ class ForumController extends Controller
         }
         $forum->save();
 
+        toast('Forum Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect()->back();
     }
 

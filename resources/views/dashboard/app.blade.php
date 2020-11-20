@@ -165,9 +165,8 @@
 
   </script>
 
-<script>
 
-</script>
+@include('sweetalert::alert')
 
 </body>
 </html>

@@ -6,7 +6,7 @@
         @if (Session::has('success'))
             <div class="alert alert-success">{{Session::get('success')}}</div>
         @elseif (Session::has('warning'))
-            <div class="alert alert-danger">{{Session::get('warning')}}</div>
+            <div class="alert alert-danger">{{toast('Success Toast','success')}}</div>
         @endif
     </div>
     <div class="row">

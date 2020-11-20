@@ -109,7 +109,7 @@
 
 <!-- Modal Logout -->
 <div class="modal fade" id="keluar" tabindex="-1" aria-labelledby="keluarLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
         Yakin ingin keluar ?

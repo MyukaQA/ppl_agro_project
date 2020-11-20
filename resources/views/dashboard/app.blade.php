@@ -89,8 +89,7 @@
             </a>
     </li>
     <li class="nav-item">
-      <a href="/logout" class="nav-link text-dark font-italic bg-light" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();">
+      <a href="" data-toggle="modal" data-target="#keluar" class="nav-link text-dark font-italic bg-light" >
                 <i class="fa fa-sign-out mr-3 text-primary fa-fw"></i>
                 Keluar
             </a>
@@ -106,6 +105,22 @@
 <!-- Page content holder -->
 <div class="page-content p-3" id="content">
   @yield('content')
+</div>
+
+<!-- Modal Logout -->
+<div class="modal fade" id="keluar" tabindex="-1" aria-labelledby="keluarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Yakin ingin keluar ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/logout" class="btn btn-danger" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">Keluar</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 

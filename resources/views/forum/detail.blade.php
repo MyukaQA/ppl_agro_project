@@ -2,6 +2,13 @@
 @section('content')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container pb50 py-5">
+    <div class="col-xs-12">
+        @if (Session::has('success'))
+            <div class="alert alert-success">{{Session::get('success')}}</div>
+        @elseif (Session::has('warning'))
+            <div class="alert alert-danger">{{Session::get('warning')}}</div>
+        @endif
+    </div>
     <div class="row">
         <div class="col-md-9 mb40">
             <article>
@@ -31,6 +38,7 @@
                             <input type="hidden" name="forum_id" value="{{$forum->id}}">
                             <input type="hidden" name="parent" value="0">                            
                             <textarea name="konten" class="form-control" rows="5" placeholder="Comment"></textarea>
+                            
                         </div>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
@@ -56,7 +64,7 @@
                                             <button type="submit" class="btn btn-primary btn-sm mb-3">Balas</button>
                                         </div>
                                     </form>
-                                    
+                                     
                                     @foreach ($komentar->childs()->orderBy('created_at', 'desc')->get() as $child)                                        
                                         <div class="media mb40">
                                             <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>

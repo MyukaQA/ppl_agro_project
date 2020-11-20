@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use App\Forum;
 use App\Komentar;
 use Illuminate\Http\Request;
-
+use Validator;
 class ForumController extends Controller
 {
     /**
@@ -27,11 +27,20 @@ class ForumController extends Controller
 
     public function postKomentar(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'konten' => 'required'
+        ]);
+
+        if ($validator->fails()){
+            \Session::flash('warning', 'Tidak boleh kosong');
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
         $request->request->add(['user_id' => auth()->user()->id]);
         $komentar = Komentar::create($request->all());
     
 
-
+        \Session::flash('success', 'Berhasil Ditambah');
         return redirect()->back();
     }
 

@@ -70,17 +70,10 @@ class PenjadwalanController extends Controller
         // $tanaman = \App\Tanaman::where('ph', $request->title)->get();
         $jadwal = new Penjadwalan;
         // $jadwal->title = $request->title;
-        if($request->title == 1){
-            $h = 3;
-        }else{
-            $h = 1;
-        }
-
-        $dateNow = Carbon::now();
 
         $jadwal->tanaman_id = $request->title;
         $jadwal->start_date = Carbon::now();
-        $jadwal->end_date = $dateNow;
+        // $jadwal->end_date = $dateNow;
         $jadwal->save();
         // $request->request->add(['tanaman_id' => $tanaman]);
         // $request->request->add(['start_date' => "2020-24-12"]);

@@ -8,7 +8,6 @@
     </div>
     <div class="col-lg-6 text-right">
       <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
-      <button id="btn-calendar" class="btn btn-primary btn-md">Calendar</button>
     </div>
   </div><hr>
   {{-- <div id="konten-kalender" >

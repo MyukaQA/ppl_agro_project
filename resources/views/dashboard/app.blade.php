@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Utama</p>
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
@@ -85,14 +85,14 @@
     <li class="nav-item">
       <a href="" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-user mr-3 text-primary fa-fw"></i>
-               Profile
+               Profil
             </a>
     </li>
     <li class="nav-item">
       <a href="/logout" class="nav-link text-dark font-italic bg-light" onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out mr-3 text-primary fa-fw"></i>
-                Logout
+                Keluar
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf

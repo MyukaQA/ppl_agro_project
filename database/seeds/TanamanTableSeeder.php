@@ -22,7 +22,7 @@ class TanamanTableSeeder extends Seeder
 
         \App\Tanaman::create([
             'title' => "Cabe Hidroponik",
-            'slug'  => Str::slug("Seledri Hidroponik"),
+            'slug'  => Str::slug("Cabe Hidroponik"),
             'content' => "Cabe Hidroponik",
             'tds_nutrisi' => 3,
             'ph' => 2
@@ -30,7 +30,7 @@ class TanamanTableSeeder extends Seeder
 
         \App\Tanaman::create([
             'title' => "Tomat Hidroponik",
-            'slug'  => Str::slug("Seledri Hidroponik"),
+            'slug'  => Str::slug("Tomat Hidroponik"),
             'content' => "Tomat Hidroponik",
             'tds_nutrisi' => 3,
             'ph' => 2
@@ -38,7 +38,7 @@ class TanamanTableSeeder extends Seeder
 
         \App\Tanaman::create([
             'title' => "Selada Hidroponik",
-            'slug'  => Str::slug("Seledri Hidroponik"),
+            'slug'  => Str::slug("Selada Hidroponik"),
             'content' => "Selada Hidroponik",
             'tds_nutrisi' => 3,
             'ph' => 2
@@ -46,7 +46,7 @@ class TanamanTableSeeder extends Seeder
 
         \App\Tanaman::create([
             'title' => "Sawi Hidroponik",
-            'slug'  => Str::slug("Seledri Hidroponik"),
+            'slug'  => Str::slug("Sawi Hidroponik"),
             'content' => "Sawi Hidroponik",
             'tds_nutrisi' => 3,
             'ph' => 2

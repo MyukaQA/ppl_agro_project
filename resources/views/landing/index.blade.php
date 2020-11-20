@@ -35,13 +35,13 @@
 						</div>
           </li> --}}
 
-					<li><a href="#" class="nav-item nav-link active">Home</a></li>
+					<li><a href="#" class="nav-item nav-link active">Rumah</a></li>
 					<li><a href="#content" class="nav-item nav-link">Tentang kami</a></li>
-          <li><a href="#team" class="nav-item nav-link">Our Team</a></li>
+          <li><a href="#team" class="nav-item nav-link">Tim Kami</a></li>
         
           @guest
-            <li><a href="/login" class="nav-item nav-link">Login</a></li>
-            <li><a href="/register" class="nav-item nav-link">Register</a></li>
+            <li><a href="/login" class="nav-item nav-link">Masuk</a></li>
+            <li><a href="/register" class="nav-item nav-link">Daftar</a></li>
           @else
             <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -80,22 +80,22 @@
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url('{{asset('images/header-bg1.jpg')}}')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">First Slide</h2>
-          <p class="lead">This is a description for the first slide.</p>
+          <h2 class="display-4">Slide Pertama</h2>
+          <p class="lead">Deskripsi untuk slide pertama.</p>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('{{asset('images/header-bg2.jpg')}}')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Second Slide</h2>
-          <p class="lead">This is a description for the second slide.</p>
+          <h2 class="display-4">Slide Kedua</h2>
+          <p class="lead">Deskripsi untuk slide kedua.</p>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('{{asset('images/header-bg3.jpg')}}')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Third Slide</h2>
-          <p class="lead">This is a description for the third slide.</p>
+          <h2 class="display-4">Slide Ketiga</h2>
+          <p class="lead">Deskripsi untuk slide ketiga.</p>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 <section class="pb-5">
   <div class="container">
     <div class="row justify-content-center">
-      <h1 class="display-4">OUR TEAM</h1>
+      <h1 class="display-4">TIM KAMI</h1>
     </div>
       <div class="row">
           <!-- Team member -->

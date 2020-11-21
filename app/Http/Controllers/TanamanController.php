@@ -35,7 +35,7 @@ class TanamanController extends Controller
 
         return redirect('dashboard/tanaman');
         
-    }
+    } 
 
     public function edittanaman($id){
         $tanaman = Tanaman::find($id);

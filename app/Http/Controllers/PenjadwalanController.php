@@ -124,6 +124,10 @@ class PenjadwalanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jadwal = Penjadwalan::find($id);
+        $jadwal->delete($jadwal);
+
+        toast('Berhasil Dihapus','success')->autoClose(3000);
+        return redirect()->back();
     }
 }

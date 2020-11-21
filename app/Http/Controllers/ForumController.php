@@ -29,7 +29,7 @@ class ForumController extends Controller
     public function postKomentar(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'konten' => 'required'
+            'konten' => 'required|min:14'
         ]);
 
         if ($validator->fails()){
@@ -66,8 +66,8 @@ class ForumController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'judul' => 'required|min:3',
-            'konten' => 'required|min:3'
+            'judul' => 'required|min:7',
+            'konten' => 'required|min:14'
         ]);
 
         if ($validator->fails()){

@@ -29,7 +29,7 @@
 
 
         <li class="nav-item active justify-content-end">
-          <a class="nav-link text-white" href="#">Ajukan Kendala<span class="sr-only">(current)</span></a>
+          <a href="" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
         </li>
 
 
@@ -59,4 +59,41 @@
     </script> 
     @include('sweetalert::alert')
 </body>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Tambah Kendala</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('forum-ajukan-kendala')}}" method="POST" enctype="multipart/form-data">
+					{{ csrf_field() }}
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Judul</label>
+						<input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Topik" required>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Deskripsi</label>
+						<textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Deskripsi" required></textarea>
+					</div>
+
+          <div class="form-group">
+						<label for="exampleFormControlTextarea1">Solusi</label>
+						<textarea name="solusi" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Solusi" required></textarea>
+					</div>
+
+					<div class="text-right">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Tambah Kendala</button>
+					</div>
+				</form>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
   Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
+  Route::post('/dashboard/forum', 'ForumController@index')->name('forum-ajukan-kendala');
   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
   Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
 });

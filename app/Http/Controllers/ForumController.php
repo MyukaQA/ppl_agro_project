@@ -21,6 +21,11 @@ class ForumController extends Controller
         return view('forum.index', compact('forum'));
     }
 
+    public function ajukan()
+    {
+        
+    }
+
     public function detail(Forum $forum)
     {
         return view('forum.detail', compact('forum'));

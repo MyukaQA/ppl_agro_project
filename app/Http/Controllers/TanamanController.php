@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tanaman;
 use Illuminate\Support\Str;
 use File;
+use Validator;
 
 class TanamanController extends Controller
 {
@@ -15,6 +16,21 @@ class TanamanController extends Controller
     }
 
     public function create(Request $request){
+        $validator = Validator::make($request->all(),[
+            'title' => 'required|min:7',
+            'content' => 'required|min:14',
+            'tds_nutrisi' => 'required|min:1',
+            'ph' => 'required|min:1',
+            'semai' => 'required|min:1',
+            'pindah_tanam' => 'required|min:1',
+            'pemeliharaan' => 'required|min:1'
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+
         $dataTanaman = New Tanaman;
         $dataTanaman->title = $request->title;
         $dataTanaman->slug = Str::slug($request->title);
@@ -33,9 +49,10 @@ class TanamanController extends Controller
 
         $dataTanaman->save();
 
+        toast('Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect('dashboard/tanaman');
         
-    }
+    } 
 
     public function edittanaman($id){
         $tanaman = Tanaman::find($id);
@@ -54,6 +71,8 @@ class TanamanController extends Controller
             File::delete('images/tanaman/'.$request->oldimg);
             $tanaman->save();
         }
+
+        toast('Berhasil Diupdate','success')->autoClose(3000);
         return redirect('dashboard/tanaman');
     }
 

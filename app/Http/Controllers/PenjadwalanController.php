@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Penjadwalan;
 use App\Tanaman;
 use Illuminate\Http\Request;
-
+use Validator;
 use Carbon\Carbon;
 
 class PenjadwalanController extends Controller
@@ -17,32 +17,12 @@ class PenjadwalanController extends Controller
      */
     public function index()
     {
-        // $jadwal = Penjadwalan::all();
-        // $events = [];
-        // foreach ($jadwal as $key => $jdwl){
-        //     $events[] = \Calendar::event(
-        //         $jdwl->title,
-        //         true,
-        //         new \DateTime($jdwl->start_date),
-        //         new \DateTime($jdwl->end_date.'+1 day')
-        //     );
-        // }
-        // $calendar_details = \Calendar::addEvents($events);
 
-        
         $event = Penjadwalan::all();
         $tanaman = Tanaman::all();
-        // return response()->json($event);
-        // return response()->json([
-        //     'html, css' => view('dashboard.penjadwalan', compact('event'))->render(),
-        // ]);
-        // return view('dashboard.penjadwalan', compact('event'));
+
         return response()->view('dashboard.penjadwalan', compact('event', 'tanaman'));
     }
-    
-    // public function list(){
-    //     return response()->json($event, 200);
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -62,23 +42,15 @@ class PenjadwalanController extends Controller
      */
     public function store(Request $request)
     {
-        // $jadwal = new Penjadwalan;
-        // $jadwal->title = $request->title;
-        // $jadwal->start_date = $request->start_date;
-        // $jadwal->end_date = $request->end_date;
-        // $jadwal->save();
-        // $tanaman = \App\Tanaman::where('ph', $request->title)->get();
-        $jadwal = new Penjadwalan;
-        // $jadwal->title = $request->title;
-        
+
+
+        $jadwal = new Penjadwalan; 
         $jadwal->tanaman_id = $request->title;
         $jadwal->start_date = Carbon::now();
-        // $jadwal->end_date = $dateNow;
-        $jadwal->save();
-        // $request->request->add(['tanaman_id' => $tanaman]);
-        // $request->request->add(['start_date' => "2020-24-12"]);
-        // Penjadwalan::create($request->all());
 
+        $jadwal->save();
+
+        toast('Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect('/dashboard/penjadwalan/'); 
     }
 
@@ -124,6 +96,10 @@ class PenjadwalanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jadwal = Penjadwalan::find($id);
+        $jadwal->delete($jadwal);
+
+        toast('Berhasil Dihapus','success')->autoClose(3000);
+        return redirect()->back();
     }
 }

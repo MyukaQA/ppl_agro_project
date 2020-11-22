@@ -20,7 +20,14 @@
 @foreach ($event as $jadwal)
 <div class="card mb-3">
   <div class="card-header">
-    {{$jadwal->tanaman->title}}
+    <div class="row">
+      <div class="col-lg-6">
+        {{$jadwal->tanaman->title}}
+      </div>
+      <div class="col-lg-6 text-right">
+        <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash fa-fw"></i></a>
+      </div>
+    </div>
   </div>
   <div class="card-body">
     <div class="row">
@@ -86,6 +93,25 @@
     </div>
 
 
+  </div>
+</div>
+
+<!-- Modal hapus penjadwalan -->
+<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Yakin ingin di hapus ?</h2>
+        <div class="row">
+          <div class="col-lg-6 text-left">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          <div class="col-lg-6 text-right">
+            <a href="{{route('dashboard-penjadwalan-hapus',$jadwal->id)}}" class="btn btn-danger">Hapus</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 @endforeach

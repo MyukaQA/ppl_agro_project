@@ -47,7 +47,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
   // Route::get('/dashboard/penjadwalan/json', 'PenjadwalanController@list')->name('list-jadwal');
   Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');
-  
+  Route::get('dashboard/penjadwalan/delete/{id}', 'PenjadwalanController@destroy')->name('dashboard-penjadwalan-hapus');
+
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
   Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');

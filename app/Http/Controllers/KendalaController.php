@@ -41,6 +41,7 @@ class KendalaController extends Controller
         if ($request->daun == 'daunYes' && $request->lumut == 'lumutYes' && $request->air == 'airYes'){
             $data = Kendala::all();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Berhasil Muncul', 'success')->autoClose(3000);
         }
         // all
 
@@ -48,14 +49,17 @@ class KendalaController extends Controller
         elseif ($request->daun == 'daunYes' && $request->lumut == 'lumutNo' && $request->air == 'airNo'){
             $data = Kendala::where('ciri2', 'daun')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Daun Berhasil Muncul', 'success')->autoClose(3000);
         }
         elseif ($request->daun == 'daunYes' && $request->lumut == 'lumutYes' && $request->air == 'airNo'){
             $data = Kendala::where('ciri2', 'daun')->orWhere('ciri2', 'lumut')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Daun dan Lumut Berhasil Muncul', 'success')->autoClose(3000);
         }
         elseif ($request->daun == 'daunYes' && $request->lumut == 'lumutNo' && $request->air == 'airYes'){
             $data = Kendala::where('ciri2', 'daun')->orWhere('ciri2', 'air')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Daun dan Air Berhasil Muncul', 'success')->autoClose(3000);
         }
         // Fokus Daun
 
@@ -63,10 +67,12 @@ class KendalaController extends Controller
         elseif ($request->daun == 'daunNo' && $request->lumut == 'lumutYes' && $request->air == 'airNo'){
             $data = Kendala::where('ciri2', 'lumut')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Lumut Berhasil Muncul', 'success')->autoClose(3000);
         }
         elseif ($request->daun == 'daunNo' && $request->lumut == 'lumutYes' && $request->air == 'airYes'){
             $data = Kendala::where('ciri2', 'lumut')->orWhere('ciri2', 'air')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Lumut dan Air Berhasil Muncul', 'success')->autoClose(3000);
         }
         // Fokus Lumut
 
@@ -74,6 +80,7 @@ class KendalaController extends Controller
         elseif ($request->daun == 'daunNo' && $request->lumut == 'lumutNo' && $request->air == 'airYes'){
             $data = Kendala::where('ciri2', 'air')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Penanganan Air Berhasil Muncul', 'success')->autoClose(3000);
         }
         // Fokus Air
 
@@ -81,6 +88,7 @@ class KendalaController extends Controller
         elseif ($request->daun == 'daunNo' && $request->lumut == 'lumutNo' && $request->air == 'airNo'){
             $data = Kendala::where('ciri2', 'no')->get();
             DB::table('validasi_kendala')->truncate();
+            toast('Mohon Maaf Penanganan Tidak Ada', 'warning')->autoClose(3000);
         }
         // Fokus Air
 

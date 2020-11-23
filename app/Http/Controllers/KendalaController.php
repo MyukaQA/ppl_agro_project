@@ -7,7 +7,7 @@ use App\Kendala;
 use App\ValidasiKendala;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
+use Validator;
 class KendalaController extends Controller
 {
     //
@@ -19,6 +19,16 @@ class KendalaController extends Controller
     public function validasi(Request $request){
         // $data = \App\Kendala::all();
         // return view('dashboard.hasil', ['data' => $data]);
+        $validator = Validator::make($request->all(),[
+            'daun' => 'required',
+            'lumut' => 'required',
+            'air' => 'required'
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
 
         $validasi = new ValidasiKendala;
         $validasi->daun = $request->daun;
@@ -74,6 +84,7 @@ class KendalaController extends Controller
         }
         // Fokus Air
 
+        
         return view('dashboard/hasil', compact('data'));
     }
 

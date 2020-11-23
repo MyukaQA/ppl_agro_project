@@ -46,9 +46,9 @@
 <div class="card">
     <div class="card-header bg-primary text-white">Form Checkbox</div>
     <div class="card-body">
-      <form action="{{route('dashboard-hasil')}}" method="get">
-      {{csrf_field}}
-        <h4>Apakah tanaman anda mengalami kerusakan daun?</h4>
+      <form action="{{route('dashboard-kendala-hasil')}}" method="POST">
+      {{ csrf_field() }}
+        <h4>Apakah tanaman anda mengalami kerusakan daun ?</h4>
         <hr/>
         <div class="form-check form-check-inline">
           <label class="form-check-label">

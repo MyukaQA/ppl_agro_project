@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-6">
             <li class="nav-item active">
-              <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
+              <a class="nav-link text-white" href="{{route('dashboard-kendala-kembali')}}">Kembali<span class="sr-only">(current)</span></a>
             </li>
           </div>        
         </div>

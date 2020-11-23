@@ -33,7 +33,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::get('/dashboard/kendala/edit/{id}', 'KendalaController@editkendala')->name('edit-kendala');
   Route::post('/dashboard/kendala/update/{id}', 'KendalaController@updatekendala')->name('update-kendala');
   Route::get('/dashboard/kendala/hapus/{id}', 'TanamanController@hapuskendala')->name('hapus-kendala');
-  Route::get('/dashboard/hasil', 'KendalaController@hasil')->name('dashboard-hasil');
+  Route::get('/dashboard/hasil', 'KendalaController@hasil')->name('dashboard-kendala-hasil');
+  Route::post('/dashboard/hasil', 'KendalaController@validasi')->name('dashboard-kendala-validasi');
+  Route::post('/dashboard/kendala', 'KendalaController@back')->name('dashboard-kendala-kembali');
   
   // tanaman
   Route::get('/dashboard/tanaman', 'TanamanController@tanaman')->name('dashboard-tanaman');

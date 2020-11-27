@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,8 +14,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
-        return view('dashboard.profile');
+        $user = Auth::user();
+        $forum = \App\Forum::where('user_id', Auth::user()->id)->get();
+        return view('dashboard.profile', compact('user', 'forum'));
     }
 
     /**

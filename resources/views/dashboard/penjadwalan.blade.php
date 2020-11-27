@@ -15,7 +15,7 @@
   </div><hr>
   {{-- <div id="konten-kalender" >
     @include('dashboard.fullcalendar')
-  </div> --}}
+  </div> --}} 
   
 @foreach ($event as $jadwal)
 <div class="card mb-3">

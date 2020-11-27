@@ -34,7 +34,7 @@ class ForumController extends Controller
     public function postKomentar(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'konten' => 'required|min:14'
+            'konten' => 'required|min:2' 
         ]);
 
         if ($validator->fails()){

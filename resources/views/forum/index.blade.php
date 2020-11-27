@@ -3,11 +3,47 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="panel-heading text-right"><a class="btn btn-primary text-white" data-toggle="modal" data-target="#exampleModal">Tambah Topik</a></div>
-<div class="container">
-	<div class="feed-activity-list">
+<div class="container-fluid">
+	
+	<div class="table-responsive table-hover">
+		<table id="example" style="width:100%" class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Topik</th>
+					<th>Created</th>
+					<th>By</th>
+					<th>Komentar</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach ($forum as $frm)
+				<tr>
+					<td class="w-25">
+						
+						<div class="feed-element">
+							<a href="#" class="pull-left">
+							<img alt="image" class="img-circle" src="{{$frm->user->getAvatars()}}">
+							</a>
+								<h5 class="mb-4"><a href="{{route('forum-index-detail', $frm->id)}}" class="text-dark">{{$frm->judul}}</a></h5>
+								<div class="">
+									{{Str::limit($frm->konten, 50, '...')}}
+								</div>
+						</div>
 
-		@foreach ($forum as $frm)
-			<div class="feed-element">
+					</td>
+					<td>{{$frm->created_at->diffForHumans()}}</td>
+					<td>By {{$frm->user->name}}</td>
+					<td>{{$frm->komentar()->count()}} Komentar</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+			{{-- <div class="feed-element">
 					<a href="#" class="pull-left">
 					<img alt="image" class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png">
 					</a>
@@ -20,18 +56,16 @@
 										{{$frm->konten}}
 									</div>
 									<div class="pull-right">
-											{{-- <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a> --}}
+											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
 											<a href="{{route('forum-index-detail', $frm->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Baca</a>
 									</div>
 					</div>
-			</div><!-- feed-element-->
-		@endforeach
-
-	</div><!--feed-activity-list-->
-	<div class="mt-3">
+			</div> --}}
+			<!-- feed-element-->
+	{{-- <div class="mt-3">
 		{{ $forum->links() }}
-	</div>
+	</div> --}}
 </div>
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use File;
 
 class ProfileController extends Controller
 {
@@ -17,6 +18,27 @@ class ProfileController extends Controller
         $user = Auth::user();
         $forum = \App\Forum::where('user_id', Auth::user()->id)->get();
         return view('dashboard.profile', compact('user', 'forum'));
+    }
+
+    public function updateUser(Request $request){
+        $id = Auth::user()->id;
+        $user = \App\User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->telepon = $request->telepon;
+        $user->alamat = $request->alamat;
+
+        if($request->hasFile('avatar')){
+            $request->file('avatar')->move('images/profile/', $request->file('avatar')->getClientOriginalName());
+            $user->avatar = $request->file('avatar')->getClientOriginalName();
+            File::delete('images/tanaman/'.$request->oldimg);
+            // $tanaman->save();
+        }
+
+        $user->save();
+
+        toast('Profil Berhasil di Update', 'success');
+        return redirect()->back();
     }
 
     /**

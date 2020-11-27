@@ -36,11 +36,49 @@
   </div>
 
   <div class="py-4 px-4">
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <div class="collapsing" id="collapseExample">
-          <div class="card card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-          </div>
+      <div class="d-flex justify-content-between mb-3">
+        <div class="collapse col-lg-12" id="collapseExample">
+          {{-- <div class="card card-body"> --}}
+            <form action="{{route('dashboard-profile-update')}}" method="POST" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="form-row">
+                <div class="form-group col-lg-6">
+                  <label>Nama</label>
+                  <input type="text" name="name" class="form-control" value="{{$user->name}}">
+                </div>
+                <div class="form-group col-lg-6">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" value="{{$user->email}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Avatar</label>
+                <div class="mb-2">
+                  <a data-toggle="collapse" href="#avatar" role="button"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i></a>
+                </div>
+                <div class="collapse" id="avatar">
+                  <img class="img-thumbnail w-25" src="{{$user->getAvatars()}}" alt="">
+                </div>
+                <input name="oldimg" type="text" class="form-control d-none" placeholder="Nama Tanaman" value="{{$user->avatar}}">
+
+                <input type="file" name="avatar" class="form-control-file">
+                
+              </div>
+              <div class="form-group">
+                <label>Telepon</label>
+                <input type="number" name="telepon" class="form-control" value="{{$user->telepon}}">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <textarea type="text" name="alamat" class="form-control" rows="5">{{$user->alamat}}</textarea>
+              </div>
+              <div class="row">
+                <div class="col text-right">
+                  <button type="submit" class="btn btn-warning">Update</button>
+                </div>
+              </div>
+            </form>
+          {{-- </div> --}}
         </div>
           {{-- <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a> --}}
       </div>

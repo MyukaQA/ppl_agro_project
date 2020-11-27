@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
 
   // profile
   Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard-profile');
+  Route::post('/dashboard/profile/update', 'ProfileController@updateUser')->name('dashboard-profile-update');
 
   // kendala
   Route::get('/dashboard/kendala', 'KendalaController@kendala')->name('dashboard-kendala');

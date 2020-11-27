@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role','name', 'email', 'password',
+        'role','name', 'avatar', 'email', 'password',
     ];
 
     /**
@@ -36,6 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatars(){
+        if(!$this->avatar){
+            return asset('images/profile/default.png');
+        }
+
+        return asset('images/profile/'.$this->avatar);
+    }
 
     public function forum(){
         return $this->hasMany(Forum::class);

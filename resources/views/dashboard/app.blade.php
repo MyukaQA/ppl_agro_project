@@ -25,7 +25,7 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
-    <div class="media d-flex align-items-center"><img src="" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+    <div class="media d-flex align-items-center"><img src="{{Auth::user()->getAvatars()}}" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">{{Auth::user()->name}}</h4>
         <p class="font-weight-light text-muted mb-0"><a class="font-italic text-dark" href="/">Landing Page</a></p>

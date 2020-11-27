@@ -5,23 +5,22 @@
     transform: translateY(5rem);
   }
 </style>
-<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
-<div class="row">
-  <div class="col-lg-6">
-    <h3>Profile</h3>
-  </div>
-</div><hr>
-
 <!-- Profile widget -->
 <div class="bg-white shadow rounded overflow-hidden">
+  
   <div class="px-4 pt-0 pb-4 bg-dark">
-      <div class="media align-items-end profile-header">
-          <div class="profile mr-3"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit Profil</a></div>
-          <div class="media-body mb-5 text-white">
-              <h4 class="mt-0 mb-0">{{$user->name}}</h4>
-              <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>San Farcisco</p>
-          </div>
+    <div class="row pt-3 pl-3">
+      <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+    </div>
+    <div class="media align-items-end profile-header">
+      <div class="profile mr-3"><img src="{{$user->getAvatars()}}" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+        <a class="btn btn-dark btn-sm btn-block" data-toggle="collapse" href="#collapseExample" role="button">Edit Profil</a>
       </div>
+      <div class="media-body mb-5 text-white">
+          <h4 class="mt-0 mb-0">{{$user->name}}</h4>
+          <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>San Farcisco</p>
+      </div>
+    </div>
   </div>
 
   <div class="bg-light p-4 d-flex justify-content-end text-center">
@@ -33,10 +32,16 @@
               <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Followers</small>
           </li>
       </ul> --}}
+      
   </div>
 
   <div class="py-4 px-4">
       <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="collapsing" id="collapseExample">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
           {{-- <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a> --}}
       </div>
       <div class="row">

@@ -22,7 +22,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col-lg-6">
-        {{$jadwal->tanaman->title}}
+        {{$jadwal->tanaman->title}} 
       </div>
       <div class="col-lg-6 text-right">
         <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash fa-fw"></i></a>

@@ -7,6 +7,7 @@ use App\Tanaman;
 use Illuminate\Http\Request;
 use Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PenjadwalanController extends Controller
 {
@@ -18,7 +19,7 @@ class PenjadwalanController extends Controller
     public function index()
     {
 
-        $event = Penjadwalan::all();
+        $event = Penjadwalan::where('user_id', Auth::user()->id)->get(); 
         $tanaman = Tanaman::all();
 
         return response()->view('dashboard.penjadwalan', compact('event', 'tanaman'));
@@ -44,7 +45,8 @@ class PenjadwalanController extends Controller
     {
 
 
-        $jadwal = new Penjadwalan; 
+        $jadwal = new Penjadwalan;
+        $jadwal->user_id = Auth::user()->id; 
         $jadwal->tanaman_id = $request->title;
         $jadwal->start_date = Carbon::now();
 

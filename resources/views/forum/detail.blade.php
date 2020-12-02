@@ -23,7 +23,9 @@
                             <i class="fa fa-calendar-o"></i> <a href="#">{{$forum->created_at->diffForHumans()}}</a>
                         </li>
                         <li class="list-inline-item">
-                            <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
+                            
+                            <i class="fa fa-tags"></i> <a href="#">{{$forum->kategori->nama}}</a>
+                            
                         </li>
                     </ul>
                     <p>{{$forum->konten}}</p>

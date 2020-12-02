@@ -57,6 +57,12 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
 
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+  
+  Route::get('/dashboard/forum/marketing', 'ForumController@chooseMarketing')->name('forum-choose-marketing');
+  Route::get('/dashboard/forum/tanaman', 'ForumController@choosetanaman')->name('forum-choose-tanaman');
+  Route::get('/dashboard/forum/hama', 'ForumController@chooseHama')->name('forum-choose-hama');
+
+
   Route::post('/dashboard/forum/create', 'ForumController@store')->name('forum-create');
   Route::post('/dashboard/forum', 'ForumController@index')->name('forum-ajukan-kendala');
   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');

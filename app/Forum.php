@@ -17,6 +17,9 @@ class Forum extends Model
 
         return asset('images/forum/'.$this->images);
     }
+    public function kategori(){
+        return $this->belongsTo(Kategori::class);
+    }
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -25,4 +28,5 @@ class Forum extends Model
     public function komentar(){
         return $this->hasMany(Komentar::class);
     }
+
 }

@@ -8,6 +8,8 @@ use App\Komentar;
 use Illuminate\Http\Request;
 use Validator;
 use Alert;
+use App\Kategori;
+
 class ForumController extends Controller
 {
     /**
@@ -17,13 +19,31 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $forum = Forum::orderBy('created_at', 'desc')->get();
-        return view('forum.index', compact('forum'));
+        $forum = Forum::all();
+        $kategoris = Kategori::all();
+        return view('forum.index', compact('forum', 'kategoris'));
     }
 
-    public function ajukan()
+    public function chooseMarketing()
     {
-        
+        $forums = Forum::all();
+        $forum = Forum::where('kategori_id', 1)->get();
+        $kategoris = Kategori::all();
+        return view('forum.index', compact('forum', 'kategoris'));
+    }
+
+    public function chooseTanaman()
+    {
+        $forum = Forum::where('kategori_id', 2)->get();
+        $kategoris = Kategori::all();
+        return view('forum.index', compact('forum', 'kategoris'));
+    }
+
+    public function chooseHama()
+    {
+        $forum = Forum::where('kategori_id', 3)->get();
+        $kategoris = Kategori::all();
+        return view('forum.index', compact('forum', 'kategoris'));
     }
 
     public function detail(Forum $forum)
@@ -82,6 +102,7 @@ class ForumController extends Controller
 
         $forum = new Forum;
         $forum->user_id = auth()->user()->id;
+        $forum->kategori_id = $request->kategori;
         $forum->judul = $request->judul;
         $forum->slug = Str::slug($request->judul);
         $forum->konten = $request->konten;
@@ -91,6 +112,8 @@ class ForumController extends Controller
             $forum->images = $request->file('images')->getClientOriginalName();
         }
         $forum->save();
+
+        // $forum->kategoris()->sync($request->kategori);
 
         toast('Forum Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect()->back();

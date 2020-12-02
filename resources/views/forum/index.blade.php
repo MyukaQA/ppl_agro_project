@@ -2,7 +2,25 @@
 @section('content')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="panel-heading text-right"><a class="btn btn-primary text-white" data-toggle="modal" data-target="#exampleModal">Tambah Topik</a></div>
+<div class="container-fluid py-3">
+	<div class="row">
+		<div class="col-lg-6">
+			
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<a href="{{route('forum-index')}}" class="btn btn-outline-secondary">All</a>
+				<a href="{{route('forum-choose-marketing')}}" class="btn btn-outline-secondary">Marketing</a>
+				<a href="{{route('forum-choose-tanaman')}}" class="btn btn-outline-secondary">Tanaman</a>
+				<a href="{{route('forum-choose-hama')}}" class="btn btn-outline-secondary">Hama</a>
+			</div>
+
+		</div>
+
+		<div class="col-lg-6">
+			<div class="text-right"><a class="btn btn-primary text-white" data-toggle="modal" data-target="#exampleModal">Tambah Topik</a></div>
+		</div>
+	</div>
+</div>
+
 <div class="container-fluid">
 	
 	<div class="table-responsive table-hover">
@@ -26,7 +44,10 @@
 							</a>
 								<h5 class="mb-4"><a href="{{route('forum-index-detail', $frm->id)}}" class="text-dark">{{$frm->judul}}</a></h5>
 								<div class="">
-									{{Str::limit($frm->konten, 50, '...')}}
+									{{Str::limit($frm->konten, 50, '...')}} 
+									{{-- @foreach ($frm->kategoris as $item) --}}
+										<span class="badge badge-success">{{$frm->kategori->nama}}</span>
+									{{-- @endforeach --}}
 								</div>
 						</div>
 
@@ -85,6 +106,15 @@
 					<div class="form-group">
 						<label for="exampleFormControlInput1">Judul</label>
 						<input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Topik">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Kategori</label>
+						<select class="form-control" name="kategori">
+							@foreach ($kategoris as $item)
+								<option value="{{$item->id}}">{{$item->nama}}</option>
+							@endforeach
+						</select>
 					</div>
 
 					<div class="form-group">

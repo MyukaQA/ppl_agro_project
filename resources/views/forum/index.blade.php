@@ -7,7 +7,7 @@
 		<div class="col-lg-6">
 			
 			<div class="btn-group" role="group" aria-label="Basic example">
-				<a href="{{route('forum-index')}}" class="btn btn-outline-secondary">All</a>
+				<a href="{{route('forum-index')}}" class="btn btn-outline-secondary">Semua</a>
 				<a href="{{route('forum-choose-marketing')}}" class="btn btn-outline-secondary">Marketing</a>
 				<a href="{{route('forum-choose-tanaman')}}" class="btn btn-outline-secondary">Tanaman</a>
 				<a href="{{route('forum-choose-hama')}}" class="btn btn-outline-secondary">Hama</a>

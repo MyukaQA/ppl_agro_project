@@ -18,7 +18,7 @@
       </div>
       <div class="media-body mb-5 text-white">
           <h4 class="mt-0 mb-0">{{$user->name}}</h4>
-          <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>San Farcisco</p>
+          <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{$user->alamat}}</p>
       </div>
     </div>
   </div>

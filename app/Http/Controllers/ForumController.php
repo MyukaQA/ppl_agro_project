@@ -17,7 +17,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $forum = Forum::orderBy('created_at', 'desc')->paginate(2);
+        $forum = Forum::orderBy('created_at', 'desc')->get();
         return view('forum.index', compact('forum'));
     }
 

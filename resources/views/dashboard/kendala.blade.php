@@ -21,6 +21,7 @@
           <tr>
             <th>Ciri-Ciri</th>
             <th>Penanganan</th>
+            <th>aksi</th>
           </tr>
         </thead>
         <tbody>

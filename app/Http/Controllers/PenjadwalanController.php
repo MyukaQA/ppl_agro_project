@@ -18,11 +18,11 @@ class PenjadwalanController extends Controller
      */
     public function index()
     {
-
+        $eventAll = Penjadwalan::all();
         $event = Penjadwalan::where('user_id', Auth::user()->id)->get(); 
         $tanaman = Tanaman::all();
 
-        return response()->view('dashboard.penjadwalan', compact('event', 'tanaman'));
+        return response()->view('dashboard.penjadwalan', compact('eventAll', 'event', 'tanaman'));
     }
 
     /**
@@ -75,7 +75,9 @@ class PenjadwalanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jadwal = Penjadwalan::find($id);
+
+        return view('dashboard.penjadwalanedit', compact('jadwal'));
     }
 
     /**
@@ -87,7 +89,11 @@ class PenjadwalanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jadwal = Penjadwalan::find($id);
+        $jadwal->update($request->all());
+
+        toast('Berhasil di update', 'success')->autoClose(3000);
+        return redirect('dashboard/penjadwalan');
     }
 
     /**

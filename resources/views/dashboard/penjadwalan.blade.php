@@ -13,10 +13,64 @@
       <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
     </div>
   </div><hr>
-  {{-- <div id="konten-kalender" >
-    @include('dashboard.fullcalendar')
-  </div> --}} 
+
   
+
+@if (auth()->user()->role == 'admin')
+<div class="row">
+  <div class="col-lg-12 mx-auto">
+    <div class="table-responsive">
+      <table id="example" style="width:100%" class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Tanaman</th>
+            <th>user</th>
+            <th>role</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($eventAll as $jadwal)
+            <tr>
+              <td>{{$jadwal->tanaman->title}}</td>
+              <td>{{$jadwal->user->name}}</td>
+              <td>{{$jadwal->user->role}}</td>
+              <td>
+                <a href="{{route('dashboard-penjadwalan-edit', $jadwal->id)}}" class="btn btn-warning"> Edit</a>
+                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus"> Hapus</a>
+              </td>
+            </tr>
+
+            <!-- Modal hapus penjadwalan -->
+            <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h2>Yakin ingin di hapus ?</h2>
+                    <div class="row">
+                      <div class="col-lg-6 text-left">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                      <div class="col-lg-6 text-right">
+                        <a href="{{route('dashboard-penjadwalan-hapus',$jadwal->id)}}" class="btn btn-danger">Hapus</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>   
+
+
+
+@else
+
 @foreach ($event as $jadwal)
 <div class="card mb-3">
   <div class="card-header">
@@ -49,14 +103,14 @@
         </div>
       </div>
       <div class="col-lg-2 text-right">
-        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->format('j F Y') }}</p>
+        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F Y') }}</p>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->format('j F') }} 
+          {{ Carbon\Carbon::parse($jadwal->start_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} 
         </div>
       </div>
       <div class="col-lg-8">
@@ -69,7 +123,7 @@
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->format('j F') }}  
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }}  
         </div>
       </div>
       <div class="col-lg-8">
@@ -82,7 +136,7 @@
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->format('j F') }}
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }}
         </div>
       </div>
       <div class="col-lg-8">
@@ -115,6 +169,13 @@
   </div>
 </div>
 @endforeach
+
+@endif
+
+
+
+
+
 
 
 

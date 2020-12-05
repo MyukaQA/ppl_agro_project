@@ -62,8 +62,8 @@
                 <input name="oldimg" type="text" class="form-control d-none" placeholder="Nama Tanaman" value="{{$user->avatar}}">
 
                 <input type="file" name="avatar" class="form-control-file">
-                
               </div>
+              
               <div class="form-group">
                 <label>Telepon</label>
                 <input type="number" name="telepon" class="form-control" value="{{$user->telepon}}">

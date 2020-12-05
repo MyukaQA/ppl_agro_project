@@ -79,6 +79,7 @@
         {{$jadwal->tanaman->title}} 
       </div>
       <div class="col-lg-6 text-right">
+        <span><a href="{{route('dashboard-penjadwalan-detail', $jadwal->id)}}" class="text-primary font-weight-bold">Terjadi Sesuatu ?</a></span>
         <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash fa-fw"></i></a>
       </div>
     </div>

@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   // Route::get('/dashboard/penjadwalan/json', 'PenjadwalanController@list')->name('list-jadwal');
   Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');
   Route::get('dashboard/penjadwalan/edit/{id}', 'PenjadwalanController@edit')->name('dashboard-penjadwalan-edit');
+  Route::get('dashboard/penjadwalan/detail/{id}', 'PenjadwalanController@detail')->name('dashboard-penjadwalan-detail');
   Route::post('dashboard/penjadwalan/update/{id}', 'PenjadwalanController@update')->name('dashboard-penjadwalan-update');
   Route::get('dashboard/penjadwalan/delete/{id}', 'PenjadwalanController@destroy')->name('dashboard-penjadwalan-hapus');
 

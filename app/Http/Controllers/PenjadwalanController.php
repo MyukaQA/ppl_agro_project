@@ -80,6 +80,13 @@ class PenjadwalanController extends Controller
         return view('dashboard.penjadwalanedit', compact('jadwal'));
     }
 
+    public function detail($id)
+    {
+        $jadwal = Penjadwalan::find($id);
+
+        return view('dashboard.penjadwalandetail', compact('jadwal'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -206,7 +206,8 @@ class KendalaController extends Controller
     public function updatekendala(Request $request, $id){
         $kendala = Kendala::find($id);
         $kendala->update($request->all());
-        
+                
+        toast('Berhasil Diupdate','success')->autoClose(3000);
         return redirect('dashboard/kendala');
     }
 

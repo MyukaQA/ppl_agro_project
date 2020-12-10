@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use App\Forum;
 use App\Komentar;
 use Illuminate\Http\Request;
+use File;
 use Validator;
 use Alert;
 use App\Kategori;
@@ -22,6 +23,12 @@ class ForumController extends Controller
         $forum = Forum::all();
         $kategoris = Kategori::all();
         return view('forum.index', compact('forum', 'kategoris'));
+    }
+
+    public function listforum(){
+        $forum = Forum::all();
+        $kategoris = Kategori::all();
+        return view('forum.list', compact('forum', 'kategoris'));
     }
 
     public function chooseMarketing()
@@ -117,6 +124,14 @@ class ForumController extends Controller
 
         toast('Forum Berhasil Ditambahkan','success')->autoClose(3000);
         return redirect()->back();
+    }
+
+    public function hapusforum($id){
+        $forum = Forum::find($id);
+        $forum->delete($forum);
+        File::delete('images/forum/'.$forum->images);
+
+        return redirect('dashboard/forum');
     }
 
     /**

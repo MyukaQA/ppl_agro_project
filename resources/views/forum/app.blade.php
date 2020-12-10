@@ -28,10 +28,21 @@
           <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
         </li>
 
+        <!-- @yield('navbar') -->
+          @if (auth()->user()->role == 'admin')
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{{route('forum-list')}}">List Topik</a>
+            </li>
+          @else
+            <li class="nav-item active justify-content-end">
+                <a href="" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
+            </li>
+          @endif
 
-        <li class="nav-item active justify-content-end">
+
+        <!-- <li class="nav-item active justify-content-end">
           <a href="" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
-        </li>
+        </li> -->
 
 
       </ul>

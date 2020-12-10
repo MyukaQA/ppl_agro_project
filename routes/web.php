@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
 
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+  Route::get('/dashboard/list', 'ForumController@listforum')->name('forum-list');
   
   Route::get('/dashboard/forum/marketing', 'ForumController@chooseMarketing')->name('forum-choose-marketing');
   Route::get('/dashboard/forum/tanaman', 'ForumController@choosetanaman')->name('forum-choose-tanaman');
@@ -70,6 +71,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::post('/dashboard/forum', 'ForumController@index')->name('forum-ajukan-kendala');
   Route::get('/dashboard/forum/detail/{forum}', 'ForumController@detail')->name('forum-index-detail');
   Route::post('/dashboard/forum/detail/{forum}', 'ForumController@postKomentar')->name('forum-index-detail');
+  Route::get('/dashboard/forum/hapus/{id}', 'ForumController@hapusforum')->name('hapus-forum');
 });
  
 

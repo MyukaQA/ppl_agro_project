@@ -187,6 +187,16 @@ class KendalaController extends Controller
     // } 
 
     public function create(Request $request){
+        $validator = Validator::make($request->all(),[
+            'ciri2' => 'required|min:7',
+            'penanganan' => 'required|min:14'            
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+        
         $kendala = New Kendala;
         $kendala->ciri2 = $request->ciri2;
         $kendala->penanganan = $request->penanganan;

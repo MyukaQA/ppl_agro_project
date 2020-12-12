@@ -26,7 +26,7 @@ class PenjadwalanController extends Controller
         return response()->view('dashboard.penjadwalan', compact('eventAll', 'event', 'tanaman'));
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -98,11 +98,22 @@ class PenjadwalanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(),[
+            'plus_date_semai' => 'numeric|gt:-1|nullable',
+            'plus_date_pindah_tanam' => 'numeric|gt:-1|nullable',
+            'plus_date_penjadwalan' => 'numeric|gt:-1|nullable'
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+
         $jadwal = Penjadwalan::find($id);
         $jadwal->update($request->all());
 
         toast('Berhasil di update', 'success')->autoClose(3000);
-        return redirect('dashboard/penjadwalan');
+        return redirect()->back();
     }
 
     /**
@@ -115,6 +126,9 @@ class PenjadwalanController extends Controller
     {
         $jadwal = Penjadwalan::find($id);
         $jadwal->delete($jadwal);
+
+        $catatan = CatatanJadwal::where('penjadwalan_id', $id);
+        $catatan->delete($catatan);
 
         toast('Berhasil Dihapus','success')->autoClose(3000);
         return redirect()->back();

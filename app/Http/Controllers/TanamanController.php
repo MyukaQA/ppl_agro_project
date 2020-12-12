@@ -17,13 +17,13 @@ class TanamanController extends Controller
 
     public function create(Request $request){
         $validator = Validator::make($request->all(),[
-            'title' => 'required|min:7',
+            'title' => 'required|min:7', 
             'content' => 'required|min:14',
-            'tds_nutrisi' => 'required|min:1',
-            'ph' => 'required|min:1',
-            'semai' => 'required|min:1',
-            'pindah_tanam' => 'required|min:1',
-            'pemeliharaan' => 'required|min:1'
+            'tds_nutrisi' => 'required|numeric|gt:-1|max:31',
+            'ph' => 'required|numeric|gt:-1|max:31',
+            'semai' => 'required|numeric|gt:-1|max:31',
+            'pindah_tanam' => 'required|numeric|gt:-1|max:31',
+            'pemeliharaan' => 'required|numeric|gt:-1|max:31'
         ]);
 
         if ($validator->fails()){
@@ -61,6 +61,21 @@ class TanamanController extends Controller
     }
 
     public function updatetanaman(Request $request, $id){
+        $validator = Validator::make($request->all(),[
+            'title' => 'required|min:7', 
+            'content' => 'required|min:14',
+            'tds_nutrisi' => 'required|numeric|gt:-1|max:31',
+            'ph' => 'required|numeric|gt:-1|max:31',
+            'semai' => 'required|numeric|gt:-1|max:31',
+            'pindah_tanam' => 'required|numeric|gt:-1|max:31',
+            'pemeliharaan' => 'required|numeric|gt:-1|max:31'
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+
         $tanaman = Tanaman::find($id);
         $request->request->add(['panen' => 1]);
         $tanaman->update($request->all());

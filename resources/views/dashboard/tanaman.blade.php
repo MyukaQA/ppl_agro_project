@@ -84,10 +84,10 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Tanaman</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -95,41 +95,48 @@
       <div class="modal-body">
         <form action="{{route('create-tanaman')}}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
-          <div class="form-group">
-            <label>Tanaman</label>
-            <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
-          </div>
-        
+          
           <div class="form-group">
             <label>Images</label>
             <input name="images" type="file" class="form-control-file" aria-describedby="emailHelp" placeholder="Nama Tanaman">
           </div>
+
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+              <label>Tanaman</label>
+              <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nama Tanaman">
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Nutrisi</label>
+              <input name="tds_nutrisi" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+            </div>
+          </div>
           
-          <div class="form-group">
-            <label>Nutrisi</label>
-            <input name="tds_nutrisi" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Nutrisi Tanaman">
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+              <label>Ph</label>
+              <input name="ph" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Semai</label>
+              <input name="semai" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Semai">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+              <label>Pindah Tanam</label>
+              <input name="pindah_tanam" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pindah Tanam">
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Pemeliharaan</label>
+              <input name="pemeliharaan" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pemeliharaan">
+            </div>
           </div>
         
-          <div class="form-group">
-            <label>Ph</label>
-            <input name="ph" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Ph Tanaman">
-          </div>
-
-          <div class="form-group">
-            <label>Semai</label>
-            <input name="semai" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Semai">
-          </div>
-
-          <div class="form-group">
-            <label>Pindah Tanam</label>
-            <input name="pindah_tanam" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pindah Tanam">
-          </div>
-        
-          <div class="form-group">
-            <label>Pemeliharaan</label>
-            <input name="pemeliharaan" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Hari Pemeliharaan">
-          </div>
-
           <div class="form-group">
             <label>konten</label>
             <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman"></textarea>

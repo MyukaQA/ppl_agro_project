@@ -105,7 +105,7 @@
         {{$jadwal->tanaman->title}} 
       </div>
       <div class="col-lg-6 text-right">
-        <a href="" class="" data-toggle="modal" data-target="#allcatatan">Lihat Catatan</a> 
+        <a href="" class="" data-toggle="modal" data-target="#allcatatan">Lihat Catatan</a><span class="badge badge-danger">{{$catatan->count()}}</span> 
       </div>
     </div>
   </div>

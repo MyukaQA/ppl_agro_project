@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CatatanJadwal;
 use Illuminate\Http\Request;
-
+use Validator;
 class CatatanJadwalController extends Controller
 {
     /**
@@ -14,8 +14,6 @@ class CatatanJadwalController extends Controller
      */
     public function index()
     {
-        $catatan = \App\CatatanJadwal::where('penjadwalan_id', 1 )->get();
-        return view("dashboard.penjadwalandetail", compact('catatan'));
     }
 
     /**
@@ -36,6 +34,15 @@ class CatatanJadwalController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'catatan' => 'required|min:3',
+        ]);
+
+        if ($validator->fails()){
+            toast($validator->messages()->all()[0],'error')->autoClose(3000);
+            return back();
+        }
+
         $catatan = new CatatanJadwal;
         $catatan->penjadwalan_id = $request->penjadwalan_id;
         $catatan->catatan = $request->catatan;

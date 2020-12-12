@@ -55,7 +55,7 @@ class PengajuanController extends Controller
         }
 
         $pengajuan = new Pengajuan;
-        $pengajuan->user_id = auth()->user()->name;
+        $pengajuan->user_id = auth()->user()->id;
         $pengajuan->judul = $request->judul;
         $pengajuan->deskripsi = $request->deskripsi;
         $pengajuan->solusi = $request->solusi;

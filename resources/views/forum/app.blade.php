@@ -35,7 +35,7 @@
             </li>
           @else
             <li class="nav-item active justify-content-end">
-                <a href="" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
+                <a style="cursor: pointer" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
             </li>
           @endif
 
@@ -88,11 +88,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('forum-ajukan-kendala')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('ajukan-kendala')}}" method="POST" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label for="exampleFormControlInput1">Judul</label>
-						<input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Topik" required>
+						<input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul" required>
 					</div>
 					
 					<div class="form-group">

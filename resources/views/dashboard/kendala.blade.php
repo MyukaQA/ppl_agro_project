@@ -10,9 +10,14 @@
     <div class="col-lg-6 text-right">
       <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal">Tambah Data Kendala</button>
     </div>
+  @else
+  <div class="col-lg-6 text-right">
+    <a href="{{route('dashboard-data-pengajuan')}}"><button type="button" class="btn btn-primary btn-md">Pengajuan Kendala</button></a>
+  </div>
   @endif
 </div><hr>
 @if (auth()->user()->role == 'admin')
+<!-- Tabel Data Kendala -->
 <div class="row">
   <div class="col-lg-12 mx-auto">
     <div class="table-responsive">
@@ -39,7 +44,45 @@
       </table>
     </div>
   </div>
-</div>   
+</div>
+<hr>
+<!-- Tabel Data Pengajuan Kendala -->
+<div class="row">
+  <div class="col-lg-6">
+    <h3>Data Pengajuan Kendala</h3>
+  </div>
+</div><hr>
+<div class="row">
+  <div class="col-lg-12 mx-auto">
+    <div class="table-responsive">
+      <table id="example1" style="width:100%" class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Judul</th>            
+            <th>Deskripsi</th>
+            <th>Solusi</th>
+            <th>User</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach ($pengajuan as $pgj)          
+            <tr>
+              <td>{{$pgj->judul}}</td>          
+              <td>{{$pgj->deskripsi}}</td>        
+              <td>{{$pgj->solusi}}</td>
+              <td>{{$pgj->user->name}}</td>      
+              <td>
+                <a href="" class="btn btn-warning"> Terima</a>
+                <a href="" class="btn btn-danger"> Tidak</a>
+              </td>
+            </tr>
+        @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 @else
 <section>

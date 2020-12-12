@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kendala;
 use App\ValidasiKendala;
+use App\Pengajuan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Validator;
@@ -13,7 +14,8 @@ class KendalaController extends Controller
     //
     public function kendala(){
         $data = \App\Kendala::all();
-        return view('dashboard.kendala', ['data' => $data]);
+        $pengajuan = \App\Pengajuan::all();
+        return view('dashboard.kendala', compact('data', 'pengajuan'));
     }
 
     public function validasi(Request $request){

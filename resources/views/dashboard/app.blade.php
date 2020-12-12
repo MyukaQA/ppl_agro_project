@@ -167,7 +167,7 @@
     // untuk datatable
     $(function() {
       $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example, #example1').DataTable();
       });
     });
 

@@ -56,8 +56,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   
   //catatan penjadwalan
   Route::post('/dashboard/penjadwalan/catatan/create', 'CatatanJadwalController@store')->name('catatan-penjadwalan-store');
-  Route::get('dashboard/penjadwalan/edit/{id}', 'CatatanJadwalController@index')->name('dashboard-penjadwalan-edit');
-
+  
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
   Route::get('/dashboard/list', 'ForumController@listforum')->name('forum-list');

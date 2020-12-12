@@ -9,9 +9,11 @@
     <div class="col-lg-4">
       <h4>Tanggal {{Carbon\Carbon::now()->format('j F Y')}}</h4>
     </div>
-    <div class="col-lg-4 text-right">
-      <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
-    </div>
+    @if (auth()->user()->role == 'users')
+      <div class="col-lg-4 text-right">
+        <button id="btn-jadwal" class="btn btn-primary btn-md" data-toggle="modal" data-target="#fullcalendar">Tambah Penjadwalan</button>
+      </div>
+    @endif
   </div><hr>
 
   
@@ -36,8 +38,8 @@
               <td>{{$jadwal->user->name}}</td>
               <td>{{$jadwal->user->role}}</td>
               <td>
-                <a href="{{route('dashboard-penjadwalan-edit', $jadwal->id)}}" class="btn btn-warning"> Edit</a>
-                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus"> Hapus</a>
+                <a href="{{route('dashboard-penjadwalan-edit', $jadwal->id)}}" class="btn btn-warning"> Detail</a>
+                {{-- <a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus"> Hapus</a> --}}
               </td>
             </tr>
 
@@ -66,7 +68,6 @@
     </div>
   </div>
 </div>   
-
 
 
 @else

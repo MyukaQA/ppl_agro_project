@@ -77,8 +77,9 @@ class PenjadwalanController extends Controller
     public function edit($id)
     {
         $jadwal = Penjadwalan::find($id);
+        $catatan = CatatanJadwal::where('penjadwalan_id', $id)->get();
 
-        return view('dashboard.penjadwalanedit', compact('jadwal'));
+        return view('dashboard.penjadwalanedit', compact('jadwal', 'catatan'));
     }
 
     public function detail($id)

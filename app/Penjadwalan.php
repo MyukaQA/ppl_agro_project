@@ -15,4 +15,8 @@ class Penjadwalan extends Model
     public function tanaman(){
         return $this->belongsTo(Tanaman::class); 
     }
+
+    public function catatan(){
+        return $this->hasMany(CatatanJadwal::class); 
+    }
 }

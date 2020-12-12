@@ -18,8 +18,9 @@ class CreatePenjadwalansTable extends Migration
             $table->integer('user_id');
             $table->integer('tanaman_id');
             $table->date('start_date');
-            $table->integer('plus_date')->default(0);
-            $table->integer('minus_date')->default(0);
+            $table->integer('plus_date_semai')->default(0);
+            $table->integer('plus_date_pindah_tanam')->default(0);
+            $table->integer('plus_date_penjadwalan')->default(0);
             $table->timestamps();
         });
     }

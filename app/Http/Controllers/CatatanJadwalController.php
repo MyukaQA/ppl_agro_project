@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\CatatanJadwal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use File;
-use Validator;
-class ProfileController extends Controller
+
+class CatatanJadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,41 +14,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $forum = \App\Forum::where('user_id', Auth::user()->id)->get();
-        return view('dashboard.profile', compact('user', 'forum'));
-    }
-
-    public function updateUser(Request $request){
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|min:3',
-            'email' => 'required|min:7|max:21',
-            'telepon' => 'min:10|nullable',
-            'alamat' => 'min:21|nullable',
-        ]);
-
-        if ($validator->fails()){
-            toast($validator->messages()->all()[0],'error')->autoClose(3000);
-            return back();
-        }
-
-        $id = Auth::user()->id;
-        $user = \App\User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->telepon = $request->telepon;
-        $user->alamat = $request->alamat;
-
-        if($request->hasFile('avatar')){
-            $request->file('avatar')->move('images/profile/', $request->file('avatar')->getClientOriginalName());
-            $user->avatar = $request->file('avatar')->getClientOriginalName();
-            File::delete('images/tanaman/'.$request->oldimg);
-        }
-
-        $user->save();
-
-        toast('Profil Berhasil di Update', 'success');
-        return redirect()->back();
+        $catatan = \App\CatatanJadwal::where('penjadwalan_id', 1 )->get();
+        return view("dashboard.penjadwalandetail", compact('catatan'));
     }
 
     /**
@@ -59,7 +25,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -70,7 +36,13 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $catatan = new CatatanJadwal;
+        $catatan->penjadwalan_id = $request->penjadwalan_id;
+        $catatan->catatan = $request->catatan;
+        $catatan->save();
+
+        toast('Catatan Berhasil di Tambah','success')->autoClose(3000);
+        return redirect()->back();
     }
 
     /**

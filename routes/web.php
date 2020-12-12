@@ -46,17 +46,17 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   Route::post('/dashboard/tanaman/update/{id}', 'TanamanController@updatetanaman')->name('update-tanaman');
   Route::get('/dashboard/tanaman/hapus/{id}', 'TanamanController@hapustanaman')->name('hapus-tanaman');
 
-  // Penjadwalan
-  // Route::get('/dashboard/penjadwalan', function () {
-  //     return view('dashboard.penjadwalan');
-  // });
+  //penjadwalan
   Route::get('dashboard/penjadwalan', 'PenjadwalanController@index')->name('dashboard-penjadwalan');
-  // Route::get('/dashboard/penjadwalan/json', 'PenjadwalanController@list')->name('list-jadwal');
   Route::post('/dashboard/penjadwalan/create', 'PenjadwalanController@store')->name('dashboard-penjadwalan-store');
   Route::get('dashboard/penjadwalan/edit/{id}', 'PenjadwalanController@edit')->name('dashboard-penjadwalan-edit');
   Route::get('dashboard/penjadwalan/detail/{id}', 'PenjadwalanController@detail')->name('dashboard-penjadwalan-detail');
   Route::post('dashboard/penjadwalan/update/{id}', 'PenjadwalanController@update')->name('dashboard-penjadwalan-update');
   Route::get('dashboard/penjadwalan/delete/{id}', 'PenjadwalanController@destroy')->name('dashboard-penjadwalan-hapus');
+  
+  //catatan penjadwalan
+  Route::post('/dashboard/penjadwalan/catatan/create', 'CatatanJadwalController@store')->name('catatan-penjadwalan-store');
+  Route::get('dashboard/penjadwalan/edit/{id}', 'CatatanJadwalController@index')->name('dashboard-penjadwalan-edit');
 
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');

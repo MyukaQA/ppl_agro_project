@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CatatanJadwal;
 use App\Penjadwalan;
 use App\Tanaman;
 use Illuminate\Http\Request;
@@ -83,8 +84,9 @@ class PenjadwalanController extends Controller
     public function detail($id)
     {
         $jadwal = Penjadwalan::find($id);
+        $catatan = CatatanJadwal::where('penjadwalan_id', $id)->get();
 
-        return view('dashboard.penjadwalandetail', compact('jadwal'));
+        return view('dashboard.penjadwalandetail', compact('jadwal', 'catatan'));
     }
 
     /**

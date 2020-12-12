@@ -15,48 +15,84 @@
 </div><hr>
 
 <div class="row mt-2">
-  <div class="col-lg-6">
-    <a class="btn btn-outline-primary w-100" data-toggle="collapse" href="#buruk" role="button">Hal Buruk ?</a>
+  <div class="col-lg-7">
+    <a class="btn btn-outline-primary w-100" data-toggle="collapse" href="#jadwal" role="button">Perubahan Jadwal</a>
   </div>
-  
-  <div class="col-lg-6">
-    <a class="btn btn-outline-primary w-100" data-toggle="collapse" href="#baik" role="button">Hal Baik ?</a>
+
+  <div class="col-lg-5">
+    <a class="btn btn-outline-primary w-100" data-toggle="collapse" href="#catatan" role="button">Tambah Catatan</a>
   </div>
+
 </div>
 <div class="row">
-  <div class="col-lg-6 mb-3">
-    <div class="collapse multi-collapse" id="buruk">
+  <div class="col-lg-7 mb-3">
+    <div class="collapse multi-collapse" id="jadwal">
       <div class="card card-body">
-        Semoga hal buruk yang menimpa tanaman {{$jadwal->tanaman->title}} Anda cepat terselesaikan, 
-        jika penjadwalan Anda terganggu, anda bisa menambah hari agar penjadwalan anda tetap terjaga
-         <form action="{{route('dashboard-penjadwalan-update', $jadwal->id)}}" method="POST">
+        
+        <form action="{{route('dashboard-penjadwalan-update', $jadwal->id)}}" method="POST">
           {{ csrf_field() }}
-          <div class="input-group mt-2">
-            <input name="plus_date" type="number" class="form-control" value="{{$jadwal->plus_date}}">
-            <div class="input-group-append">
-              <span class="input-group-text">hari</span>
-              <button class="btn btn-outline-primary" type="submit">Submit</button>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label >Semai</label>
+              <input name="plus_date_semai" type="number" class="form-control" value="{{$jadwal->plus_date_semai}}">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Pindah Tanam</label>
+              <input name="plus_date_pindah_tanam" type="number" class="form-control" value="{{$jadwal->plus_date_pindah_tanam}}">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Penjadwalan</label>
+              <input name="plus_date_penjadwalan" type="number" class="form-control" value="{{$jadwal->plus_date_penjadwalan}}">
             </div>
           </div>
-         </form>
+
+          <button class="btn btn-outline-primary" type="submit">Tambah Jadwal</button>
+        </form>
+
       </div>
     </div>
   </div>
-  <div class="col-lg-6 mb-3">
-    <div class="collapse multi-collapse" id="baik">
+
+  <div class="col-lg-5 mb-3">
+    <div class="collapse multi-collapse" id="catatan">
       <div class="card card-body">
-        Waw tanaman {{$jadwal->tanaman->title}} Anda sudah terawat dengan baik 
-        jika penjadwalan Anda ingin dipercepat, anda bisa mengurangi hari agar penjadwalan anda tetap terjaga
-         <form action="{{route('dashboard-penjadwalan-update', $jadwal->id)}}" method="POST">
+        
+        <form action="{{route('catatan-penjadwalan-store')}}" method="POST">
           {{ csrf_field() }}
-          <div class="input-group mt-2">
-            <input name="minus_date" type="number" class="form-control" value="{{$jadwal->minus_date}}">
-            <div class="input-group-append">
-              <span class="input-group-text">hari</span>
-              <button class="btn btn-outline-primary" type="submit">Submit</button>
-            </div>
+          <div class="form-group">
+            <input name="penjadwalan_id" type="number" class="form-control d-none" value="{{$jadwal->id}}">
+            <textarea name="catatan" class="form-control" rows="2" placeholder="Catat Apa yang terjadi hari ini"></textarea>
           </div>
-         </form>
+          <button class="btn btn-outline-primary" type="submit">Tambah Catatan</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal untuk melihat catatan -->
+<div class="modal fade" id="allcatatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Catatan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @foreach ($catatan as $item)
+        <div class="card text-white bg-dark mb-3">
+          <div class="card-body">
+            <p class="card-text">{{$item->catatan}}</p>
+          </div>
+          <div class="card-header font-italic">-- {{$item->created_at->format('j F Y')}}</div>
+        </div>
+        @endforeach
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
       </div>
     </div>
   </div>
@@ -67,6 +103,9 @@
     <div class="row">
       <div class="col-lg-6">
         {{$jadwal->tanaman->title}} 
+      </div>
+      <div class="col-lg-6 text-right">
+        <a href="" class="" data-toggle="modal" data-target="#allcatatan">Lihat Catatan</a> 
       </div>
     </div>
   </div>
@@ -97,7 +136,7 @@
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} 
+          {{ Carbon\Carbon::parse($jadwal->start_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date_semai)->format('j F') }} 
         </div>
       </div>
       <div class="col-lg-8">
@@ -110,7 +149,7 @@
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }}  
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->plus_date_semai)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date_semai)->addDays($jadwal->plus_date_pindah_tanam)->format('j F') }}  
         </div>
       </div>
       <div class="col-lg-8">
@@ -123,7 +162,7 @@
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card p-2 font-weight-bold">
-          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F') }}
+          {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->plus_date_semai)->addDays($jadwal->plus_date_pindah_tanam)->format('j F') }} Sampai {{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date_semai)->addDays($jadwal->plus_date_pindah_tanam)->addDays($jadwal->plus_date_penjadwalan)->format('j F') }}
         </div>
       </div>
       <div class="col-lg-8">
@@ -137,22 +176,5 @@
   </div>
 </div>
 
-<!-- Modal hapus penjadwalan -->
-<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h2>Yakin ingin di hapus ?</h2>
-        <div class="row">
-          <div class="col-lg-6 text-left">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-          <div class="col-lg-6 text-right">
-            <a href="{{route('dashboard-penjadwalan-hapus',$jadwal->id)}}" class="btn btn-danger">Hapus</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 @endsection

@@ -16,7 +16,7 @@ class CreateKendalaTable extends Migration
         Schema::create('kendala', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ciri2', 191);
-            $table->string('penanganan', 191);
+            $table->text('penanganan');
             $table->timestamps();
         });
     }

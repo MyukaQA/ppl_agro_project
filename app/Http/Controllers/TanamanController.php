@@ -19,11 +19,11 @@ class TanamanController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => 'required|min:7', 
             'content' => 'required|min:14',
-            'tds_nutrisi' => 'required|numeric|gt:-1|max:31',
-            'ph' => 'required|numeric|gt:-1|max:31',
-            'semai' => 'required|numeric|gt:-1|max:31',
-            'pindah_tanam' => 'required|numeric|gt:-1|max:31',
-            'pemeliharaan' => 'required|numeric|gt:-1|max:31'
+            'tds_nutrisi' => 'required|numeric|min:0|max:31',
+            'ph' => 'required|numeric|min:0|max:31',
+            'semai' => 'required|numeric|min:0|max:31',
+            'pindah_tanam' => 'required|numeric|min:0|max:31',
+            'pemeliharaan' => 'required|numeric|min:0|max:31'
         ]);
 
         if ($validator->fails()){
@@ -64,11 +64,11 @@ class TanamanController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => 'required|min:7', 
             'content' => 'required|min:14',
-            'tds_nutrisi' => 'required|numeric|gt:-1|max:31',
-            'ph' => 'required|numeric|gt:-1|max:31',
-            'semai' => 'required|numeric|gt:-1|max:31',
-            'pindah_tanam' => 'required|numeric|gt:-1|max:31',
-            'pemeliharaan' => 'required|numeric|gt:-1|max:31'
+            'tds_nutrisi' => 'required|numeric|min:0|max:31',
+            'ph' => 'required|numeric|min:0|max:31',
+            'semai' => 'required|numeric|min:0|max:31',
+            'pindah_tanam' => 'required|numeric|min:0|max:31',
+            'pemeliharaan' => 'required|numeric|min:0|max:31'
         ]);
 
         if ($validator->fails()){

@@ -28,7 +28,12 @@
               <td>{{$pgj->deskripsi}}</td>        
               <td>{{$pgj->solusi}}</td>
               <td>{{$pgj->user->name}}</td>      
-              <td>?????</td>
+              <!-- <td>{{$pgj->status}}</td> -->
+              <td>
+                <label class="label {{($pgj->status ==1 ) ? 'label-success' : 'label-danger' }}">
+                  {{($pgj->status ==1 ) ? 'Diterima' : 'Tidak Diterima' }}
+                </label>
+              </td>
             </tr>
         @endforeach
         </tbody>

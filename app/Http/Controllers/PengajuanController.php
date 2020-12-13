@@ -110,4 +110,25 @@ class PengajuanController extends Controller
     {
         //
     }
+
+    public function status($id){
+        $pengajuan = Pengajuan::find($id);
+        
+        $status_sekarang = $pengajuan->status;
+ 
+        if($status_sekarang == 1){
+            Pengajuan::find($id)->update([
+                'status'=>0
+            ]);
+        }else{
+            Pengajuan::find($id)->update([
+                'status'=>1
+            ]);
+        }
+        toast('Berhasil Diupdate','success')->autoClose(3000);
+ 
+        return redirect('dashboard/kendala');
+    }
+
+
 }

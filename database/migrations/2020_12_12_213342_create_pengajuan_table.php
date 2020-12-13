@@ -19,6 +19,7 @@ class CreatePengajuanTable extends Migration
             $table->string('judul', 191);
             $table->text('deskripsi');
             $table->text('solusi');
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }

@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   // pengajuan kendala
   Route::get('/dashboard/kendala/pengajuan', 'PengajuanController@pengajuan')->name('dashboard-data-pengajuan');
   Route::post('/dashboard/forum/pengajuan', 'PengajuanController@store')->name('ajukan-kendala');
+  Route::get('/dashboard/forum/pengajuan/status/{id}', 'PengajuanController@status')->name('status');
   
   // tanaman
   Route::get('/dashboard/tanaman', 'TanamanController@tanaman')->name('dashboard-tanaman');

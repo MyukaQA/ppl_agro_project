@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {  
   // dashboard
   Route::get('/dashboard', 'DashboardController@index')->name('dashboard-user');
+  Route::post('/dashboard/create', 'DashboardController@create')->name('dashboard-user-create');
+  
 
   // profile
   Route::get('/dashboard/profile', 'ProfileController@index')->name('dashboard-profile');

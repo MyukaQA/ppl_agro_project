@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->hasMany(Forum::class);
     }
 
+    public function penjadwalan(){
+        return $this->hasMany(Penjadwalan::class);
+    }
+
     public function komentar(){
         return $this->hasMany(Komentar::class);
     }

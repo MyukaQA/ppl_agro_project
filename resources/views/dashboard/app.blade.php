@@ -23,20 +23,20 @@
 </head>
 <body>
 <!-- Vertical navbar -->
-<div class="vertical-nav bg-white" id="sidebar">
-  <div class="py-4 px-3 mb-4 bg-light">
+<div class="vertical-nav bg-custom-sidebar" id="sidebar">
+  <div class="py-4 px-3 mb-4">
     <div class="media d-flex align-items-center"><img src="{{Auth::user()->getAvatars()}}" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
-        <h4 class="m-0">{{Auth::user()->name}}</h4>
-        <p class="font-weight-light text-muted mb-0"><a class="font-italic text-dark" href="/">Landing Page</a></p>
+        <h4 class="m-0 text-white">{{Auth::user()->name}}</h4>
+        <p class="font-weight-light text-muted mb-0"><a class="font-italic text-white" href="/">Landing Page</a></p>
       </div>
     </div>
   </div>
 
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Utama</p>
+  <p class="text-light font-weight-bold text-uppercase px-3 small pb-4 mb-0">Utama</p>
 
-  <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
+  <ul class="nav flex-column bg-custom-sidebar mb-0">
+    <li class="nav-item bg-custom-sidebar">
       <a href="{{route('dashboard-user')}}" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                 Dashboard
@@ -68,18 +68,7 @@
     </li>
   </ul>
 
-  {{-- <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p> --}}
-
-  {{-- <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
-      <a href="#" class="nav-link text-dark font-italic">
-                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
-                Area charts
-            </a>
-    </li>
-  </ul> --}}
-
-  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Setting</p>
+  <p class="text-light font-weight-bold text-uppercase px-3 small py-4 mb-0">Setting</p>
 
   <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">

@@ -3,7 +3,7 @@
     <h1 class="section-title">Jenis Tanaman</h1>
   </div>
 </div>
-
+ 
 <div class="row">
   <div class="col-lg-10 mx-auto">
     <!-- Accordion -->

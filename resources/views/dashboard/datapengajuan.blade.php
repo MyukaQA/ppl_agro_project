@@ -30,9 +30,9 @@
               <td>{{$pgj->user->name}}</td>      
               <!-- <td>{{$pgj->status}}</td> -->
               <td>
-                <label class="label {{($pgj->status ==1 ) ? 'label-success' : 'label-danger' }}">
-                  {{($pgj->status ==1 ) ? 'Diterima' : 'Tidak Diterima' }}
-                </label>
+                <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
+                  {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
+                </badge>
               </td>
             </tr>
         @endforeach

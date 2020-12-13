@@ -62,8 +62,8 @@ class PengajuanController extends Controller
 
         $pengajuan->save();
 
-        toast('pengajuan Berhasil Ditambahkan','success')->autoClose(3000);
-        return redirect()->back();
+        toast('Pengajuan Berhasil Diajukan','success')->autoClose(3000);
+        return redirect('dashboard/kendala/pengajuan');
     }
 
     /**

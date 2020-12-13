@@ -12,7 +12,7 @@
     </div>
   @else
   <div class="col-lg-6 text-right">
-    <a href="{{route('dashboard-data-pengajuan')}}"><button type="button" class="btn btn-primary btn-md">Pengajuan Kendala</button></a>
+    <a href="{{route('dashboard-data-pengajuan')}}"><button type="button" class="btn btn-primary btn-md">Data Pengajuan Kendala</button></a>
   </div>
   @endif
 </div><hr>
@@ -75,9 +75,9 @@
               <td>{{$pgj->user->name}}</td>
               <!-- <td>{{$pgj->status}}</td> -->
               <td>
-                <label class="label {{($pgj->status ==1 ) ? 'label-success' : 'label-danger' }}">
-                  {{($pgj->status ==1 ) ? 'Diterima' : 'Tidak Diterima' }}
-                </label>
+                <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
+                  {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
+                </badge>
               </td>      
               <td>
                 <a href="{{route('status', $pgj->id)}}" class="btn btn-warning"> Terima</a>                

@@ -71,11 +71,21 @@
                         <input name="password" type="password" class="form-control" >
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Daftar</button>
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                      <div class="col-sm-10">
+                        <input name="password_confirmation" type="password" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 text-left">
+                        <button type="submit" class="btn btn-primary">Daftar</button>
+                      </div>
+                      <div class="col-lg-6 text-right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

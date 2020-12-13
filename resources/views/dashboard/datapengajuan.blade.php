@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-        @foreach ($pengajuan as $pgj)          
+        @foreach ($ajuan as $pgj)          
             <tr>
               <td>{{$pgj->judul}}</td>          
               <td>{{$pgj->deskripsi}}</td>        

@@ -49,7 +49,7 @@
  
                     @foreach ($forum->komentar()->where('parent', 0)->orderBy('created_at', 'desc')->get() as $komentar)    
                         <div class="media">
-                            <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                            <img src="{{$komentar->user->getAvatars()}}" alt="" width="56" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                             <div class="media-body">
                                 <h5 class="mt-0 font400 clearfix">
                                     <p class="float-right">{{$komentar->created_at->diffForHumans()}}</p>
@@ -69,7 +69,7 @@
                                      
                                     @foreach ($komentar->childs()->orderBy('created_at', 'desc')->get() as $child)                                        
                                         <div class="media mb40">
-                                            <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                            <img src="{{$komentar->user->getAvatars()}}" alt="" width="56" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                                             <div class="media-body">
                                                 <h5 class="mt-0 font400 clearfix">
                                                     <p class="float-right">{{$child->created_at->diffForHumans()}}</p>
@@ -94,30 +94,6 @@
             <!--/col-->
             <div class="mb-3 w-100">
                 <a href="{{route('forum-index')}}" class="btn btn-secondary w-100">Back</a>
-            </div>
-            <!--/col-->
-            <div>
-                <h4 class="sidebar-title">Latest News</h4>
-                <ul class="list-unstyled">
-                    {{-- <li class="media">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> April 05, 2017
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> Jan 05, 2017
-                        </div>
-                    </li>
-                    <li class="media">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> March 15, 2017
-                        </div>
-                    </li> --}}
-                </ul>
             </div>
         </div>
     </div>

@@ -28,7 +28,7 @@
                             
                         </li>
                     </ul>
-                    <p>{{$forum->konten}}</p>
+                    <p>{!!$forum->konten!!}</p>
                     <hr>
                     <div class="btn-group">
                         {{-- <button class="btn btn-outline-secondary"><i class="fa fa-thumbs-up"></i> Suka</button> --}}

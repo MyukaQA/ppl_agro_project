@@ -92,10 +92,10 @@
           <h5 class="mb-3">Forumku</h5>
           @foreach ($forum as $frm)
             <div class="p-4 bg-dark rounded shadow-sm text-white mb-3">
-                <p class="font-italic mb-0">{{$frm->konten}}</p>
+                <p class="font-italic mb-0">{!!Str::limit($frm->konten, 200, '...')!!}</p>
                 <ul class="list-inline small mt-3 mb-0 ">
                     <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>{{$frm->komentar()->count()}}</li>
-                    <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>{{$frm->judul}}</li>
+                    <li class="list-inline-item">{{$frm->judul}}</li>
                 </ul>
             </div>
           @endforeach

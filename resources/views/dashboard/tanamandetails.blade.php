@@ -17,7 +17,7 @@
   </div>
   <div class="col-lg-8">
     <h1>{{$tanaman->title}}</h1>
-    <p>{{$tanaman->content}}</p>
+    <p>{!!$tanaman->content!!}</p>
   </div>
 </div>
 @endsection

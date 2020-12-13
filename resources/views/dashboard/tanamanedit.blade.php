@@ -64,7 +64,7 @@
 
     <div class="form-group">
       <label>konten</label>
-      <textarea name="content" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman">{{$tanaman->content}}</textarea>
+      <textarea name="content" id="editor" class="form-control" id="" cols="20" rows="5" placeholder="Deskripsi Tanaman">{{$tanaman->content}}</textarea>
     </div>
   
     <button type="submit" class="btn btn-primary">Submit</button>

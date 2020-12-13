@@ -21,7 +21,7 @@
 
     <div class="form-group">
       <label>Penanganan</label>
-      <textarea name="penanganan" class="form-control" id="" cols="20" rows="5" placeholder="Penanganan">{{$kendala->penanganan}}</textarea>
+      <textarea name="penanganan" id="editor" class="form-control" id="" cols="20" rows="5" placeholder="Penanganan">{{$kendala->penanganan}}</textarea>
     </div>
   
     <button type="submit" class="btn btn-primary">Submit</button>

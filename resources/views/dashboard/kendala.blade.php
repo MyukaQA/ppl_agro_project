@@ -33,7 +33,7 @@
           @foreach ($data as $kendala)
             <tr>
               <td>{{$kendala->ciri2}}</td>          
-              <td>{{$kendala->penanganan}}</td>              
+              <td>{!!$kendala->penanganan!!}</td>              
               <td>
                 <a href="{{route('edit-kendala', $kendala->id)}}" class="btn btn-warning"> Edit</a>
                 <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
@@ -168,7 +168,7 @@
 
           <div class="form-group">
             <label>Penanganan</label>
-            <textarea name="penanganan" class="form-control" id="" cols="20" rows="5" placeholder="Penanganan"></textarea>
+            <textarea name="penanganan" id="editor" class="form-control" id="" cols="20" rows="5" placeholder="Penanganan"></textarea>
           </div>        
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

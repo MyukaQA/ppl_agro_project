@@ -130,6 +130,8 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
+  {{-- untuk CKEDITOR --}}
+  <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 
   
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -167,8 +169,13 @@
       });
     });
 
-  </script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        });
 
+  </script>
 
 @include('sweetalert::alert')
 

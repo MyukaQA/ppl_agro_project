@@ -105,7 +105,7 @@
         </div>
       </div>
       <div class="col-lg-2 text-right">
-        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date)->subDays($jadwal->minus_date)->format('j F Y') }}</p>
+        <p class="card-text">{{ Carbon\Carbon::parse($jadwal->start_date)->addDays($jadwal->tanaman->semai)->addDays($jadwal->tanaman->pindah_tanam)->addDays($jadwal->tanaman->pemeliharaan)->addDays($jadwal->plus_date_semai)->addDays($jadwal->plus_date_pindah_tanam)->addDays($jadwal->plus_date_penjadwalan)->format('j F Y') }}</p>
       </div>
     </div>
 

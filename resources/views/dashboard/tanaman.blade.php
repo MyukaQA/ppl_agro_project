@@ -42,7 +42,7 @@
               <td>{{$tanaman->semai}} Hari</td>
               <td>{{$tanaman->pindah_tanam}} Hari</td>
               <td>{{$tanaman->pemeliharaan}} Hari</td>
-              <td>{!!$tanaman->content!!}</td>
+              <td>{!!Str::limit($tanaman->content, 50, '...')!!}</td>
               <td>
                 <a href="{{route('edit-tanaman', $tanaman->id)}}" class="btn btn-warning"> Edit</a>
                 <a href="{{route('hapus-tanaman', $tanaman->id)}}" class="btn btn-danger"> Hapus</a>

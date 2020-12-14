@@ -7,6 +7,9 @@
   <div class="col-lg-6">
     <h3>Data Pengajuan Kendala</h3>
   </div>
+  <div class="col-lg-6 text-right">
+    <a class="btn btn-outline-secondary" href="{{route('dashboard-kendala')}}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Kembali</a>
+  </div>
 </div><hr>
 <div class="row">
   <div class="col-lg-12 mx-auto">

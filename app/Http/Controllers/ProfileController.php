@@ -43,7 +43,9 @@ class ProfileController extends Controller
         if($request->hasFile('avatar')){
             $request->file('avatar')->move('images/profile/', $request->file('avatar')->getClientOriginalName());
             $user->avatar = $request->file('avatar')->getClientOriginalName();
-            File::delete('images/profile/'.$request->oldimg);
+            if ($request->oldimg != 'default.png'){
+                File::delete('images/profile/'.$request->oldimg);
+            }
         }
 
         $user->save();

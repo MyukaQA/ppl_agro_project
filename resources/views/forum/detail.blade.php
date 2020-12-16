@@ -93,7 +93,13 @@
 
             <!--/col-->
             <div class="mb-3 w-100">
-                <a href="{{route('forum-index')}}" class="btn btn-secondary w-100">Back</a>
+                <p class="text-muted">Aksi</p>
+                <div class="pb-2">
+                    <a href="{{route('forum-index')}}" class="btn btn-outline-secondary w-100 shadow"><i class="fa fa-share-alt" aria-hidden="true"></i> Ajukan Kendala</a>
+                </div>
+                <div class="pb-2">
+                    <a href="{{route('forum-index')}}" class="btn btn-outline-secondary w-100 shadow"><i class="fa fa-reply" aria-hidden="true"></i> Kembali</a>
+                </div>
             </div>
         </div>
     </div>

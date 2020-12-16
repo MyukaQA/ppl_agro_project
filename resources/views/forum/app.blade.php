@@ -23,7 +23,6 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
 
-
         <li class="nav-item active">
           <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
         </li>
@@ -38,13 +37,7 @@
                 <a style="cursor: pointer" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
             </li>
           @endif
-
-
-        <!-- <li class="nav-item active justify-content-end">
-          <a href="" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
-        </li> -->
-
-
+          
       </ul>
     </div>
   </nav>
@@ -76,12 +69,13 @@
       });
 
       ClassicEditor
-            .create( document.querySelector( '#editor' ),{
-              toolbar: [ 'heading', '|', 'bold', 'italic' ],
-            } )
+            .create( document.querySelector( '#editor',{
+
+            } ),{toolbar: [ 'heading', '|', 'bold', 'italic' ],})
             .catch( error => {
                 console.error( error );
             } );
+            
      
     </script> 
     @include('sweetalert::alert')

@@ -18,10 +18,15 @@ class ForumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $forum = Forum::all();
-        $kategoris = Kategori::all();
+        if ($request->has('cari')){
+            $forum = Forum::where('judul', 'LIKE', '%'.$request->cari.'%')->get();
+            $kategoris = Kategori::all();
+        }else{
+            $forum = Forum::all();
+            $kategoris = Kategori::all();
+        }
         return view('forum.index', compact('forum', 'kategoris'));
     }
 
@@ -33,7 +38,6 @@ class ForumController extends Controller
 
     public function chooseMarketing()
     {
-        $forums = Forum::all();
         $forum = Forum::where('kategori_id', 1)->get();
         $kategoris = Kategori::all();
         return view('forum.index', compact('forum', 'kategoris'));
@@ -86,7 +90,8 @@ class ForumController extends Controller
      */
     public function create()
     {
-        //
+        $kategoris = Kategori::all();
+        return view('forum.buatforum', compact('kategoris'));
     }
 
     /**
@@ -123,7 +128,7 @@ class ForumController extends Controller
         // $forum->kategoris()->sync($request->kategori);
 
         toast('Forum Berhasil Ditambahkan','success')->autoClose(3000);
-        return redirect()->back();
+        return redirect(route('forum-index'));
     }
 
     public function hapusforum($id){

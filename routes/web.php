@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,users']], function () {
   
   // forum
   Route::get('/dashboard/forum', 'ForumController@index')->name('forum-index');
+  Route::get('/dashboard/forum/create', 'ForumController@create')->name('forum-create');
   Route::get('/dashboard/list', 'ForumController@listforum')->name('forum-list');
   
   Route::get('/dashboard/forum/marketing', 'ForumController@chooseMarketing')->name('forum-choose-marketing');

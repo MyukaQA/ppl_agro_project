@@ -24,7 +24,7 @@
       <textarea name="penanganan" id="editor" class="form-control" id="" cols="20" rows="5" placeholder="Penanganan">{{$kendala->penanganan}}</textarea>
     </div>
   
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-warning">Update</button>
   </form>
       
 @endsection

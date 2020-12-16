@@ -2,13 +2,6 @@
 @section('content')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container pb50 py-5">
-    <div class="col-xs-12">
-        @if (Session::has('success'))
-            <div class="alert alert-success">{{Session::get('success')}}</div>
-        @elseif (Session::has('warning'))
-            <div class="alert alert-danger">{{toast('Success Toast','success')}}</div>
-        @endif
-    </div>
     <div class="row">
         <div class="col-md-9 mb40">
             <article>

@@ -36,10 +36,10 @@
               <td>{!!$kendala->penanganan!!}</td>              
               <td>
                 <a href="{{route('edit-kendala', $kendala->id)}}" class="btn btn-warning"> Edit</a>
-                <!-- <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a> -->
                 <a data-toggle="modal" data-target="#delete" class="btn btn-danger"></i> Hapus</a>
               </td>
             </tr>
+
             <!-- Modal -->
             <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
@@ -87,19 +87,19 @@
         <tbody>
         @foreach ($pengajuan as $pgj)          
             <tr>
-              <td>{{$pgj->judul}}</td>          
-              <td>{{$pgj->deskripsi}}</td>        
-              <td>{{$pgj->solusi}}</td>
+              <td class="w-0">{{$pgj->judul}}</td>          
+              <td class="w-25">{{$pgj->deskripsi}}</td>        
+              <td class="w-25">{{$pgj->solusi}}</td>
               <td>{{$pgj->user->name}}</td>
-              <td>{{$pgj->status}}</td>
+              {{-- <td>{{$pgj->status}}</td> --}}
               <td>
                 <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
                   {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
                 </badge>
               </td>      
               <td>
-                <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-info">Lihat Forum</a>
-                <a href="{{route('status', $pgj->id)}}" class="btn btn-warning"> Terima</a>                
+                <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-info m-1">Lihat Forum</a>
+                <a href="{{route('status', $pgj->id)}}" class="btn btn-warning m-1">Terima</a>                
               </td>
             </tr>
         @endforeach

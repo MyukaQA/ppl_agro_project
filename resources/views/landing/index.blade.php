@@ -201,7 +201,7 @@
               </figcaption>
               <div class="mt-3 p-4 justify-content-end">
                 <div class="m-3 text-right">
-                  <a href="" class="font-weight-bold" style="color: #80D261">Lihat Selengkapnya</a>
+                  <a href="{{route('dashboard-tanaman')}}" class="font-weight-bold" style="color: #80D261">Lihat Selengkapnya</a>
                 </div>
               </div>
             </figure>
@@ -232,7 +232,7 @@
             <div class="card effect-1 mb-5">
               <div class="card-body p-5">
                   <h2 class="h5">{{$kdl->ciri2}}</h2>
-                  <p class="font-italic text-muted">{{$kdl->penanganan}}.</p>
+                  <p class="font-italic text-muted">{!!$kdl->penanganan!!}</p>
               </div>
             </div>
           </div>

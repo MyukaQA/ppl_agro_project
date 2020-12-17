@@ -94,6 +94,8 @@
                 </ul>
             </div>
           @endforeach
+
+          {{$forum->links()}}
       </div>
   </div>
 </div><!-- End profile widget -->

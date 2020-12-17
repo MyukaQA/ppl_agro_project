@@ -16,7 +16,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $forum = \App\Forum::where('user_id', Auth::user()->id)->get();
+        $forum = \App\Forum::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(2);
         return view('dashboard.profile', compact('user', 'forum'));
     }
 

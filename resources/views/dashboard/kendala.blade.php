@@ -70,16 +70,16 @@
         @foreach ($pengajuan as $pgj)          
             <tr>
               <td>{{$pgj->judul}}</td>          
-              <td>{{$pgj->deskripsi}}</td>        
-              <td>{{$pgj->solusi}}</td>
+              <td class="w-25">{{Str::limit($pgj->deskripsi, 50, '..')}}</td>        
+              <td class="w-25">{{Str::limit($pgj->solusi, 50, '..')}}</td>
               <td>{{$pgj->user->name}}</td>
-              <!-- <td>{{$pgj->status}}</td> -->
               <td>
                 <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
                   {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
                 </badge>
               </td>      
               <td>
+                <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-info">Lihat Forum</a>
                 <a href="{{route('status', $pgj->id)}}" class="btn btn-warning"> Terima</a>                
               </td>
             </tr>

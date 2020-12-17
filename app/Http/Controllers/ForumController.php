@@ -21,10 +21,10 @@ class ForumController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')){
-            $forum = Forum::where('judul', 'LIKE', '%'.$request->cari.'%')->get();
+            $forum = Forum::where('judul', 'LIKE', '%'.$request->cari.'%')->orderBy('id', 'DESC')->paginate(10);
             $kategoris = Kategori::all();
         }else{
-            $forum = Forum::all();
+            $forum = Forum::orderBy('id', 'DESC')->paginate(10);
             $kategoris = Kategori::all();
         }
         return view('forum.index', compact('forum', 'kategoris'));
@@ -38,21 +38,21 @@ class ForumController extends Controller
 
     public function chooseMarketing()
     {
-        $forum = Forum::where('kategori_id', 1)->get();
+        $forum = Forum::where('kategori_id', 1)->orderBy('id', 'DESC')->paginate(10);
         $kategoris = Kategori::all();
         return view('forum.index', compact('forum', 'kategoris'));
     }
 
     public function chooseTanaman()
     {
-        $forum = Forum::where('kategori_id', 2)->get();
+        $forum = Forum::where('kategori_id', 2)->orderBy('id', 'DESC')->paginate(10);
         $kategoris = Kategori::all();
         return view('forum.index', compact('forum', 'kategoris'));
     }
 
     public function chooseHama()
     {
-        $forum = Forum::where('kategori_id', 3)->get();
+        $forum = Forum::where('kategori_id', 3)->orderBy('id', 'DESC')->paginate(10);
         $kategoris = Kategori::all();
         return view('forum.index', compact('forum', 'kategoris'));
     }
@@ -60,6 +60,12 @@ class ForumController extends Controller
     public function detail(Forum $forum)
     {
         return view('forum.detail', compact('forum'));
+    }
+
+    public function ajukanKendala($id)
+    {
+        $frm = Forum::find($id);
+        return view('forum.buatajukankendala', compact('frm'));
     }
 
     public function postKomentar(Request $request)

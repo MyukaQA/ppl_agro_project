@@ -62,6 +62,8 @@
 					</div>
 				</div>
 				@endforeach
+
+				{{ $forum->links() }}
 			@endif
 
 

@@ -21,6 +21,7 @@
             <th>Deskripsi</th>
             <th>Solusi</th>
             <th>User</th>
+            <th>Aksi</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -28,10 +29,12 @@
         @foreach ($ajuan as $pgj)          
             <tr>
               <td>{{$pgj->judul}}</td>          
-              <td>{{$pgj->deskripsi}}</td>        
-              <td>{{$pgj->solusi}}</td>
+              <td class="w-25">{{Str::limit($pgj->deskripsi, 50, '..')}}</td>        
+              <td class="w-25">{{Str::limit($pgj->solusi, 50, '..')}}</td>
               <td>{{$pgj->user->name}}</td>      
-              <!-- <td>{{$pgj->status}}</td> -->
+              <td>
+                <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-outline-info btn-sm">Lihat Forum</a>
+              </td>
               <td>
                 <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
                   {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}

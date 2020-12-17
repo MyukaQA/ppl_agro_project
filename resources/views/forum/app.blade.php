@@ -16,7 +16,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light text-white bg-dark">
-    <a class="navbar-brand text-white" href="{{route('forum-index')}}">Forum</a>
+    <a class="navbar-brand text-white" href="{{route('landingPage')}}">ASHID</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,18 +24,22 @@
       <ul class="navbar-nav">
 
         <li class="nav-item active">
+          <a class="nav-link text-white" href="{{route('forum-index')}}">Forum<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
           <a class="nav-link text-white" href="{{route('dashboard-user')}}">Dashboard<span class="sr-only">(current)</span></a>
         </li>
 
         <!-- @yield('navbar') -->
           @if (auth()->user()->role == 'admin')
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="{{route('forum-list')}}">List Topik</a>
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="{{route('forum-list')}}">List Topik</a>
             </li>
           @else
-            <li class="nav-item active justify-content-end">
+            {{-- <li class="nav-item active justify-content-end">
                 <a style="cursor: pointer" class="nav-link text-white" data-toggle="modal" data-target="#exampleModal1">Ajukan Kendala<span class="sr-only">(current)</span></a>
-            </li>
+            </li> --}}
           @endif
           
       </ul>

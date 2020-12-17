@@ -40,9 +40,28 @@
     </div>
   
     <div class="text-left">
-      <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Buat Diskusi</button>
+      <a data-toggle="modal" data-target="#create" class="btn btn-primary text-white"><i class="fa fa-floppy-o" aria-hidden="true"></i> Buat Diskusi</a>
       <a class="btn btn-secondary" href="{{route('forum-index')}}">Batal</a>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="create" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="alert alert-warning" role="alert">
+              Tekan <b>Buat</b> jika sudah yakin dengan isinya
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Buat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </form>
 </div>
 @endsection

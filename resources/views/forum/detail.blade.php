@@ -86,9 +86,12 @@
 
             <!--/col-->
             <div class="mb-3 w-100">
-                <p class="text-muted">Aksi</p>
+                <p class="font-weight-bold">Diskusi</p>
+                <p class="text-muted"><i class="fa fa-comments" aria-hidden="true"></i> {{$forum->komentar()->count()}} Komentar</p>
+                <p class="text-muted"><i class="fa fa-list-alt" aria-hidden="true"></i> {{$forum->pengajuan()->count()}} Pengajuan Kendala</p>
+                <p class="font-weight-bold">Aksi</p>
                 <div class="pb-2">
-                    <a href="{{route('forum-index')}}" class="btn btn-outline-secondary w-100 shadow"><i class="fa fa-share-alt" aria-hidden="true"></i> Ajukan Kendala</a>
+                    <a href="{{route('forum-index')}}" data-toggle="modal" data-target="#ajukanKendala" class="btn btn-outline-secondary w-100 shadow"><i class="fa fa-share-alt" aria-hidden="true"></i> Ajukan Kendala</a>
                 </div>
                 <div class="pb-2">
                     <a href="{{route('forum-index')}}" class="btn btn-outline-secondary w-100 shadow"><i class="fa fa-reply" aria-hidden="true"></i> Kembali</a>
@@ -97,5 +100,30 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="ajukanKendala" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ajukan Kendala</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <div class="alert alert-warning" role="alert">
+                Fitur ajukan kendala bertujuan agar Anda bisa membuat solusi dari kendala Anda, 
+                yang nantinya solusi Anda akan tampil di Web ASHID. 
+                Tekan <b>Buat</b> jika ingin membuat solusi.
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <a class="btn btn-primary" href="{{route('forum-ajukan-kendala', $forum->id)}}">Buat Solusi Kendala</a>
+            </div>
+        </div>
+        </div>
+    </div>
 
 @endsection

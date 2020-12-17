@@ -16,6 +16,7 @@ class CreatePengajuanTable extends Migration
         Schema::create('pengajuan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('forum_id');
             $table->string('judul', 191);
             $table->text('deskripsi');
             $table->text('solusi');

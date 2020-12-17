@@ -26,14 +26,6 @@
 			
 			<div id="main-nav" class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
-          {{-- <li class="dropdown">
-						<a href="#content" class="nav-item nav-link" data-toggle="dropdown">Services</a>
-						<div class="dropdown-menu">
-							<a href="#content" class="dropdown-item">Dropdown Item 1</a>
-							<a href="#" class="dropdown-item">Dropdown Item 2</a>
-							<a href="#" class="dropdown-item">Dropdown Item 3</a>
-						</div>
-          </li> --}}
 
 					<li><a href="#" class="nav-item nav-link active">Rumah</a></li>
 					<li><a href="#content" class="nav-item nav-link">Tentang kami</a></li>
@@ -330,20 +322,6 @@
 
   </div>
 </div>
-
-{{-- <div id="j-tanaman" class="container-fluid py-5 bg-light pt-5 pb-5">
-  @include('landing.jenisTanaman')
-</div> --}}
-
-{{-- <div id="j-kendala" class="container-fluid py-5 pt-5 pb-5">
-  @include('landing.jenisKendala')
-</div> --}}
-
-{{-- <div id="team" class="container-fluid py-5 pt-5 pb-5">
-  @include('landing.team')
-</div> --}}
-
-
 
 @include('landing.footer')
 

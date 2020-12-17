@@ -111,37 +111,237 @@
 </header>
 
 
-{{-- tentang kami --}}
-<div id="content" class="bg-white py-5">
-  <div class="container py-5">
-    <div class="row align-items-center mb-5">
-      <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Jenis Tanaman</h2>
-        <p class="font-italic text-muted mb-4">Disini ASHID membantu anda untuk mengetahui jenis-jenis tanaman yang bagus/cocok untuk ditanama dalam media hidroponik.</p><a href="#j-tanaman" class="btn btn-light px-5 rounded-pill shadow-sm">Yuk cari tau</a>
+{{-- 4 Fitur Utama --}}
+<div class="container py-5" id="content">
+  <div class="py-5 text-center">
+    <h1>4 Fitur Utama ASHID</h1>
+    <p>Berikut adalah 4 fitur utama ASHID yang dapat Anda manfaatkan</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-3 mb-5">
+      <div class="progress">
+        <div class="progress-bar w-100" style="background-color: #80D261"></div>
       </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{{asset('images/ct-1.jpg')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <figure class="rounded p-3 bg-white shadow-lg h-100">
+        <img src="{{asset('images/fitur-1.png')}}" alt="" class="w-100 card-img-top p-5">
+        <figcaption class="p-4 card-img-bottom">
+          <h2 class="h2 font-weight-bold mb-4 text-dark text-center">Tanaman</h2>
+          <p class="mb-0 text-small text-dark text-center">Dapatkan seputar tanaman apa saja yang bisa ditanaman di media hidroponik, dan mengetahui bagaimana cara merawat tanaman hidroponik.</p>
+        </figcaption>
+      </figure>
     </div>
-    <div class="row align-items-center">
-      <div class="col-lg-5 px-5 mx-auto"><img src="{{asset('images/ct-2.jpg')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
-      <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Jenis Kendala</h2>
-        <p class="font-italic text-muted mb-4">Disini ASHID juga akan membantu anda untuk mengetahui jenis-jenis kendala yang sering dialami dalam bercocok tanam dalam media hidroponik serta cara penanganannya.</p><a href="#j-kendala" class="btn btn-light px-5 rounded-pill shadow-sm">Yuk cari tau</a>
+
+    <div class="col-lg-3 mb-5">
+      <div class="progress">
+        <div class="progress-bar w-100" style="background-color: #FFDA8F"></div>
+      </div>
+      <figure class="rounded p-3 bg-white shadow-lg h-100">
+        <img src="{{asset('images/fitur-2.png')}}" alt="" class="w-100 card-img-top p-5">
+        <figcaption class="p-4 card-img-bottom">
+          <h2 class="h2 font-weight-bold mb-4 text-dark text-center">Kendala</h2>
+          <p class="mb-0 text-small text-dark text-center">Kenali kendala-kendala apa saja yang terjadi pada tanaman Anda, dan dapatkan solusinya.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="col-lg-3 mb-5">
+      <div class="progress">
+        <div class="progress-bar w-100" style="background-color: #F06151"></div>
+      </div>
+      <figure class="rounded p-3 bg-white shadow-lg h-100">
+        <img src="{{asset('images/fitur-3.png')}}" alt="" class="w-100 card-img-top p-5">
+        <figcaption class="p-4 card-img-bottom">
+          <h2 class="h2 font-weight-bold mb-4 text-dark text-center">Penjadwalan</h2>
+          <p class="mb-0 text-small text-dark text-center">Lakukan penjadwalan tanaman Anda, amati dan catat apa saja yang terjadi hari itu.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="col-lg-3 mb-5">
+      <div class="progress">
+        <div class="progress-bar w-100" style="background-color: #03A9F4"></div>
+      </div>
+      <figure class="rounded p-3 bg-white shadow-lg h-100">
+        <img src="{{asset('images/fitur-4.png')}}" alt="" class="w-100 card-img-top p-5">
+        <figcaption class="p-4 card-img-bottom">
+          <h2 class="h2 font-weight-bold mb-4 text-dark text-center">Forum</h2>
+          <p class="mb-0 text-small text-dark text-center">Diskusikan permasalahan Anda dengan User lain, dan beri solusi dari permasalahan tersebut agar permasalahan Anda terselesaikan.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <hr class="dashed">
+</div>
+
+{{-- Jenis Tanaman --}}
+<div class="container py-5">
+  <div class="row ">
+
+    <div class="col-lg-5">
+      <h4 class="h2 text-bold">ASHID</h4>
+      <h1 class="">Jenis Tanaman</h1>
+      <p>Beberapa jenis tanaman yang bisa di tanaman di media hidroponik</p>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="row justify-content-end">
+        @foreach ($data as $tanaman)
+          <div class="col-lg-6 mb-5">
+            <figure class="rounded bg-white shadow-lg h-100">
+              <img src="{{$tanaman->getImages()}}" alt="" class="w-100 card-img-top">
+              <figcaption class="p-4 card-img-bottom">
+                <h2 class="h3 font-weight-bold mb-5" style="color: #80D261">{{$tanaman->title}}</h2>
+                <p class="mb-0 text-small text-dark">{{$tanaman->content}}</p>
+              </figcaption>
+              <div class="mt-3 p-4 justify-content-end">
+                <div class="m-3 text-right">
+                  <a href="" class="font-weight-bold" style="color: #80D261">Lihat Selengkapnya</a>
+                </div>
+              </div>
+            </figure>
+          </div>
+        @endforeach
+    
       </div>
     </div>
+
   </div>
 </div>
 
-<div id="j-tanaman" class="container-fluid py-5 bg-light pt-5 pb-5">
+
+{{-- Jenis Kendala --}}
+<div class="container">
+  <div class="row py-5">
+
+    <div class="col-lg-5">
+      <h4 class="h2 text-bold">ASHID</h4>
+      <h1 class="">Jenis Kendala</h1>
+      <p>Beberapa Kendala yang Anda lihat</p>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="row justify-content-end">
+        @foreach ($kendala as $kdl)
+          <div class="col-lg-6">
+            <div class="card effect-1 mb-5">
+              <div class="card-body p-5">
+                  <h2 class="h5">{{$kdl->ciri2}}</h2>
+                  <p class="font-italic text-muted">{{$kdl->penanganan}}.</p>
+              </div>
+            </div>
+          </div>
+        @endforeach
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <hr class="dashed">
+</div>
+
+{{-- Team PPL --}}
+<div class="container py-5">
+  <div class="mb-5 text-center">
+    <h1>TIM ASHID</h1>
+  </div>
+
+  <div class="row pb-5 mb-4">
+
+    <div class="col-lg-4 mb-lg-5">
+        <!-- Card-->
+        <div class="card shadow border-0 rounded h-100">
+            <div class="card-body p-0"><img src="{{asset('images/tim/fauzan.jpg')}}" alt="" class="w-100 card-img-top">
+                <div class="p-4">
+                    <h5 class="h2 mb-2">MOH. SHOLIHUL FAUZAN</h5>
+                    <p class="text-bold font-italic">Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-lg-5">
+        <!-- Card-->
+        <div class="card shadow border-0 rounded h-100">
+            <div class="card-body p-0"><img src="{{asset('images/tim/ali.jpeg')}}" alt="" class="w-100 card-img-top">
+                <div class="p-4">
+                    <h5 class="h2 mb-2">SAIFUR RIFQI ALI</h5>
+                    <p class="text-bold font-italic">System Analist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-lg-5">
+        <!-- Card-->
+        <div class="card shadow border-0 rounded h-100">
+            <div class="card-body p-0"><img src="{{asset('images/tim/egik.jpg')}}" alt="" class="w-100 card-img-top">
+                <div class="p-4">
+                    <h5 class="h2 mb-2">ZIHAN MUHAMMAD AL G. I. Z.</h5>
+                    <p class="text-bold font-italic">Desginer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-lg-5">
+      <!-- Card-->
+      <div class="card shadow border-0 rounded h-100">
+          <div class="card-body p-0"><img src="{{asset('images/tim/sadli.jpg')}}" alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                  <h5 class="h2 mb-2">MUHAMMAD SADLI MUSHTHAFA</h5>
+                  <p class="text-bold font-italic">Programmer</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-lg-5">
+      <!-- Card-->
+      <div class="card shadow border-0 rounded h-100">
+          <div class="card-body p-0"><img src="{{asset('images/tim/mylian.jpg')}}" alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                  <h5 class="h2 mb-2">MYLIAN GEDHE</h5>
+                  <p class="text-bold font-italic">Programmer</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-lg-5">
+      <!-- Card-->
+      <div class="card shadow border-0 rounded h-100">
+          <div class="card-body p-0"><img src="{{asset('images/tim/khamim.jpg')}}" alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                  <h5 class="h2 mb-2">KHAMIM THOHARI WAKHID</h5>
+                  <p class="text-bold font-italic">Tester</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{{-- <div id="j-tanaman" class="container-fluid py-5 bg-light pt-5 pb-5">
   @include('landing.jenisTanaman')
-</div>
+</div> --}}
 
-<div id="j-kendala" class="container-fluid py-5 pt-5 pb-5">
+{{-- <div id="j-kendala" class="container-fluid py-5 pt-5 pb-5">
   @include('landing.jenisKendala')
-</div>
+</div> --}}
 
-<div id="team" class="container-fluid py-5 pt-5 pb-5">
+{{-- <div id="team" class="container-fluid py-5 pt-5 pb-5">
   @include('landing.team')
-</div>
+</div> --}}
 
 
 

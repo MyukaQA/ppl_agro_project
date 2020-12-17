@@ -42,9 +42,10 @@ class DashboardController extends Controller
     }
     
     public function landing(){
-        $data = \App\Tanaman::all();
-        $kendala = Kendala::all();
+        $data = \App\Tanaman::paginate(2);
+        $kendala = Kendala::paginate(2);
         return view('landing.index', compact('data', 'kendala'));
     }
     
 }
+ 

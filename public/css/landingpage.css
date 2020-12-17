@@ -8,6 +8,25 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
 }
+.effect-1 {
+  position: relative;
+}
+.effect-1::before, .effect-1::after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #aaa;
+  box-shadow: 0 15px 10px #aaa;
+  transform: rotate(-3deg);
+}
+hr.dashed {
+  border-top: 2px dashed #999;
+}
 h1 {
   margin-bottom: 0.5em;
   font-size: 3.6rem;

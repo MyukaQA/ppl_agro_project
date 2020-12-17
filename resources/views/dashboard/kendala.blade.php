@@ -36,9 +36,27 @@
               <td>{!!$kendala->penanganan!!}</td>              
               <td>
                 <a href="{{route('edit-kendala', $kendala->id)}}" class="btn btn-warning"> Edit</a>
-                <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
+                <!-- <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a> -->
+                <a data-toggle="modal" data-target="#delete" class="btn btn-danger"></i> Hapus</a>
               </td>
             </tr>
+            <!-- Modal -->
+            <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="alert alert-warning" role="alert">
+                        Tekan <b>Hapus</b> jika sudah yakin ingin menghapus!
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                      <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
+                      <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
           @endforeach
         </tbody>
       </table>
@@ -70,9 +88,10 @@
         @foreach ($pengajuan as $pgj)          
             <tr>
               <td>{{$pgj->judul}}</td>          
-              <td class="w-25">{{Str::limit($pgj->deskripsi, 50, '..')}}</td>        
-              <td class="w-25">{{Str::limit($pgj->solusi, 50, '..')}}</td>
+              <td>{{$pgj->deskripsi}}</td>        
+              <td>{{$pgj->solusi}}</td>
               <td>{{$pgj->user->name}}</td>
+              <td>{{$pgj->status}}</td>
               <td>
                 <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
                   {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}

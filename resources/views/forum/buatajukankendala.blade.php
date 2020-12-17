@@ -5,7 +5,7 @@
   <p class="text-dark">Anda dapat membuat topik diskusi disini</p>
   <div class="alert alert-warning" role="alert">
     <p class="font-weight-bold">Aturan dalam Membuat Solusi Kendala Anda di Fitur ini</p>
-    <p class="text-bold">Pastikan solusi dari kendala Anda sudah benar-benar terselesaikan. Manfaatkan fitur <a href="" class="alert-link">Forum Diskusi</a> untuk menemukan solusi dari permasalah Anda. Buat solusi Anda agar bisa bermanfaat bagi User lain.</p>
+    <p class="text-bold">Pastikan solusi dari kendala Anda sudah benar-benar terselesaikan. Manfaatkan fitur <a href="{{route('forum-index')}}" class="alert-link">Forum Diskusi</a> untuk menemukan solusi dari permasalah Anda. Buat solusi Anda agar bisa bermanfaat bagi User lain.</p>
     <p class="text-bold">Admin akan memverifikasi solusi Anda dalam <b>waktu 3-4 hari kerja (tidak termasuk hari lbur)</b>, Anda dapat melihat solusi Anda di tabel <b>Data Pengajuan Kendala</b> yang ada di fitur <b>Data Kendala</b> </p>
   </div>
 

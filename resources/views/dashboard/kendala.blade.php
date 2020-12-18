@@ -40,21 +40,22 @@
               </td>
             </tr>
 
-            <!-- Modal delete -->
+            <!-- Modal -->
             <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <div class="alert alert-warning" role="alert">
-                      Tekan <b>Hapus</b> jika sudah yakin ingin menghapus!
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="alert alert-warning" role="alert">
+                        Tekan <b>Hapus</b> jika sudah yakin ingin menghapus!
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                      <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
+                      <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
-                  </div>
                 </div>
-              </div>
             </div>
           @endforeach
         </tbody>
@@ -91,14 +92,28 @@
               <td class="w-25">{{$pgj->solusi}}</td>
               <td>{{$pgj->user->name}}</td>
               {{-- <td>{{$pgj->status}}</td> --}}
-              <td>
-                <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
-                  {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
+              <!-- <td>
+                <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-warning'}}">
+                  {{($pgj->status == 1 ) ? 'Diterima' : 'Pending'}}
                 </badge>
-              </td>      
+              </td>       -->
+              @if($pgj->status === 0 )
+                  <td>
+                    <badge class="badge badge-warning">Pending</badge>
+                  </td>
+              @elseif($pgj->status === 1 )
+                  <td>
+                    <badge class="badge badge-success">Diterima</badge>
+                  </td>
+              @elseif($pgj->status === 2 )
+                  <td>
+                    <badge class="badge badge-danger">Ditolak</badge>
+                  </td>
+              @endif
               <td>
                 <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-info m-1">Lihat Forum</a>
-                <a href="{{route('status', $pgj->id)}}" class="btn btn-warning m-1">Terima</a>                
+                <a href="{{route('status', $pgj->id)}}" class="btn btn-success m-1">Terima</a>
+                <a href="{{route('tolak', $pgj->id)}}" class="btn btn-danger m-1">Tolak</a>                
               </td>
             </tr>
         @endforeach

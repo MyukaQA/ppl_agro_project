@@ -35,11 +35,24 @@
               <td>
                 <a href="{{route('forum-index-detail', $pgj->forum_id)}}" class="btn btn-outline-info btn-sm">Lihat Forum</a>
               </td>
-              <td>
+              <!-- <td>
                 <badge class="badge {{($pgj->status == 1 ) ? 'badge-success' : 'badge-danger' }}">
                   {{($pgj->status == 1 ) ? 'Diterima' : 'Tidak Diterima' }}
                 </badge>
-              </td>
+              </td> -->
+              @if($pgj->status === 0 )
+                  <td>
+                    <badge class="badge badge-warning">Pending</badge>
+                  </td>
+              @elseif($pgj->status === 1 )
+                  <td>
+                    <badge class="badge badge-success">Diterima</badge>
+                  </td>
+              @elseif($pgj->status === 2 )
+                  <td>
+                    <badge class="badge badge-danger">Ditolak</badge>
+                  </td>
+              @endif
             </tr>
         @endforeach
         </tbody>

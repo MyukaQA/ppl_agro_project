@@ -117,13 +117,34 @@ class PengajuanController extends Controller
         
         $status_sekarang = $pengajuan->status;
  
-        if($status_sekarang == 1){
-            Pengajuan::find($id)->update([
-                'status'=>0
-            ]);
-        }else{
+        if($status_sekarang == 0){
             Pengajuan::find($id)->update([
                 'status'=>1
+            ]);
+        
+        }elseif($status_sekarang == 2){
+            Pengajuan::find($id)->update([
+                'status'=>1
+            ]);
+        }
+        toast('Berhasil Diupdate','success')->autoClose(3000);
+ 
+        return redirect('dashboard/kendala');
+    }
+
+    public function tolak($id){
+        $pengajuan = Pengajuan::find($id);
+        
+        $status_sekarang = $pengajuan->status;
+ 
+        if($status_sekarang == 0){
+            Pengajuan::find($id)->update([
+                'status'=>2
+            ]);
+        
+        }elseif($status_sekarang == 1){
+            Pengajuan::find($id)->update([
+                'status'=>2
             ]);
         }
         toast('Berhasil Diupdate','success')->autoClose(3000);

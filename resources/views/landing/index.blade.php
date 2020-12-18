@@ -214,7 +214,7 @@
     <div class="col-lg-5">
       <h4 class="h2 text-bold">ASHID</h4>
       <h1 class="">Jenis Kendala</h1>
-      <p>Beberapa Kendala yang Anda lihat</p>
+      <p>Beberapa Kendala yang bisa Anda lihat</p>
     </div>
 
     <div class="col-lg-7">

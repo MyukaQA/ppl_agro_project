@@ -7,7 +7,7 @@
     <h3>Penjadwalan</h3>
   </div>
   <div class="col-lg-4">
-    {{-- <h4>Tanggal {{Carbon\Carbon::now()->format('j F Y')}}</h4> --}}
+    
   </div>
   <div class="col-lg-4 text-right">
     <a href="{{route('dashboard-penjadwalan')}}" class="btn btn-outline-secondary"><i class="fa fa-chevron-left" aria-hidden="true"></i> Kembali</a>

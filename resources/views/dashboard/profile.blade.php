@@ -24,63 +24,55 @@
   </div>
 
   <div class="bg-light p-4 d-flex justify-content-end text-center">
-      {{-- <ul class="list-inline mb-0">
-          <li class="list-inline-item">
-              <h5 class="font-weight-bold mb-0 d-block">241</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Photos</small>
-          </li>
-          <li class="list-inline-item">
-              <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Followers</small>
-          </li>
-      </ul> --}}
       
   </div>
 
   <div class="py-4 px-4">
       <div class="d-flex justify-content-between mb-3">
         <div class="collapse col-lg-12" id="collapseExample">
-          {{-- <div class="card card-body"> --}}
-            <form action="{{route('dashboard-profile-update')}}" method="POST" enctype="multipart/form-data">
-              {{ csrf_field() }}
-              <div class="form-row">
-                <div class="form-group col-lg-6">
-                  <label>Nama</label>
-                  <input type="text" name="name" class="form-control" value="{{$user->name}}">
-                </div>
-                <div class="form-group col-lg-6">
-                  <label>Email</label>
-                  <input type="email" name="email" class="form-control" value="{{$user->email}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Avatar</label>
-                <div class="mb-2">
-                  <a data-toggle="collapse" href="#avatar" role="button"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i></a>
-                </div>
-                <div class="collapse" id="avatar">
-                  <img class="img-thumbnail w-25" src="{{$user->getAvatars()}}" alt="">
-                </div>
-                <input name="oldimg" type="text" class="form-control d-none" placeholder="Nama Tanaman" value="{{$user->avatar}}">
 
-                <input type="file" name="avatar" class="form-control-file">
+          <form action="{{route('dashboard-profile-update')}}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="form-row">
+              <div class="form-group col-lg-6">
+                <label>Nama</label>
+                <input type="text" name="name" class="form-control" value="{{$user->name}}">
               </div>
-              
-              <div class="form-group">
-                <label>Telepon</label>
-                <input type="number" name="telepon" class="form-control" value="{{$user->telepon}}">
+              <div class="form-group col-lg-6">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="{{$user->email}}">
               </div>
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <textarea type="text" name="alamat" class="form-control" rows="5">{{$user->alamat}}</textarea>
+            </div>
+            <div class="form-group">
+              <label>Avatar</label>
+              <div class="mb-2">
+                <a data-toggle="collapse" href="#avatar" role="button"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i></a>
               </div>
-              <div class="row">
-                <div class="col text-right">
-                  <button type="submit" class="btn btn-warning">Update</button>
-                </div>
+              <div class="collapse" id="avatar">
+                <img class="img-thumbnail w-25" src="{{$user->getAvatars()}}" alt="">
               </div>
-            </form>
-          {{-- </div> --}}
+              <input name="oldimg" type="text" class="form-control d-none" placeholder="Nama Tanaman" value="{{$user->avatar}}">
+
+              <input type="file" name="avatar" class="form-control-file">
+            </div>
+            
+            <div class="form-group">
+              <label>Telepon</label>
+              <input type="number" name="telepon" class="form-control" value="{{$user->telepon}}">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <textarea type="text" name="alamat" class="form-control" rows="5">{{$user->alamat}}</textarea>
+            </div>
+            <div class="row">
+              <div class="col text-right">
+                <button type="submit" class="btn btn-warning">Update</button>
+              </div>
+            </div>
+          </form>
+
         </div>
-          {{-- <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a> --}}
+          
       </div>
 
       <div class="py-4">

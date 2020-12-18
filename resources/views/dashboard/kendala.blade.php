@@ -51,7 +51,6 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
                     <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
                   </div>
                 </div>

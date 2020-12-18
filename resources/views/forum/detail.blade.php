@@ -24,7 +24,6 @@
                     <p>{!!$forum->konten!!}</p>
                     <hr>
                     <div class="btn-group">
-                        {{-- <button class="btn btn-outline-secondary"><i class="fa fa-thumbs-up"></i> Suka</button> --}}
                         <button id="btn-komentar-utama" class="btn btn-outline-secondary"><i class="fa fa-comments"></i> Komentar</button>
                     </div>
                     <form action="" method="POST" style="display: none;" id="komentar-utama">

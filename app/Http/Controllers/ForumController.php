@@ -142,7 +142,8 @@ class ForumController extends Controller
         $forum->delete($forum);
         File::delete('images/forum/'.$forum->images);
 
-        return redirect('dashboard/forum');
+        toast('Berhasil dihapus', 'success')->autoClose(3000);
+        return redirect()->back();
     }
 
     /**

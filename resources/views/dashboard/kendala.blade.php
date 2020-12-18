@@ -40,22 +40,22 @@
               </td>
             </tr>
 
-            <!-- Modal -->
+            <!-- Modal delete -->
             <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <div class="alert alert-warning" role="alert">
-                        Tekan <b>Hapus</b> jika sudah yakin ingin menghapus!
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                      <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
-                      <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="alert alert-warning" role="alert">
+                      Tekan <b>Hapus</b> jika sudah yakin ingin menghapus!
                     </div>
                   </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
+                    <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
+                  </div>
                 </div>
+              </div>
             </div>
           @endforeach
         </tbody>

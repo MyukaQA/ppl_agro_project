@@ -100,7 +100,7 @@ class TanamanController extends Controller
         $tanaman->delete($tanaman);
         File::delete('images/tanaman/'.$tanaman->images);
 
-        toast('Berhasil Dihapus', 'error')->autoClose(3000);
+        toast('Berhasil Dihapus', 'success')->autoClose(3000);
         return redirect('dashboard/tanaman');
     }
 }

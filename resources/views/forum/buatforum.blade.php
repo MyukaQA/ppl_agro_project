@@ -5,6 +5,7 @@
   <p class="text-dark">Anda dapat membuat topik diskusi disini</p>
   <div class="alert alert-warning" role="alert">
     <p class="font-weight-bold">Aturan dalam Membuat dan Menjawab Pertanyaan di Forum Diskusi</p>
+    <p class="text-bold">Pembuatan topik pada forum <b>bertujuan</b> untuk mendiskusikan kendala apa saja yang dialami oleh para petani hidroponik (sesuai kategori yang ditentukan), pastikan data yang Anda masukkan merupakan <b>data real</b> dan tidak mengada - ada.</p>
     <p class="text-bold">Untuk mempermudah kami dalam membantu permasalahan Anda, dimohon pastikan bahwa <b>Topik Diskusi</b> yang ingin Anda buat belum ada, agar menghindari duplikasi. Pastikan juga untuk menulis <b>uraian pertanyaan</b> sedetail mungkin.</p>
   </div>
 

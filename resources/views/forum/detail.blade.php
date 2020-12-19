@@ -113,7 +113,7 @@
             <div class="modal-body">
             <div class="alert alert-warning" role="alert">
                 Fitur ajukan kendala bertujuan agar Anda bisa membuat solusi dari kendala Anda, 
-                yang nantinya solusi Anda akan tampil di Web ASHID. 
+                yang nantinya solusi Anda akan tampil di Web dan menambah data di database ASHID. 
                 Tekan <b>Buat</b> jika ingin membuat solusi.
             </div>
             </div>

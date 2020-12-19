@@ -6,7 +6,7 @@ use App\Tanaman;
 use App\Kendala;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Str;
 use Validator;
 

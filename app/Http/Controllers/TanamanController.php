@@ -7,7 +7,7 @@ use App\Tanaman;
 use Illuminate\Support\Str;
 use File;
 use Validator;
-
+ 
 class TanamanController extends Controller
 {
     public function tanaman(){

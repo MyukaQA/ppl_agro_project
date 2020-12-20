@@ -100,9 +100,9 @@ class PenjadwalanController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'plus_date_semai' => 'numeric|gt:-1|nullable',
-            'plus_date_pindah_tanam' => 'numeric|gt:-1|nullable',
-            'plus_date_penjadwalan' => 'numeric|gt:-1|nullable'
+            'plus_date_semai' => 'numeric|gt:-1|nullable|max:31',
+            'plus_date_pindah_tanam' => 'numeric|gt:-1|nullable|max:31',
+            'plus_date_penjadwalan' => 'numeric|gt:-1|nullable|max:31'
         ]);
 
         if ($validator->fails()){

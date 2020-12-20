@@ -44,7 +44,7 @@ class PengajuanController extends Controller
     {
         //
         $validator = Validator::make($request->all(),[
-            'judul' => 'required|min:7',
+            'judul' => 'required|min:7|max:30',
             'deskripsi' => 'required|min:10',
             'solusi' => 'required|min:10'
         ]);

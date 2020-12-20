@@ -17,8 +17,8 @@ class TanamanController extends Controller
 
     public function create(Request $request){
         $validator = Validator::make($request->all(),[
-            'title' => 'required|min:7', 
-            'content' => 'required|min:14',
+            'title' => 'required|min:7|max:191', 
+            'content' => 'required|min:14|max:191',
             'tds_nutrisi' => 'required|numeric|min:0|max:31',
             'ph' => 'required|numeric|min:0|max:31',
             'semai' => 'required|numeric|min:0|max:31',
@@ -62,8 +62,8 @@ class TanamanController extends Controller
 
     public function updatetanaman(Request $request, $id){
         $validator = Validator::make($request->all(),[
-            'title' => 'required|min:7', 
-            'content' => 'required|min:14',
+            'title' => 'required|min:7|max:191', 
+            'content' => 'required|min:14|max:191',
             'tds_nutrisi' => 'required|numeric|min:0|max:31',
             'ph' => 'required|numeric|min:0|max:31',
             'semai' => 'required|numeric|min:0|max:31',

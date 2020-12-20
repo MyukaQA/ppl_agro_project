@@ -86,7 +86,7 @@
             </div>
             <div class="card-body pt-0">
               <h5 class="card-title">{{$tanaman->title}}</h5>
-              <p class="card-text">{{$tanaman->content}}</p>
+              <p class="card-text">{!!$tanaman->content!!}</p>
               <a href="{{route('dashboard-tanaman-detail', $tanaman->id)}}" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
           </div>

@@ -109,7 +109,7 @@ class ForumController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'judul' => 'required|min:7',
+            'judul' => 'required|min:7|max:35',
             'konten' => 'required|min:14'
         ]);
 

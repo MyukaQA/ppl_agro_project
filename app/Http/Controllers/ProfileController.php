@@ -22,9 +22,9 @@ class ProfileController extends Controller
 
     public function updateUser(Request $request){
         $validator = Validator::make($request->all(),[
-            'name' => 'required|min:3',
-            'email' => 'required|min:7|max:21',
-            'telepon' => 'min:10|nullable',
+            'name' => 'required|min:3|max:30',
+            'email' => 'required|min:7|max:30',
+            'telepon' => 'min:10|max:15|nullable',
             'alamat' => 'min:21|nullable',
         ]);
 

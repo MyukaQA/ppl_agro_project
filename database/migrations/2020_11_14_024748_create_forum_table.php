@@ -17,7 +17,7 @@ class CreateForumTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('kategori_id');
-            $table->string('judul');
+            $table->string('judul', 35);
             $table->string('images')->nullable();
             $table->string('slug');
             $table->text('konten');

@@ -17,7 +17,7 @@ class CreatePengajuanTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('forum_id');
-            $table->string('judul', 191);
+            $table->string('judul', 30);
             $table->text('deskripsi');
             $table->text('solusi');
             $table->tinyInteger('status')->default('0');

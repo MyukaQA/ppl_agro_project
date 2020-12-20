@@ -16,7 +16,7 @@ class CreateCatatanJadwalTable extends Migration
         Schema::create('catatan_jadwal', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('penjadwalan_id');
-            $table->string('catatan');
+            $table->string('catatan', 191);
             $table->timestamps();
         });
     }

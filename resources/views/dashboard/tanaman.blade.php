@@ -45,12 +45,12 @@
               <td>{!!Str::limit($tanaman->content, 50, '...')!!}</td>
               <td>
                 <a href="{{route('edit-tanaman', $tanaman->id)}}" class="btn btn-warning"> Edit</a>
-                <a data-toggle="modal" data-target="#delete" class="btn btn-danger"> Hapus</a>
+                <a data-toggle="modal" data-target="#delete{{$tanaman->id}}" class="btn btn-danger"> Hapus</a>
               </td>
             </tr>
 
             <!-- Modal delete -->
-            <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="delete{{$tanaman->id}}" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">

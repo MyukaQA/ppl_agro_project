@@ -32,7 +32,7 @@ class ProfileController extends Controller
             toast($validator->messages()->all()[0],'error')->autoClose(3000);
             return back();
         }
-
+ 
         $id = Auth::user()->id;
         $user = \App\User::find($id);
         $user->name = $request->name;

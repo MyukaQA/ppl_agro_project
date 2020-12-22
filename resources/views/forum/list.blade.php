@@ -50,11 +50,11 @@
 					<td>{{$frm->created_at->diffForHumans()}}</td>
 					<td>By {{$frm->user->name}}</td>
 					<td>{{$frm->komentar()->count()}} Komentar</td>
-					<td><a data-toggle="modal" data-target="#delete" class="btn btn-danger text-white"> Hapus</a></td>
+					<td><a data-toggle="modal" data-target="#delete{{$frm->id}}" class="btn btn-danger text-white"> Hapus</a></td>
 				</tr>
 
 				<!-- Modal delete -->
-				<div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+				<div class="modal fade" id="delete{{$frm->id}}" tabindex="-1" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-body">

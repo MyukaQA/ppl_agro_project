@@ -81,7 +81,7 @@
       </div>
       <div class="col-lg-6 text-right">
         <span><a href="{{route('dashboard-penjadwalan-detail', $jadwal->id)}}" class="text-primary font-weight-bold">Terjadi Sesuatu ?</a></span>
-        <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash fa-fw"></i></a>
+        <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus{{$jadwal->id}}"><i class="fa fa-trash fa-fw"></i></a>
       </div>
     </div>
   </div>
@@ -152,7 +152,7 @@
 </div>
 
 <!-- Modal hapus penjadwalan -->
-<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="hapus{{$jadwal->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -172,13 +172,6 @@
 @endforeach
 
 @endif
-
-
-
-
-
-
-
 
 
   <!-- Modal -->

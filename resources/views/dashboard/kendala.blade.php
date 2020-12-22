@@ -36,12 +36,12 @@
               <td>{!!$kendala->penanganan!!}</td>              
               <td>
                 <a href="{{route('edit-kendala', $kendala->id)}}" class="btn btn-warning"> Edit</a>
-                <a data-toggle="modal" data-target="#delete" class="btn btn-danger"></i> Hapus</a>
+                <a data-toggle="modal" data-target="#delete{{$kendala->id}}" class="btn btn-danger"></i> Hapus</a>
               </td>
             </tr>
 
-            <!-- Modal -->
-            <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+            <!-- Modal Delete -->
+            <div class="modal fade" id="delete{{$kendala->id}}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
@@ -51,7 +51,6 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                      <!-- <button type="submit" class="btn btn-primary">Hapus</button> -->
                       <a href="{{route('hapus-kendala', $kendala->id)}}" class="btn btn-danger"> Hapus</a>
                     </div>
                   </div>

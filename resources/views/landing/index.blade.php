@@ -189,7 +189,7 @@
               <img src="{{$tanaman->getImages()}}" alt="" class="w-100 card-img-top">
               <figcaption class="p-4 card-img-bottom">
                 <h2 class="h3 font-weight-bold mb-5" style="color: #80D261">{{$tanaman->title}}</h2>
-                <p class="mb-0 text-small text-dark">{{$tanaman->content}}</p>
+                <p class="mb-0 text-small text-dark">{!!Str::limit($tanaman->content, 150, '..')!!}</p>
               </figcaption>
               <div class="mt-3 p-4 justify-content-end">
                 <div class="m-3 text-right">

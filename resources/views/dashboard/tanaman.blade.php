@@ -79,14 +79,14 @@
     <div class="row">
       @foreach ($data as $tanaman)          
         <!--Profile Card 5-->
-        <div class="col-md-4 mb-4">
-          <div class="card profile-card-5">
+        <div class="col-md-4 mb-5">
+          <div class="card profile-card-5 h-100">
             <div class="card-img-block">
                 <img class="card-img-top" src="{{$tanaman->getImages()}}" alt="Card image cap">
             </div>
             <div class="card-body pt-0">
               <h5 class="card-title">{{$tanaman->title}}</h5>
-              <p class="card-text">{!!$tanaman->content!!}</p>
+              <p class="card-text">{!!Str::limit($tanaman->content, 200, '..')!!}</p>
               <a href="{{route('dashboard-tanaman-detail', $tanaman->id)}}" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
           </div>

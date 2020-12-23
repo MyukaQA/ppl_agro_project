@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             TanamanTableSeeder::class,
             KendalaTableSeeder::class,
-            KategoriTableSeeder::class
+            KategoriTableSeeder::class,
+            ForumTableSeeder::class
         ]);
         
     }

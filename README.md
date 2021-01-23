@@ -1,4 +1,4 @@
-# UAS FRAMEWROK
+# PPL AGRO
 
 ## Cara jalankan project ?
 Setelah selesai clone repository ini, install depedensi di bawah ini ya.
